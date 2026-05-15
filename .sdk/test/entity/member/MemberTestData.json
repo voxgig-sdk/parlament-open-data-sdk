@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "member": {
+      "MEMBER00": {
+        "active": true,
+        "canton": "s65",
+        "council": "s66",
+        "entry_date": "s67",
+        "first_name": "s68",
+        "id": "MEMBER00",
+        "last_name": "s6a",
+        "leaving_date": "s6b",
+        "party": "s6c",
+        "title": "s6d"
+      },
+      "MEMBER01": {
+        "active": true,
+        "canton": "sc9",
+        "council": "sca",
+        "entry_date": "scb",
+        "first_name": "scc",
+        "id": "MEMBER01",
+        "last_name": "sce",
+        "leaving_date": "scf",
+        "party": "sd0",
+        "title": "sd1"
+      },
+      "MEMBER02": {
+        "active": true,
+        "canton": "s12d",
+        "council": "s12e",
+        "entry_date": "s12f",
+        "first_name": "s130",
+        "id": "MEMBER02",
+        "last_name": "s132",
+        "leaving_date": "s133",
+        "party": "s134",
+        "title": "s135"
+      }
+    }
+  },
+  "new": {
+    "member": {
+      "member_ref01": {
+        "active": true,
+        "canton": "s191",
+        "council": "s192",
+        "entry_date": "s193",
+        "first_name": "s194",
+        "last_name": "s196",
+        "leaving_date": "s197",
+        "party": "s198",
+        "title": "s199"
+      }
+    }
+  }
+}

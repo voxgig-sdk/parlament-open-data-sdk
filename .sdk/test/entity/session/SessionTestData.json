@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "session": {
+      "SESSION00": {
+        "abbreviation": "s46",
+        "end_date": "s47",
+        "id": "SESSION00",
+        "name": "s49",
+        "start_date": "s4a",
+        "state": "s4b",
+        "type": "s4c"
+      },
+      "SESSION01": {
+        "abbreviation": "s8c",
+        "end_date": "s8d",
+        "id": "SESSION01",
+        "name": "s8f",
+        "start_date": "s90",
+        "state": "s91",
+        "type": "s92"
+      },
+      "SESSION02": {
+        "abbreviation": "sd2",
+        "end_date": "sd3",
+        "id": "SESSION02",
+        "name": "sd5",
+        "start_date": "sd6",
+        "state": "sd7",
+        "type": "sd8"
+      }
+    }
+  },
+  "new": {
+    "session": {
+      "session_ref01": {
+        "abbreviation": "s118",
+        "end_date": "s119",
+        "name": "s11b",
+        "start_date": "s11c",
+        "state": "s11d",
+        "type": "s11e"
+      }
+    }
+  }
+}

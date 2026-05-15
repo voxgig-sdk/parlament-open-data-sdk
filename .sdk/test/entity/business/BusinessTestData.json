@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "business": {
+      "BUSINESS00": {
+        "author": "s50",
+        "council": "s51",
+        "description": "s52",
+        "id": "BUSINESS00",
+        "state": "s54",
+        "submission_date": "s55",
+        "title": "s56",
+        "type": "s57"
+      },
+      "BUSINESS01": {
+        "author": "sa0",
+        "council": "sa1",
+        "description": "sa2",
+        "id": "BUSINESS01",
+        "state": "sa4",
+        "submission_date": "sa5",
+        "title": "sa6",
+        "type": "sa7"
+      },
+      "BUSINESS02": {
+        "author": "sf0",
+        "council": "sf1",
+        "description": "sf2",
+        "id": "BUSINESS02",
+        "state": "sf4",
+        "submission_date": "sf5",
+        "title": "sf6",
+        "type": "sf7"
+      }
+    }
+  },
+  "new": {
+    "business": {
+      "business_ref01": {
+        "author": "s140",
+        "council": "s141",
+        "description": "s142",
+        "state": "s144",
+        "submission_date": "s145",
+        "title": "s146",
+        "type": "s147"
+      }
+    }
+  }
+}

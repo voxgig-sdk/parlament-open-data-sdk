@@ -1,0 +1,129 @@
+# Entity: member
+
+main: kit: entity: member: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "active"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "canton"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "council"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "entry_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "first_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "last_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "leaving_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "party"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "member"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "active"
+                orig: "active"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: "json"
+                kind: "query"
+                name: "format"
+                orig: "format"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "id"
+                orig: "id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "de"
+                kind: "query"
+                name: "language"
+                orig: "language"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/councillors"
+          parts: [
+            "councillors"
+          ]
+          select: {
+            exist: [
+              "active"
+              "format"
+              "id"
+              "language"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

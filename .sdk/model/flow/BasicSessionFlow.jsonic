@@ -1,0 +1,22 @@
+# BasicSessionFlow
+
+main: kit: flow: BasicSessionFlow:
+{
+  entity: "session",
+  kind: "basic",
+  name: "BasicSessionFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "session_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSessionFlow"
+}

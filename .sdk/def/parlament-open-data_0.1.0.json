@@ -1,0 +1,468 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Parlament Open Data",
+    "description": "Provides machine-readable data on parliamentary activities in Switzerland, including legislative sessions, council members, and parliamentary proceedings.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Swiss Parliament",
+      "url": "https://www.parlament.ch"
+    },
+    "termsOfService": "https://www.parlament.ch/de/%C3%BCber-das-parlament/fakten-und-zahlen/open-data-web-services",
+    "license": {
+      "name": "Open Data License",
+      "url": "https://www.parlament.ch/de/%C3%BCber-das-parlament/fakten-und-zahlen/open-data-web-services"
+    }
+  },
+  "externalDocs": {
+    "description": "Official Documentation - Code Livestream",
+    "url": "https://www.parlament.ch/de/%C3%BCber-das-parlament/fakten-und-zahlen/open-data-web-services/code-livestream"
+  },
+  "servers": [
+    {
+      "url": "https://ws.parlament.ch",
+      "description": "Production API Server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Sessions",
+      "description": "Parliamentary sessions and meetings"
+    },
+    {
+      "name": "Members",
+      "description": "Information about council members"
+    },
+    {
+      "name": "Business",
+      "description": "Parliamentary business and affairs"
+    }
+  ],
+  "paths": {
+    "/sessions": {
+      "get": {
+        "tags": [
+          "Sessions"
+        ],
+        "summary": "Get parliamentary sessions",
+        "description": "Returns a list of parliamentary sessions including session details, dates, and status.",
+        "operationId": "getSessions",
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language code for response (de=German, fr=French, it=Italian, en=English)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "de",
+                "fr",
+                "it",
+                "en"
+              ],
+              "default": "de"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "default": "json"
+            }
+          },
+          {
+            "name": "sessionId",
+            "in": "query",
+            "description": "Filter by specific session ID",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with session data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sessions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Session"
+                      }
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sessions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Session"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/councillors": {
+      "get": {
+        "tags": [
+          "Members"
+        ],
+        "summary": "Get council members",
+        "description": "Returns information about members of the Swiss Parliament, including their biographical data, party affiliation, and mandate details.",
+        "operationId": "getCouncillors",
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language code for response (de=German, fr=French, it=Italian, en=English)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "de",
+                "fr",
+                "it",
+                "en"
+              ],
+              "default": "de"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "default": "json"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Filter by specific councillor ID",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Filter by active status",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with councillor data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "councillors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Councillor"
+                      }
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "councillors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Councillor"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/affairs": {
+      "get": {
+        "tags": [
+          "Business"
+        ],
+        "summary": "Get parliamentary affairs",
+        "description": "Returns information about parliamentary business items, including motions, postulates, interpellations, and other parliamentary affairs.",
+        "operationId": "getAffairs",
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language code for response (de=German, fr=French, it=Italian, en=English)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "de",
+                "fr",
+                "it",
+                "en"
+              ],
+              "default": "de"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "default": "json"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Filter by specific affair ID",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Filter by affair state/status",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by affair type",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with affairs data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "affairs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Affair"
+                      }
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "affairs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Affair"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Session": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique session identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Session name"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "Session abbreviation"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Session start date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Session end date"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of session (e.g., ordinary, extraordinary)"
+          },
+          "state": {
+            "type": "string",
+            "description": "Current state of the session"
+          }
+        }
+      },
+      "Councillor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique councillor identifier"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "First name"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last name"
+          },
+          "title": {
+            "type": "string",
+            "description": "Academic or professional title"
+          },
+          "party": {
+            "type": "string",
+            "description": "Political party abbreviation"
+          },
+          "canton": {
+            "type": "string",
+            "description": "Canton abbreviation"
+          },
+          "council": {
+            "type": "string",
+            "description": "Council membership (National Council or Council of States)",
+            "enum": [
+              "Nationalrat",
+              "Ständerat"
+            ]
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the councillor is currently active"
+          },
+          "entryDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of entry into parliament"
+          },
+          "leavingDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of leaving parliament (if applicable)"
+          }
+        }
+      },
+      "Affair": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique affair identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Affair title"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of parliamentary affair"
+          },
+          "state": {
+            "type": "string",
+            "description": "Current state/status of the affair"
+          },
+          "submissionDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of submission"
+          },
+          "council": {
+            "type": "string",
+            "description": "Council handling the affair"
+          },
+          "author": {
+            "type": "string",
+            "description": "Author of the affair"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the affair"
+          }
+        }
+      }
+    }
+  }
+}

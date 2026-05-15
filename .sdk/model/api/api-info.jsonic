@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Swiss Parliament"
+        url: "https://www.parlament.ch"
+      }
+      description: "Provides machine-readable data on parliamentary activities in Switzerland, including legislative sessions, council members, and parliamentary proceedings."
+      license: {
+        name: "Open Data License"
+        url: "https://www.parlament.ch/de/%C3%BCber-das-parlament/fakten-und-zahlen/open-data-web-services"
+      }
+      servers: [
+        {
+          description: "Production API Server"
+          url: "https://ws.parlament.ch"
+        }
+      ]
+      termsOfService: "https://www.parlament.ch/de/%C3%BCber-das-parlament/fakten-und-zahlen/open-data-web-services"
+      title: "Parlament Open Data"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
