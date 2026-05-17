@@ -13,7 +13,7 @@ func MakeConfig() map[string]any {
 			},
 		},
 		"options": map[string]any{
-			"base": "https://ws.parlament.ch",
+			"base": "https://ws-old.parlament.ch",
 			"auth": map[string]any{
 				"prefix": "Bearer",
 			},

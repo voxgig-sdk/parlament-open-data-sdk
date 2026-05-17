@@ -14,7 +14,7 @@ def make_config():
       },
         },
         "options": {
-            "base": "https://ws.parlament.ch",
+            "base": "https://ws-old.parlament.ch",
             "auth": {
                 "prefix": "Bearer",
             },

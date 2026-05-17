@@ -20,7 +20,7 @@
   },
   "servers": [
     {
-      "url": "https://ws.parlament.ch",
+      "url": "https://ws-old.parlament.ch",
       "description": "Production API Server"
     }
   ],

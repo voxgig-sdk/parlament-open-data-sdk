@@ -17,7 +17,7 @@
         "servers": [
           {
             "description": "Production API Server",
-            "url": "https://ws.parlament.ch"
+            "url": "https://ws-old.parlament.ch"
           }
         ],
         "termsOfService": "https://www.parlament.ch/de/%C3%BCber-das-parlament/fakten-und-zahlen/open-data-web-services",
