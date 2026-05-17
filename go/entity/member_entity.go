@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/parlament-open-data-sdk/core"
+	"github.com/voxgig-sdk/parlament-open-data-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/parlament-open-data-sdk/go/utility/struct"
 )
 
 type MemberEntity struct {

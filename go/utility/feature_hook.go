@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"github.com/voxgig-sdk/parlament-open-data-sdk/core"
+	"github.com/voxgig-sdk/parlament-open-data-sdk/go/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {
