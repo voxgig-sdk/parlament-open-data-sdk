@@ -68,14 +68,12 @@ function member_direct_setup($mockres)
     $env = Runner::env_override([
         "PARLAMENTOPENDATA_TEST_MEMBER_ENTID" => [],
         "PARLAMENTOPENDATA_TEST_LIVE" => "FALSE",
-        "PARLAMENTOPENDATA_APIKEY" => "NONE",
     ]);
 
     $live = $env["PARLAMENTOPENDATA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["PARLAMENTOPENDATA_APIKEY"],
         ];
         $client = new ParlamentOpenDataSDK($merged_opts);
         return [
