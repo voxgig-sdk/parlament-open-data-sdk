@@ -10,7 +10,7 @@ The PHP SDK for the ParlamentOpenData API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/parlament-open-data-sdk
+composer require voxgig-sdk/parlament-open-data
 ```
 
 

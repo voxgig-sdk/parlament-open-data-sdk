@@ -10,7 +10,7 @@ The Lua SDK for the ParlamentOpenData API — an entity-oriented client using Lu
 
 ## Install
 ```bash
-luarocks install parlament-open-data-sdk
+luarocks install voxgig-sdk-parlament-open-data
 ```
 
 If the module is not yet published, add the source directory to

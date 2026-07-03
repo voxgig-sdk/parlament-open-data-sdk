@@ -10,13 +10,13 @@ The Ruby SDK for the ParlamentOpenData API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install parlament-open-data-sdk
+gem install voxgig-sdk-parlament-open-data
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "parlament-open-data-sdk"
+gem "voxgig-sdk-parlament-open-data"
 ```
 
 Then run:

@@ -10,7 +10,7 @@ The Python SDK for the ParlamentOpenData API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install parlament-open-data-sdk
+pip install voxgig-sdk-parlament-open-data
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The TypeScript SDK for the ParlamentOpenData API — a type-safe, entity-oriente
 
 ## Install
 ```bash
-npm install parlament-open-data
+npm install @voxgig-sdk/parlament-open-data
 ```
 ## Tutorial: your first API call
 
