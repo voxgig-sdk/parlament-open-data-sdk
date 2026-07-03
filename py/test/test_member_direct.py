@@ -61,12 +61,14 @@ def _member_direct_setup(mockres):
     env = runner.env_override({
         "PARLAMENTOPENDATA_TEST_MEMBER_ENTID": {},
         "PARLAMENTOPENDATA_TEST_LIVE": "FALSE",
+        "PARLAMENTOPENDATA_APIKEY": "NONE",
     })
 
     live = env.get("PARLAMENTOPENDATA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("PARLAMENTOPENDATA_APIKEY"),
         }
         client = ParlamentOpenDataSDK(merged_opts)
         return {

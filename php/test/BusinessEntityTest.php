@@ -86,6 +86,7 @@ function business_basic_setup($extra)
         "PARLAMENTOPENDATA_TEST_BUSINESS_ENTID" => $idmap,
         "PARLAMENTOPENDATA_TEST_LIVE" => "FALSE",
         "PARLAMENTOPENDATA_TEST_EXPLAIN" => "FALSE",
+        "PARLAMENTOPENDATA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function business_basic_setup($extra)
     if ($env["PARLAMENTOPENDATA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["PARLAMENTOPENDATA_APIKEY"],
             ],
             $extra ?? [],
         ]);

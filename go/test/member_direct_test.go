@@ -93,12 +93,14 @@ func memberDirectSetup(mockres any) *memberDirectSetupResult {
 	env := envOverride(map[string]any{
 		"PARLAMENTOPENDATA_TEST_MEMBER_ENTID": map[string]any{},
 		"PARLAMENTOPENDATA_TEST_LIVE":    "FALSE",
+		"PARLAMENTOPENDATA_APIKEY":       "NONE",
 	})
 
 	live := env["PARLAMENTOPENDATA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["PARLAMENTOPENDATA_APIKEY"],
 		}
 		client := sdk.NewParlamentOpenDataSDK(mergedOpts)
 

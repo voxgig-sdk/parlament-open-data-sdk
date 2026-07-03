@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'PARLAMENT_OPEN_DATA_TEST_MEMBER_ENTID': idmap,
     'PARLAMENT_OPEN_DATA_TEST_LIVE': 'FALSE',
     'PARLAMENT_OPEN_DATA_TEST_EXPLAIN': 'FALSE',
+    'PARLAMENT_OPEN_DATA_APIKEY': 'NONE',
   })
 
   idmap = env['PARLAMENT_OPEN_DATA_TEST_MEMBER_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ParlamentOpenDataSDK(merge([
       {
+        apikey: env.PARLAMENT_OPEN_DATA_APIKEY,
       },
       extra
     ]))

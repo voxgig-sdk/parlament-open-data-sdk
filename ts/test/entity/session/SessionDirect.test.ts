@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'PARLAMENTOPENDATA_TEST_SESSION_ENTID': {},
     'PARLAMENTOPENDATA_TEST_LIVE': 'FALSE',
+    'PARLAMENTOPENDATA_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.PARLAMENTOPENDATA_TEST_LIVE
 
   if (live) {
     const client = new ParlamentOpenDataSDK({
+      apikey: env.PARLAMENTOPENDATA_APIKEY,
     })
 
     let idmap: any = env['PARLAMENTOPENDATA_TEST_SESSION_ENTID']

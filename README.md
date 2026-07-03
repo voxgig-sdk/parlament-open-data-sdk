@@ -1,20 +1,8 @@
 # ParlamentOpenData SDK
 
-Machine-readable data on Swiss parliamentary activities — sessions, members, businesses, and votes
+Parlament Open Data client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Parlament Open Data
-
-The Parlament Open Data API exposes data about the [Swiss Federal Assembly](https://www.parlament.ch), covering parliamentary business, members of the National Council and Council of States, sessions and votes. It is hosted by the parliamentary services at `ws-old.parlament.ch`.
-
-What you get from the API:
-- Parliamentary affairs (`business`) with types, states and keywords
-- Members of parliament (`member`) with current and historical records
-- Parliamentary sessions and associated proceedings (`session`)
-- Supporting structures (committees, councils, factions, parties, cantons, legislative periods) and votes
-
-Responses can be requested as JSON, XML or XSD via a `format` query parameter. Paging is controlled with `pageNumber`, and content language is selectable with `lang=de|fr|it|en`. CORS is not enabled, so browser-based clients typically need a server-side proxy.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install parlament-open-data-sdk
 luarocks install parlament-open-data-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ParlamentOpenDataSDK } from 'parlament-open-data'
 
-const client = new ParlamentOpenDataSDK({})
+const client = new ParlamentOpenDataSDK({
+  apikey: process.env.PARLAMENT-OPEN-DATA_APIKEY,
+})
 
 // List all businesss
 const businesss = await client.Business().list()
+console.log(businesss.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,9 +90,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Business** | Parliamentary affairs and business items handled by the Federal Assembly, including their types, states and associated keywords. | `/affairs` |
-| **Member** | Members of the Swiss Parliament (Councillors) with current and historical biographical and mandate data. | `/councillors` |
-| **Session** | Sessions of the Federal Assembly, grouping the proceedings and votes that took place within a given sitting period. | `/sessions` |
+| **Business** |  | `/affairs` |
+| **Member** |  | `/councillors` |
+| **Session** |  | `/sessions` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +102,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from parlamentopendata_sdk import ParlamentOpenDataSDK
 
-client = ParlamentOpenDataSDK({})
+client = ParlamentOpenDataSDK({
+    "apikey": os.environ.get("PARLAMENT-OPEN-DATA_APIKEY"),
+})
 
 # List all businesss
-businesss, err = client.Business(None).list(None, None)
+businesss, err = client.Business().list()
+print(businesss)
 ```
 
 ### PHP
@@ -126,10 +120,13 @@ businesss, err = client.Business(None).list(None, None)
 <?php
 require_once 'parlamentopendata_sdk.php';
 
-$client = new ParlamentOpenDataSDK([]);
+$client = new ParlamentOpenDataSDK([
+    "apikey" => getenv("PARLAMENT-OPEN-DATA_APIKEY"),
+]);
 
 // List all businesss
-[$businesss, $err] = $client->Business(null)->list(null, null);
+[$businesss, $err] = $client->Business()->list();
+print_r($businesss);
 ```
 
 ### Golang
@@ -137,10 +134,13 @@ $client = new ParlamentOpenDataSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/parlament-open-data-sdk/go"
 
-client := sdk.NewParlamentOpenDataSDK(map[string]any{})
+client := sdk.NewParlamentOpenDataSDK(map[string]any{
+    "apikey": os.Getenv("PARLAMENT-OPEN-DATA_APIKEY"),
+})
 
 // List all businesss
 businesss, err := client.Business(nil).List(nil, nil)
+fmt.Println(businesss)
 ```
 
 ### Ruby
@@ -148,10 +148,13 @@ businesss, err := client.Business(nil).List(nil, nil)
 ```ruby
 require_relative "ParlamentOpenData_sdk"
 
-client = ParlamentOpenDataSDK.new({})
+client = ParlamentOpenDataSDK.new({
+  "apikey" => ENV["PARLAMENT-OPEN-DATA_APIKEY"],
+})
 
 # List all businesss
-businesss, err = client.Business(nil).list(nil, nil)
+businesss, err = client.Business().list
+puts businesss
 ```
 
 ### Lua
@@ -159,10 +162,13 @@ businesss, err = client.Business(nil).list(nil, nil)
 ```lua
 local sdk = require("parlament-open-data_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("PARLAMENT-OPEN-DATA_APIKEY"),
+})
 
 -- List all businesss
-local businesss, err = client:Business(nil):list(nil, nil)
+local businesss, err = client:Business():list()
+print(businesss)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +187,21 @@ const result = await client.Business().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ParlamentOpenDataSDK.test(None, None)
-result, err = client.Business(None).load(
-    {"id": "test01"}, None
-)
+client = ParlamentOpenDataSDK.test()
+result, err = client.Business().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ParlamentOpenDataSDK::test(null, null);
-[$result, $err] = $client->Business(null)->load(
-    ["id" => "test01"], null
-);
+$client = ParlamentOpenDataSDK::test();
+[$result, $err] = $client->Business()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Business(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +210,15 @@ result, err := client.Business(nil).Load(
 ### Ruby
 
 ```ruby
-client = ParlamentOpenDataSDK.test(nil, nil)
-result, err = client.Business(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ParlamentOpenDataSDK.test
+result, err = client.Business().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Business(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Business():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,14 +322,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Parlament Open Data
-
-- Upstream: [https://ws-old.parlament.ch](https://ws-old.parlament.ch)
-
-- Published as open data by the Swiss Federal Assembly (Parlamentsdienste).
-- Refer to the official Swiss Parliament site for current terms and any attribution requirements.
-- Confirm acceptable use before redistribution; details are not embedded in the API response itself.
 
 ---
 

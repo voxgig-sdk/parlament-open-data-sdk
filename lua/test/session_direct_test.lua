@@ -63,12 +63,14 @@ function session_direct_setup(mockres)
   local env = runner.env_override({
     ["PARLAMENTOPENDATA_TEST_SESSION_ENTID"] = {},
     ["PARLAMENTOPENDATA_TEST_LIVE"] = "FALSE",
+    ["PARLAMENTOPENDATA_APIKEY"] = "NONE",
   })
 
   local live = env["PARLAMENTOPENDATA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["PARLAMENTOPENDATA_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

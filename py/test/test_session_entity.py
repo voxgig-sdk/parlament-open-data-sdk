@@ -92,6 +92,7 @@ def _session_basic_setup(extra):
         "PARLAMENTOPENDATA_TEST_SESSION_ENTID": idmap,
         "PARLAMENTOPENDATA_TEST_LIVE": "FALSE",
         "PARLAMENTOPENDATA_TEST_EXPLAIN": "FALSE",
+        "PARLAMENTOPENDATA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ def _session_basic_setup(extra):
     if env.get("PARLAMENTOPENDATA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("PARLAMENTOPENDATA_APIKEY"),
             },
             extra or {},
         ])
