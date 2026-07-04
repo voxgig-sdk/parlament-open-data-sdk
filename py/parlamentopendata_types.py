@@ -4,83 +4,81 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Business:
-    author: Optional[str] = None
-    council: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[int] = None
-    state: Optional[str] = None
-    submission_date: Optional[str] = None
-    title: Optional[str] = None
-    type: Optional[str] = None
+class Business(TypedDict, total=False):
+    author: str
+    council: str
+    description: str
+    id: int
+    state: str
+    submission_date: str
+    title: str
+    type: str
 
 
-@dataclass
-class BusinessListMatch:
-    author: Optional[str] = None
-    council: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[int] = None
-    state: Optional[str] = None
-    submission_date: Optional[str] = None
-    title: Optional[str] = None
-    type: Optional[str] = None
+class BusinessListMatch(TypedDict, total=False):
+    author: str
+    council: str
+    description: str
+    id: int
+    state: str
+    submission_date: str
+    title: str
+    type: str
 
 
-@dataclass
-class Member:
-    active: Optional[bool] = None
-    canton: Optional[str] = None
-    council: Optional[str] = None
-    entry_date: Optional[str] = None
-    first_name: Optional[str] = None
-    id: Optional[int] = None
-    last_name: Optional[str] = None
-    leaving_date: Optional[str] = None
-    party: Optional[str] = None
-    title: Optional[str] = None
+class Member(TypedDict, total=False):
+    active: bool
+    canton: str
+    council: str
+    entry_date: str
+    first_name: str
+    id: int
+    last_name: str
+    leaving_date: str
+    party: str
+    title: str
 
 
-@dataclass
-class MemberListMatch:
-    active: Optional[bool] = None
-    canton: Optional[str] = None
-    council: Optional[str] = None
-    entry_date: Optional[str] = None
-    first_name: Optional[str] = None
-    id: Optional[int] = None
-    last_name: Optional[str] = None
-    leaving_date: Optional[str] = None
-    party: Optional[str] = None
-    title: Optional[str] = None
+class MemberListMatch(TypedDict, total=False):
+    active: bool
+    canton: str
+    council: str
+    entry_date: str
+    first_name: str
+    id: int
+    last_name: str
+    leaving_date: str
+    party: str
+    title: str
 
 
-@dataclass
-class Session:
-    abbreviation: Optional[str] = None
-    end_date: Optional[str] = None
-    id: Optional[int] = None
-    name: Optional[str] = None
-    start_date: Optional[str] = None
-    state: Optional[str] = None
-    type: Optional[str] = None
+class Session(TypedDict, total=False):
+    abbreviation: str
+    end_date: str
+    id: int
+    name: str
+    start_date: str
+    state: str
+    type: str
 
 
-@dataclass
-class SessionListMatch:
-    abbreviation: Optional[str] = None
-    end_date: Optional[str] = None
-    id: Optional[int] = None
-    name: Optional[str] = None
-    start_date: Optional[str] = None
-    state: Optional[str] = None
-    type: Optional[str] = None
-
+class SessionListMatch(TypedDict, total=False):
+    abbreviation: str
+    end_date: str
+    id: int
+    name: str
+    start_date: str
+    state: str
+    type: str

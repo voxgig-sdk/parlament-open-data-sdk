@@ -220,57 +220,27 @@ class ParlamentOpenDataSDK:
         }
 
 
-    @property
-    def business(self):
-        """Idiomatic facade: client.business.list() / client.business.load({"id": ...})."""
-        from entity.business_entity import BusinessEntity
-        cached = getattr(self, "_business", None)
-        if cached is None:
-            cached = BusinessEntity(self, None)
-            self._business = cached
-        return cached
-
-    def Business(self, data=None):
-        # Deprecated: use client.business instead.
+    def Business(self, data=None) -> "BusinessEntity":
+        """Entity factory: client.Business().list({}) / client.Business().load({"id": ...})."""
         from entity.business_entity import BusinessEntity
         return BusinessEntity(self, data)
 
 
-    @property
-    def member(self):
-        """Idiomatic facade: client.member.list() / client.member.load({"id": ...})."""
-        from entity.member_entity import MemberEntity
-        cached = getattr(self, "_member", None)
-        if cached is None:
-            cached = MemberEntity(self, None)
-            self._member = cached
-        return cached
-
-    def Member(self, data=None):
-        # Deprecated: use client.member instead.
+    def Member(self, data=None) -> "MemberEntity":
+        """Entity factory: client.Member().list({}) / client.Member().load({"id": ...})."""
         from entity.member_entity import MemberEntity
         return MemberEntity(self, data)
 
 
-    @property
-    def session(self):
-        """Idiomatic facade: client.session.list() / client.session.load({"id": ...})."""
-        from entity.session_entity import SessionEntity
-        cached = getattr(self, "_session", None)
-        if cached is None:
-            cached = SessionEntity(self, None)
-            self._session = cached
-        return cached
-
-    def Session(self, data=None):
-        # Deprecated: use client.session instead.
+    def Session(self, data=None) -> "SessionEntity":
+        """Entity factory: client.Session().list({}) / client.Session().load({"id": ...})."""
         from entity.session_entity import SessionEntity
         return SessionEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ParlamentOpenDataSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -290,3 +260,11 @@ class ParlamentOpenDataSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.business_entity import BusinessEntity
+    from entity.member_entity import MemberEntity
+    from entity.session_entity import SessionEntity

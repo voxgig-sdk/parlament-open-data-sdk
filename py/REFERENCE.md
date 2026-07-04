@@ -88,7 +88,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## BusinessEntity
 
 ```python
-business = client.business
+business = client.Business()
 ```
 
 ### Fields
@@ -111,7 +111,9 @@ business = client.business
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.business.list({})
+results = client.Business().list({})
+for business in results:
+    print(business)
 ```
 
 ### Common Methods
@@ -146,7 +148,7 @@ Return the entity name.
 ## MemberEntity
 
 ```python
-member = client.member
+member = client.Member()
 ```
 
 ### Fields
@@ -171,7 +173,9 @@ member = client.member
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.member.list({})
+results = client.Member().list({})
+for member in results:
+    print(member)
 ```
 
 ### Common Methods
@@ -206,7 +210,7 @@ Return the entity name.
 ## SessionEntity
 
 ```python
-session = client.session
+session = client.Session()
 ```
 
 ### Fields
@@ -228,7 +232,9 @@ session = client.session
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.session.list({})
+results = client.Session().list({})
+for session in results:
+    print(session)
 ```
 
 ### Common Methods

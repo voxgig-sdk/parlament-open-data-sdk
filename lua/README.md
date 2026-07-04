@@ -31,17 +31,17 @@ local sdk = require("parlament-open-data_sdk")
 local client = sdk.new()
 ```
 
-### 2. List businesss
+### 2. List business records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:business():list()
+local businesss, err = client:Business():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(businesss) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:business():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Business():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -191,17 +191,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local business, err = client:Business():load({ id = "example_id" })
+    if err then error(err) end
+    -- business is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -264,7 +269,7 @@ API path: `/sessions`
 
 ### Business
 
-Create an instance: `const business = client.business`
+Create an instance: `local business = client:Business(nil)`
 
 #### Operations
 
@@ -287,14 +292,14 @@ Create an instance: `const business = client.business`
 
 #### Example: List
 
-```ts
-const businesss = await client.business.list()
+```lua
+local businesss, err = client:Business():list()
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `local member = client:Member(nil)`
 
 #### Operations
 
@@ -319,14 +324,14 @@ Create an instance: `const member = client.member`
 
 #### Example: List
 
-```ts
-const members = await client.member.list()
+```lua
+local members, err = client:Member():list()
 ```
 
 
 ### Session
 
-Create an instance: `const session = client.session`
+Create an instance: `local session = client:Session(nil)`
 
 #### Operations
 
@@ -348,8 +353,8 @@ Create an instance: `const session = client.session`
 
 #### Example: List
 
-```ts
-const sessions = await client.session.list()
+```lua
+local sessions, err = client:Session():list()
 ```
 
 
@@ -424,7 +429,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local business = client:business()
+local business = client:Business()
 business:load({ id = "example_id" })
 
 -- business:data_get() now returns the loaded business data

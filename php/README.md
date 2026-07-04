@@ -29,18 +29,16 @@ require_once 'parlamentopendata_sdk.php';
 $client = new ParlamentOpenDataSDK();
 ```
 
-### 2. List businesss
+### 2. List business records
 
 ```php
 try {
-    $result = $client->business()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Business records — iterate directly.
+    $businesss = $client->Business()->list();
+    foreach ($businesss as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = ParlamentOpenDataSDK::test();
+$client = ParlamentOpenDataSDK::test([
+    "entity" => ["business" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->business()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$business = $client->Business()->load(["id" => "test01"]);
+print_r($business);
 ```
 
 ### Use a custom fetch function
@@ -272,7 +274,7 @@ API path: `/sessions`
 
 ### Business
 
-Create an instance: `const business = client.business`
+Create an instance: `$business = $client->Business();`
 
 #### Operations
 
@@ -295,14 +297,15 @@ Create an instance: `const business = client.business`
 
 #### Example: List
 
-```ts
-const businesss = await client.business.list()
+```php
+// list() returns an array of Business records (throws on error).
+$businesss = $client->Business()->list();
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `$member = $client->Member();`
 
 #### Operations
 
@@ -327,14 +330,15 @@ Create an instance: `const member = client.member`
 
 #### Example: List
 
-```ts
-const members = await client.member.list()
+```php
+// list() returns an array of Member records (throws on error).
+$members = $client->Member()->list();
 ```
 
 
 ### Session
 
-Create an instance: `const session = client.session`
+Create an instance: `$session = $client->Session();`
 
 #### Operations
 
@@ -356,8 +360,9 @@ Create an instance: `const session = client.session`
 
 #### Example: List
 
-```ts
-const sessions = await client.session.list()
+```php
+// list() returns an array of Session records (throws on error).
+$sessions = $client->Session()->list();
 ```
 
 
@@ -432,7 +437,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$business = $client->business();
+$business = $client->Business();
 $business->load(["id" => "example_id"]);
 
 // $business->dataGet() now returns the loaded business data

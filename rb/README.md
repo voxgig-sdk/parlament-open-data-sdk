@@ -28,16 +28,14 @@ require_relative "ParlamentOpenData_sdk"
 client = ParlamentOpenDataSDK.new
 ```
 
-### 2. List businesss
+### 2. List business records
 
 ```ruby
 begin
-  result = client.business.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Business records — iterate directly.
+  businesss = client.Business.list
+  businesss.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = ParlamentOpenDataSDK.test
+client = ParlamentOpenDataSDK.test({
+  "entity" => { "business" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.business.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+business = client.Business.load({ "id" => "test01" })
+puts business
 ```
 
 ### Use a custom fetch function
@@ -267,7 +269,7 @@ API path: `/sessions`
 
 ### Business
 
-Create an instance: `const business = client.business`
+Create an instance: `business = client.Business`
 
 #### Operations
 
@@ -290,14 +292,15 @@ Create an instance: `const business = client.business`
 
 #### Example: List
 
-```ts
-const businesss = await client.business.list()
+```ruby
+# list returns an Array of Business records (raises on error).
+businesss = client.Business.list
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `member = client.Member`
 
 #### Operations
 
@@ -322,14 +325,15 @@ Create an instance: `const member = client.member`
 
 #### Example: List
 
-```ts
-const members = await client.member.list()
+```ruby
+# list returns an Array of Member records (raises on error).
+members = client.Member.list
 ```
 
 
 ### Session
 
-Create an instance: `const session = client.session`
+Create an instance: `session = client.Session`
 
 #### Operations
 
@@ -351,8 +355,9 @@ Create an instance: `const session = client.session`
 
 #### Example: List
 
-```ts
-const sessions = await client.session.list()
+```ruby
+# list returns an Array of Session records (raises on error).
+sessions = client.Session.list
 ```
 
 
@@ -427,7 +432,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-business = client.business
+business = client.Business
 business.load({ "id" => "example_id" })
 
 # business.data_get now returns the loaded business data

@@ -208,39 +208,21 @@ class ParlamentOpenDataSDK
   end
 
 
-  # Idiomatic facade: client.business.list / client.business.load({ "id" => ... })
-  def business
-    require_relative 'entity/business_entity'
-    @business ||= BusinessEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.business instead.
+  # Canonical facade: client.Business.list / client.Business.load({ "id" => ... })
   def Business(data = nil)
     require_relative 'entity/business_entity'
     BusinessEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.member.list / client.member.load({ "id" => ... })
-  def member
-    require_relative 'entity/member_entity'
-    @member ||= MemberEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.member instead.
+  # Canonical facade: client.Member.list / client.Member.load({ "id" => ... })
   def Member(data = nil)
     require_relative 'entity/member_entity'
     MemberEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.session.list / client.session.load({ "id" => ... })
-  def session
-    require_relative 'entity/session_entity'
-    @session ||= SessionEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.session instead.
+  # Canonical facade: client.Session.list / client.Session.load({ "id" => ... })
   def Session(data = nil)
     require_relative 'entity/session_entity'
     SessionEntity.new(self, data)

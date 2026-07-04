@@ -133,7 +133,7 @@ Alias for `ParlamentOpenDataSDK.test()`.
 ## BusinessEntity
 
 ```ts
-const business = client.business
+const business = client.Business()
 ```
 
 ### Fields
@@ -156,7 +156,7 @@ const business = client.business
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.business.list()
+const results = await client.Business().list()
 ```
 
 ### Common Methods
@@ -190,7 +190,7 @@ Return a copy of the entity options.
 ## MemberEntity
 
 ```ts
-const member = client.member
+const member = client.Member()
 ```
 
 ### Fields
@@ -215,7 +215,7 @@ const member = client.member
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.member.list()
+const results = await client.Member().list()
 ```
 
 ### Common Methods
@@ -249,7 +249,7 @@ Return a copy of the entity options.
 ## SessionEntity
 
 ```ts
-const session = client.session
+const session = client.Session()
 ```
 
 ### Fields
@@ -271,7 +271,7 @@ const session = client.session
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.session.list()
+const results = await client.Session().list()
 ```
 
 ### Common Methods

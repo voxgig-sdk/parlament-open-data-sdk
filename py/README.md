@@ -31,14 +31,16 @@ from parlamentopendata_sdk import ParlamentOpenDataSDK
 client = ParlamentOpenDataSDK()
 ```
 
-### 2. List businesss
+### 2. List business records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.business.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    businesss = client.Business().list({})
+    for business in businesss:
+        print(business)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ParlamentOpenDataSDK.test()
 
-result = client.business.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+business = client.Business().load({"id": "test01"})
+# business contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -264,7 +267,7 @@ API path: `/sessions`
 
 ### Business
 
-Create an instance: `const business = client.business`
+Create an instance: `business = client.Business()`
 
 #### Operations
 
@@ -287,14 +290,14 @@ Create an instance: `const business = client.business`
 
 #### Example: List
 
-```ts
-const businesss = await client.business.list()
+```python
+businesss = client.Business().list({})
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `member = client.Member()`
 
 #### Operations
 
@@ -319,14 +322,14 @@ Create an instance: `const member = client.member`
 
 #### Example: List
 
-```ts
-const members = await client.member.list()
+```python
+members = client.Member().list({})
 ```
 
 
 ### Session
 
-Create an instance: `const session = client.session`
+Create an instance: `session = client.Session()`
 
 #### Operations
 
@@ -348,8 +351,8 @@ Create an instance: `const session = client.session`
 
 #### Example: List
 
-```ts
-const sessions = await client.session.list()
+```python
+sessions = client.Session().list({})
 ```
 
 
@@ -423,7 +426,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-business = client.business
+business = client.Business()
 business.load({"id": "example_id"})
 
 # business.data_get() now returns the loaded business data

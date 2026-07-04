@@ -93,7 +93,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## BusinessEntity
 
 ```php
-$business = $client->business();
+$business = $client->Business();
 ```
 
 ### Fields
@@ -116,7 +116,7 @@ $business = $client->business();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->business()->list([]);
+$results = $client->Business()->list([]);
 ```
 
 ### Common Methods
@@ -152,7 +152,7 @@ Return the entity name.
 ## MemberEntity
 
 ```php
-$member = $client->member();
+$member = $client->Member();
 ```
 
 ### Fields
@@ -177,7 +177,7 @@ $member = $client->member();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->member()->list([]);
+$results = $client->Member()->list([]);
 ```
 
 ### Common Methods
@@ -213,7 +213,7 @@ Return the entity name.
 ## SessionEntity
 
 ```php
-$session = $client->session();
+$session = $client->Session();
 ```
 
 ### Fields
@@ -235,7 +235,7 @@ $session = $client->session();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->session()->list([]);
+$results = $client->Session()->list([]);
 ```
 
 ### Common Methods

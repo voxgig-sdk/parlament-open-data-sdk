@@ -26,9 +26,11 @@ import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data'
 
 const client = new ParlamentOpenDataSDK()
 
-// List all businesss
-const businesss = await client.business.list()
-console.log(businesss.data)
+// List all businesss (returns Business[])
+const businesss = await client.Business().list()
+for (const business of businesss) {
+  console.log(business)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,9 +87,10 @@ from parlamentopendata_sdk import ParlamentOpenDataSDK
 
 client = ParlamentOpenDataSDK()
 
-# List all businesss
-businesss = client.business.list()
-print(businesss)
+# List all businesss (returns a list, raises on error)
+businesss = client.Business().list({})
+for business in businesss:
+    print(business)
 ```
 
 ### PHP
@@ -98,8 +101,8 @@ require_once 'parlamentopendata_sdk.php';
 
 $client = new ParlamentOpenDataSDK();
 
-// List all businesss (throws on error)
-$businesss = $client->business()->list();
+// List all businesss (returns an array; throws on error)
+$businesss = $client->Business()->list();
 print_r($businesss);
 ```
 
@@ -122,8 +125,8 @@ require_relative "ParlamentOpenData_sdk"
 
 client = ParlamentOpenDataSDK.new
 
-# List all businesss
-businesss = client.business.list
+# List all businesss (returns an Array; raises on error)
+businesss = client.Business.list
 puts businesss
 ```
 
@@ -135,7 +138,7 @@ local sdk = require("parlament-open-data_sdk")
 local client = sdk.new()
 
 -- List all businesss
-local businesss, err = client:business():list()
+local businesss, err = client:Business():list()
 print(businesss)
 ```
 
@@ -148,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ParlamentOpenDataSDK.test()
-const result = await client.business.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const business = await client.Business().load({ id: 1 })
+// business is a bare Business populated with mock data
+console.log(business)
 ```
 
 ### Python
 
 ```python
 client = ParlamentOpenDataSDK.test()
-result = client.business.load({"id": "test01"})
+business = client.Business().load({"id": "test01"})
+print(business)
 ```
 
 ### PHP
 
 ```php
-$client = ParlamentOpenDataSDK::test();
-$result = $client->business()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ParlamentOpenDataSDK::test([
+    "entity" => ["business" => ["test01" => ["id" => "test01"]]],
+]);
+$business = $client->Business()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -178,15 +186,18 @@ result, err := client.Business(nil).Load(
 ### Ruby
 
 ```ruby
-client = ParlamentOpenDataSDK.test
-result = client.business.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ParlamentOpenDataSDK.test({
+  "entity" => { "business" => { "test01" => { "id" => "test01" } } },
+})
+business = client.Business.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:business():load({ id = "test01" })
+local result, err = client:Business():load({ id = "test01" })
 ```
 
 ## How it works
@@ -234,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

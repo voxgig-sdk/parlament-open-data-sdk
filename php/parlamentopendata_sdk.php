@@ -233,10 +233,10 @@ class ParlamentOpenDataSDK
 
     private $_business = null;
 
-    // Idiomatic facade: $client->business()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Business() (PHP method
-    // names are case-insensitive).
-    public function business($data = null)
+    // Canonical facade: $client->Business()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->business()
+    // resolves here too.
+    public function Business($data = null)
     {
         require_once __DIR__ . '/entity/business_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class ParlamentOpenDataSDK
 
     private $_member = null;
 
-    // Idiomatic facade: $client->member()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Member() (PHP method
-    // names are case-insensitive).
-    public function member($data = null)
+    // Canonical facade: $client->Member()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->member()
+    // resolves here too.
+    public function Member($data = null)
     {
         require_once __DIR__ . '/entity/member_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class ParlamentOpenDataSDK
 
     private $_session = null;
 
-    // Idiomatic facade: $client->session()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Session() (PHP method
-    // names are case-insensitive).
-    public function session($data = null)
+    // Canonical facade: $client->Session()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->session()
+    // resolves here too.
+    public function Session($data = null)
     {
         require_once __DIR__ . '/entity/session_entity.php';
         if ($data === null) {

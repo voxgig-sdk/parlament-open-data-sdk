@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:business():list() / client:business():load({ id = ... })
-function ParlamentOpenDataSDK:business(data)
+-- Idiomatic facade: client:Business():list() / client:Business():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ParlamentOpenDataSDK:Business(data)
   local EntityMod = require("entity.business_entity")
   if data == nil then
     if self._business == nil then
@@ -256,15 +257,10 @@ function ParlamentOpenDataSDK:business(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:business() instead.
-function ParlamentOpenDataSDK:Business(data)
-  local EntityMod = require("entity.business_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:member():list() / client:member():load({ id = ... })
-function ParlamentOpenDataSDK:member(data)
+-- Idiomatic facade: client:Member():list() / client:Member():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ParlamentOpenDataSDK:Member(data)
   local EntityMod = require("entity.member_entity")
   if data == nil then
     if self._member == nil then
@@ -275,15 +271,10 @@ function ParlamentOpenDataSDK:member(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:member() instead.
-function ParlamentOpenDataSDK:Member(data)
-  local EntityMod = require("entity.member_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:session():list() / client:session():load({ id = ... })
-function ParlamentOpenDataSDK:session(data)
+-- Idiomatic facade: client:Session():list() / client:Session():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ParlamentOpenDataSDK:Session(data)
   local EntityMod = require("entity.session_entity")
   if data == nil then
     if self._session == nil then
@@ -291,12 +282,6 @@ function ParlamentOpenDataSDK:session(data)
     end
     return self._session
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:session() instead.
-function ParlamentOpenDataSDK:Session(data)
-  local EntityMod = require("entity.session_entity")
   return EntityMod.new(self, data)
 end
 

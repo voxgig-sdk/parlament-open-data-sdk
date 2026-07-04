@@ -91,7 +91,7 @@ same parameters as `direct()`.
 ## BusinessEntity
 
 ```lua
-local business = client:business(nil)
+local business = client:Business(nil)
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ local business = client:business(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:business():list()
+local results, err = client:Business():list()
 ```
 
 ### Common Methods
@@ -150,7 +150,7 @@ Return the entity name.
 ## MemberEntity
 
 ```lua
-local member = client:member(nil)
+local member = client:Member(nil)
 ```
 
 ### Fields
@@ -175,7 +175,7 @@ local member = client:member(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:member():list()
+local results, err = client:Member():list()
 ```
 
 ### Common Methods
@@ -211,7 +211,7 @@ Return the entity name.
 ## SessionEntity
 
 ```lua
-local session = client:session(nil)
+local session = client:Session(nil)
 ```
 
 ### Fields
@@ -233,7 +233,7 @@ local session = client:session(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:session():list()
+local results, err = client:Session():list()
 ```
 
 ### Common Methods
