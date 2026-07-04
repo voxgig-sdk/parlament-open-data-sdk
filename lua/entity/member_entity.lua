@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch MemberListMatch
+---@param ctrl? table
+---@return Member[]
+---@return string? err
 function MemberEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

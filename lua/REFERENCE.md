@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -92,7 +91,7 @@ same parameters as `direct()`.
 ## BusinessEntity
 
 ```lua
-local business = client:Business(nil)
+local business = client:business(nil)
 ```
 
 ### Fields
@@ -115,7 +114,7 @@ local business = client:Business(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Business():list()
+local results, err = client:business():list()
 ```
 
 ### Common Methods
@@ -151,7 +150,7 @@ Return the entity name.
 ## MemberEntity
 
 ```lua
-local member = client:Member(nil)
+local member = client:member(nil)
 ```
 
 ### Fields
@@ -176,7 +175,7 @@ local member = client:Member(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Member():list()
+local results, err = client:member():list()
 ```
 
 ### Common Methods
@@ -212,7 +211,7 @@ Return the entity name.
 ## SessionEntity
 
 ```lua
-local session = client:Session(nil)
+local session = client:session(nil)
 ```
 
 ### Fields
@@ -234,7 +233,7 @@ local session = client:Session(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Session():list()
+local results, err = client:session():list()
 ```
 
 ### Common Methods

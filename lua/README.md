@@ -9,12 +9,9 @@ The Lua SDK for the ParlamentOpenData API — an entity-oriented client using Lu
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-parlament-open-data
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/parlament-open-data-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("parlament-open-data_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("PARLAMENT-OPEN-DATA_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List businesss
 
 ```lua
-local result, err = client:Business():list()
+local result, err = client:business():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:ParlamentOpenData():load({ id = "test01" })
+local result, err = client:business():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-PARLAMENT-OPEN-DATA_TEST_LIVE=TRUE
-PARLAMENT-OPEN-DATA_APIKEY=<your-key>
+PARLAMENT_OPEN_DATA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -271,7 +264,7 @@ API path: `/sessions`
 
 ### Business
 
-Create an instance: `const business = client.Business()`
+Create an instance: `const business = client.business`
 
 #### Operations
 
@@ -295,13 +288,13 @@ Create an instance: `const business = client.Business()`
 #### Example: List
 
 ```ts
-const businesss = await client.Business().list()
+const businesss = await client.business.list()
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.Member()`
+Create an instance: `const member = client.member`
 
 #### Operations
 
@@ -327,13 +320,13 @@ Create an instance: `const member = client.Member()`
 #### Example: List
 
 ```ts
-const members = await client.Member().list()
+const members = await client.member.list()
 ```
 
 
 ### Session
 
-Create an instance: `const session = client.Session()`
+Create an instance: `const session = client.session`
 
 #### Operations
 
@@ -356,7 +349,7 @@ Create an instance: `const session = client.Session()`
 #### Example: List
 
 ```ts
-const sessions = await client.Session().list()
+const sessions = await client.session.list()
 ```
 
 
@@ -431,11 +424,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local business = client:business()
+business:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- business:data_get() now returns the loaded business data
+-- business:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

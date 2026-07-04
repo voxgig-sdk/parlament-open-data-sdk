@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -134,7 +133,7 @@ Alias for `ParlamentOpenDataSDK.test()`.
 ## BusinessEntity
 
 ```ts
-const business = client.Business()
+const business = client.business
 ```
 
 ### Fields
@@ -157,7 +156,7 @@ const business = client.Business()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Business().list()
+const results = await client.business.list()
 ```
 
 ### Common Methods
@@ -191,7 +190,7 @@ Return a copy of the entity options.
 ## MemberEntity
 
 ```ts
-const member = client.Member()
+const member = client.member
 ```
 
 ### Fields
@@ -216,7 +215,7 @@ const member = client.Member()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Member().list()
+const results = await client.member.list()
 ```
 
 ### Common Methods
@@ -250,7 +249,7 @@ Return a copy of the entity options.
 ## SessionEntity
 
 ```ts
-const session = client.Session()
+const session = client.session
 ```
 
 ### Fields
@@ -272,7 +271,7 @@ const session = client.Session()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Session().list()
+const results = await client.session.list()
 ```
 
 ### Common Methods

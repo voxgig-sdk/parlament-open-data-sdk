@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Session,
+  SessionListMatch,
+} from '../ParlamentOpenDataTypes'
 
 // TODO: needs Entity superclass
-class SessionEntity extends ParlamentOpenDataEntityBase {
+class SessionEntity extends ParlamentOpenDataEntityBase<Session> {
 
   constructor(client: ParlamentOpenDataSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class SessionEntity extends ParlamentOpenDataEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: SessionListMatch, ctrl?: Control): Promise<Session[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class SessionEntity extends ParlamentOpenDataEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Session[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

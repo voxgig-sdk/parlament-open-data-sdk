@@ -245,16 +245,25 @@ func (sdk *ParlamentOpenDataSDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// Business returns a Business entity bound to this client.
+// Idiomatic usage: client.Business(nil).List(nil, nil) or
+// client.Business(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ParlamentOpenDataSDK) Business(data map[string]any) ParlamentOpenDataEntity {
 	return NewBusinessEntityFunc(sdk, data)
 }
 
 
+// Member returns a Member entity bound to this client.
+// Idiomatic usage: client.Member(nil).List(nil, nil) or
+// client.Member(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ParlamentOpenDataSDK) Member(data map[string]any) ParlamentOpenDataEntity {
 	return NewMemberEntityFunc(sdk, data)
 }
 
 
+// Session returns a Session entity bound to this client.
+// Idiomatic usage: client.Session(nil).List(nil, nil) or
+// client.Session(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ParlamentOpenDataSDK) Session(data map[string]any) ParlamentOpenDataEntity {
 	return NewSessionEntityFunc(sdk, data)
 }

@@ -9,9 +9,12 @@ The TypeScript SDK for the ParlamentOpenData API — a type-safe, entity-oriente
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/parlament-open-data
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/parlament-open-data-sdk/releases](https://github.com/voxgig-sdk/parlament-open-data-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ParlamentOpenDataSDK } from 'parlament-open-data'
+import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data'
 
-const client = new ParlamentOpenDataSDK({
-  apikey: process.env.PARLAMENT-OPEN-DATA_APIKEY,
-})
+const client = new ParlamentOpenDataSDK()
 ```
 
 ### 2. List businesss
 
 ```ts
-const result = await client.Business().list()
+const result = await client.business.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ParlamentOpenDataSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.business.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new ParlamentOpenDataSDK({ apikey: '...' })
+const client = new ParlamentOpenDataSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.business
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new ParlamentOpenDataSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new ParlamentOpenDataSDK({
 Create a `.env.local` file at the project root:
 
 ```
-PARLAMENT-OPEN-DATA_TEST_LIVE=TRUE
-PARLAMENT-OPEN-DATA_APIKEY=<your-key>
+PARLAMENT_OPEN_DATA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new ParlamentOpenDataSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new ParlamentOpenDataSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -312,7 +309,7 @@ API path: `/sessions`
 
 ### Business
 
-Create an instance: `const business = client.Business()`
+Create an instance: `const business = client.business`
 
 #### Operations
 
@@ -336,13 +333,13 @@ Create an instance: `const business = client.Business()`
 #### Example: List
 
 ```ts
-const businesss = await client.Business().list()
+const businesss = await client.business.list()
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.Member()`
+Create an instance: `const member = client.member`
 
 #### Operations
 
@@ -368,13 +365,13 @@ Create an instance: `const member = client.Member()`
 #### Example: List
 
 ```ts
-const members = await client.Member().list()
+const members = await client.member.list()
 ```
 
 
 ### Session
 
-Create an instance: `const session = client.Session()`
+Create an instance: `const session = client.session`
 
 #### Operations
 
@@ -397,7 +394,7 @@ Create an instance: `const session = client.Session()`
 #### Example: List
 
 ```ts
-const sessions = await client.Session().list()
+const sessions = await client.session.list()
 ```
 
 
@@ -458,7 +455,7 @@ parlament-open-data/
 Import the SDK from the package root:
 
 ```ts
-import { ParlamentOpenDataSDK } from 'parlament-open-data'
+import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data'
 ```
 
 ### Entity state
@@ -468,11 +465,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const business = client.business
+await business.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// business.data() now returns the loaded business data
+// business.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

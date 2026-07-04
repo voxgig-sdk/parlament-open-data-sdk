@@ -119,7 +119,6 @@ func sessionBasicSetup(extra map[string]any) *entityTestSetup {
 		"PARLAMENTOPENDATA_TEST_SESSION_ENTID": idmap,
 		"PARLAMENTOPENDATA_TEST_LIVE":      "FALSE",
 		"PARLAMENTOPENDATA_TEST_EXPLAIN":   "FALSE",
-		"PARLAMENTOPENDATA_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["PARLAMENTOPENDATA_TEST_SESSION_ENTID"])
@@ -130,7 +129,6 @@ func sessionBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["PARLAMENTOPENDATA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["PARLAMENTOPENDATA_APIKEY"],
 			},
 			extra,
 		})

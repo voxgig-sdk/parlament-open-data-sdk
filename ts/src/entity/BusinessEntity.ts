@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Business,
+  BusinessListMatch,
+} from '../ParlamentOpenDataTypes'
 
 // TODO: needs Entity superclass
-class BusinessEntity extends ParlamentOpenDataEntityBase {
+class BusinessEntity extends ParlamentOpenDataEntityBase<Business> {
 
   constructor(client: ParlamentOpenDataSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class BusinessEntity extends ParlamentOpenDataEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: BusinessListMatch, ctrl?: Control): Promise<Business[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class BusinessEntity extends ParlamentOpenDataEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Business[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

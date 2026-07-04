@@ -50,8 +50,7 @@ class TestMemberEntity:
         member_ref01_ent = client.Member(None)
         member_ref01_match = {}
 
-        member_ref01_list_result, err = member_ref01_ent.list(member_ref01_match, None)
-        assert err is None
+        member_ref01_list_result = member_ref01_ent.list(member_ref01_match, None)
         assert isinstance(member_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _member_basic_setup(extra):
         "PARLAMENTOPENDATA_TEST_MEMBER_ENTID": idmap,
         "PARLAMENTOPENDATA_TEST_LIVE": "FALSE",
         "PARLAMENTOPENDATA_TEST_EXPLAIN": "FALSE",
-        "PARLAMENTOPENDATA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _member_basic_setup(extra):
     if env.get("PARLAMENTOPENDATA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("PARLAMENTOPENDATA_APIKEY"),
             },
             extra or {},
         ])

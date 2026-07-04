@@ -45,6 +45,7 @@ class SessionEntity
     end
   end
 
+  # @return [Session, Hash] the current Session data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class SessionEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Session fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class SessionEntity
   
 
   
+  # List Session items matching the given filter.
+  #
+  # @param reqmatch [SessionListMatch, Hash, nil] match filter (any subset of Session fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Session>, Array] the matching Session items; raises ParlamentOpenDataError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

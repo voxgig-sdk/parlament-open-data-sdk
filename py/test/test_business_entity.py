@@ -50,8 +50,7 @@ class TestBusinessEntity:
         business_ref01_ent = client.Business(None)
         business_ref01_match = {}
 
-        business_ref01_list_result, err = business_ref01_ent.list(business_ref01_match, None)
-        assert err is None
+        business_ref01_list_result = business_ref01_ent.list(business_ref01_match, None)
         assert isinstance(business_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _business_basic_setup(extra):
         "PARLAMENTOPENDATA_TEST_BUSINESS_ENTID": idmap,
         "PARLAMENTOPENDATA_TEST_LIVE": "FALSE",
         "PARLAMENTOPENDATA_TEST_EXPLAIN": "FALSE",
-        "PARLAMENTOPENDATA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _business_basic_setup(extra):
     if env.get("PARLAMENTOPENDATA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("PARLAMENTOPENDATA_APIKEY"),
             },
             extra or {},
         ])

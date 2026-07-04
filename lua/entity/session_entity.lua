@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch SessionListMatch
+---@param ctrl? table
+---@return Session[]
+---@return string? err
 function SessionEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

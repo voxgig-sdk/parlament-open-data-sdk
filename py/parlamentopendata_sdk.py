@@ -144,16 +144,23 @@ class ParlamentOpenDataSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class ParlamentOpenDataSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,25 +212,58 @@ class ParlamentOpenDataSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def business(self):
+        """Idiomatic facade: client.business.list() / client.business.load({"id": ...})."""
+        from entity.business_entity import BusinessEntity
+        cached = getattr(self, "_business", None)
+        if cached is None:
+            cached = BusinessEntity(self, None)
+            self._business = cached
+        return cached
 
     def Business(self, data=None):
+        # Deprecated: use client.business instead.
         from entity.business_entity import BusinessEntity
         return BusinessEntity(self, data)
 
 
+    @property
+    def member(self):
+        """Idiomatic facade: client.member.list() / client.member.load({"id": ...})."""
+        from entity.member_entity import MemberEntity
+        cached = getattr(self, "_member", None)
+        if cached is None:
+            cached = MemberEntity(self, None)
+            self._member = cached
+        return cached
+
     def Member(self, data=None):
+        # Deprecated: use client.member instead.
         from entity.member_entity import MemberEntity
         return MemberEntity(self, data)
 
 
+    @property
+    def session(self):
+        """Idiomatic facade: client.session.list() / client.session.load({"id": ...})."""
+        from entity.session_entity import SessionEntity
+        cached = getattr(self, "_session", None)
+        if cached is None:
+            cached = SessionEntity(self, None)
+            self._session = cached
+        return cached
+
     def Session(self, data=None):
+        # Deprecated: use client.session instead.
         from entity.session_entity import SessionEntity
         return SessionEntity(self, data)
 

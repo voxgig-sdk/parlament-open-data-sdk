@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch BusinessListMatch
+---@param ctrl? table
+---@return Business[]
+---@return string? err
 function BusinessEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

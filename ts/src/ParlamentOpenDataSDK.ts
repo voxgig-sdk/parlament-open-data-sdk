@@ -4,6 +4,8 @@ import { BusinessEntity } from './entity/BusinessEntity'
 import { MemberEntity } from './entity/MemberEntity'
 import { SessionEntity } from './entity/SessionEntity'
 
+export type * from './ParlamentOpenDataTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -204,18 +206,42 @@ class ParlamentOpenDataSDK {
 
 
 
+  _business?: BusinessEntity
+
+  // Idiomatic facade: `client.business.list()` / `client.business.load({ id })`.
+  get business(): BusinessEntity {
+    return (this._business ??= new BusinessEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.business` instead. */
   Business(data?: any) {
     const self = this
     return new BusinessEntity(self,data)
   }
 
 
+  _member?: MemberEntity
+
+  // Idiomatic facade: `client.member.list()` / `client.member.load({ id })`.
+  get member(): MemberEntity {
+    return (this._member ??= new MemberEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.member` instead. */
   Member(data?: any) {
     const self = this
     return new MemberEntity(self,data)
   }
 
 
+  _session?: SessionEntity
+
+  // Idiomatic facade: `client.session.list()` / `client.session.load({ id })`.
+  get session(): SessionEntity {
+    return (this._session ??= new SessionEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.session` instead. */
   Session(data?: any) {
     const self = this
     return new SessionEntity(self,data)

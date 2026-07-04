@@ -50,8 +50,7 @@ class SessionEntityTest extends TestCase
         $session_ref01_ent = $client->Session(null);
         $session_ref01_match = [];
 
-        [$session_ref01_list_result, $err] = $session_ref01_ent->list($session_ref01_match, null);
-        $this->assertNull($err);
+        $session_ref01_list_result = $session_ref01_ent->list($session_ref01_match, null);
         $this->assertIsArray($session_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function session_basic_setup($extra)
         "PARLAMENTOPENDATA_TEST_SESSION_ENTID" => $idmap,
         "PARLAMENTOPENDATA_TEST_LIVE" => "FALSE",
         "PARLAMENTOPENDATA_TEST_EXPLAIN" => "FALSE",
-        "PARLAMENTOPENDATA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function session_basic_setup($extra)
     if ($env["PARLAMENTOPENDATA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["PARLAMENTOPENDATA_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -20,9 +20,6 @@ class ParlamentOpenDataConfig
             ],
             "options" => [
                 "base" => "https://ws-old.parlament.ch",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
