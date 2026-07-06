@@ -45,7 +45,7 @@ Business = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Business#list (any subset of Business fields).
+# Request payload for Business#list.
 #
 # @!attribute [rw] author
 #   @return [String, nil]
@@ -127,7 +127,7 @@ Member = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Member#list (any subset of Member fields).
+# Request payload for Member#list.
 #
 # @!attribute [rw] active
 #   @return [Boolean, nil]
@@ -205,7 +205,7 @@ Session = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Session#list (any subset of Session fields).
+# Request payload for Session#list.
 #
 # @!attribute [rw] abbreviation
 #   @return [String, nil]

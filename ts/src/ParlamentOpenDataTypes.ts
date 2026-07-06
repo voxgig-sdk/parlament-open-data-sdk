@@ -16,7 +16,16 @@ export interface Business {
   type?: string
 }
 
-export type BusinessListMatch = Partial<Business>
+export interface BusinessListMatch {
+  author?: string
+  council?: string
+  description?: string
+  id?: number
+  state?: string
+  submission_date?: string
+  title?: string
+  type?: string
+}
 
 export interface Member {
   active?: boolean
@@ -31,7 +40,18 @@ export interface Member {
   title?: string
 }
 
-export type MemberListMatch = Partial<Member>
+export interface MemberListMatch {
+  active?: boolean
+  canton?: string
+  council?: string
+  entry_date?: string
+  first_name?: string
+  id?: number
+  last_name?: string
+  leaving_date?: string
+  party?: string
+  title?: string
+}
 
 export interface Session {
   abbreviation?: string
@@ -43,5 +63,13 @@ export interface Session {
   type?: string
 }
 
-export type SessionListMatch = Partial<Session>
+export interface SessionListMatch {
+  abbreviation?: string
+  end_date?: string
+  id?: number
+  name?: string
+  start_date?: string
+  state?: string
+  type?: string
+}
 

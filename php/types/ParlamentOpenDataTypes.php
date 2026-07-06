@@ -25,7 +25,7 @@ class Business
     public ?string $type = null;
 }
 
-/** Match filter for Business#list (any subset of Business fields). */
+/** Request payload for Business#list. */
 class BusinessListMatch
 {
     public ?string $author = null;
@@ -53,7 +53,7 @@ class Member
     public ?string $title = null;
 }
 
-/** Match filter for Member#list (any subset of Member fields). */
+/** Request payload for Member#list. */
 class MemberListMatch
 {
     public ?bool $active = null;
@@ -80,7 +80,7 @@ class Session
     public ?string $type = null;
 }
 
-/** Match filter for Session#list (any subset of Session fields). */
+/** Request payload for Session#list. */
 class SessionListMatch
 {
     public ?string $abbreviation = null;

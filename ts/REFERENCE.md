@@ -140,14 +140,14 @@ const business = client.Business()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | No |  |
-| `council` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `submission_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `string` | No |  |
+| `council` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `number` | No |  |
+| `state` | `string` | No |  |
+| `submission_date` | `string` | No |  |
+| `title` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -197,16 +197,16 @@ const member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | ``$BOOLEAN`` | No |  |
-| `canton` | ``$STRING`` | No |  |
-| `council` | ``$STRING`` | No |  |
-| `entry_date` | ``$STRING`` | No |  |
-| `first_name` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_name` | ``$STRING`` | No |  |
-| `leaving_date` | ``$STRING`` | No |  |
-| `party` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `active` | `boolean` | No |  |
+| `canton` | `string` | No |  |
+| `council` | `string` | No |  |
+| `entry_date` | `string` | No |  |
+| `first_name` | `string` | No |  |
+| `id` | `number` | No |  |
+| `last_name` | `string` | No |  |
+| `leaving_date` | `string` | No |  |
+| `party` | `string` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
@@ -256,13 +256,13 @@ const session = client.Session()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abbreviation` | ``$STRING`` | No |  |
-| `end_date` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `start_date` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `abbreviation` | `string` | No |  |
+| `end_date` | `string` | No |  |
+| `id` | `number` | No |  |
+| `name` | `string` | No |  |
+| `start_date` | `string` | No |  |
+| `state` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

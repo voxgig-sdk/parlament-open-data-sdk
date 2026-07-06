@@ -8,7 +8,7 @@ Complete API reference for the ParlamentOpenData Python SDK.
 ### Constructor
 
 ```python
-from parlament-open-data_sdk import ParlamentOpenDataSDK
+from parlamentopendata_sdk import ParlamentOpenDataSDK
 
 client = ParlamentOpenDataSDK(options)
 ```
@@ -95,23 +95,23 @@ business = client.Business()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | No |  |
-| `council` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `submission_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `str` | No |  |
+| `council` | `str` | No |  |
+| `description` | `str` | No |  |
+| `id` | `int` | No |  |
+| `state` | `str` | No |  |
+| `submission_date` | `str` | No |  |
+| `title` | `str` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Business().list({})
+results = client.Business().list()
 for business in results:
     print(business)
 ```
@@ -155,25 +155,25 @@ member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | ``$BOOLEAN`` | No |  |
-| `canton` | ``$STRING`` | No |  |
-| `council` | ``$STRING`` | No |  |
-| `entry_date` | ``$STRING`` | No |  |
-| `first_name` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_name` | ``$STRING`` | No |  |
-| `leaving_date` | ``$STRING`` | No |  |
-| `party` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `active` | `bool` | No |  |
+| `canton` | `str` | No |  |
+| `council` | `str` | No |  |
+| `entry_date` | `str` | No |  |
+| `first_name` | `str` | No |  |
+| `id` | `int` | No |  |
+| `last_name` | `str` | No |  |
+| `leaving_date` | `str` | No |  |
+| `party` | `str` | No |  |
+| `title` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Member().list({})
+results = client.Member().list()
 for member in results:
     print(member)
 ```
@@ -217,22 +217,22 @@ session = client.Session()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abbreviation` | ``$STRING`` | No |  |
-| `end_date` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `start_date` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `abbreviation` | `str` | No |  |
+| `end_date` | `str` | No |  |
+| `id` | `int` | No |  |
+| `name` | `str` | No |  |
+| `start_date` | `str` | No |  |
+| `state` | `str` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Session().list({})
+results = client.Session().list()
 for session in results:
     print(session)
 ```

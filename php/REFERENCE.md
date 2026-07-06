@@ -8,7 +8,7 @@ Complete API reference for the ParlamentOpenData PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/parlament-open-data_sdk.php';
+require_once __DIR__ . '/parlamentopendata_sdk.php';
 
 $client = new ParlamentOpenDataSDK($options);
 ```
@@ -53,11 +53,11 @@ Create a new `MemberEntity` instance. Pass `null` for no initial data.
 
 Create a new `SessionEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): ParlamentOpenDataUtility`
 
 Return a copy of the SDK utility object.
 
@@ -100,40 +100,40 @@ $business = $client->Business();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | No |  |
-| `council` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `submission_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `string` | No |  |
+| `council` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `int` | No |  |
+| `state` | `string` | No |  |
+| `submission_date` | `string` | No |  |
+| `title` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Business()->list([]);
+$results = $client->Business()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -142,7 +142,7 @@ Set the entity match criteria.
 Create a new `BusinessEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -159,42 +159,42 @@ $member = $client->Member();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | ``$BOOLEAN`` | No |  |
-| `canton` | ``$STRING`` | No |  |
-| `council` | ``$STRING`` | No |  |
-| `entry_date` | ``$STRING`` | No |  |
-| `first_name` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_name` | ``$STRING`` | No |  |
-| `leaving_date` | ``$STRING`` | No |  |
-| `party` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `active` | `bool` | No |  |
+| `canton` | `string` | No |  |
+| `council` | `string` | No |  |
+| `entry_date` | `string` | No |  |
+| `first_name` | `string` | No |  |
+| `id` | `int` | No |  |
+| `last_name` | `string` | No |  |
+| `leaving_date` | `string` | No |  |
+| `party` | `string` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Member()->list([]);
+$results = $client->Member()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -203,7 +203,7 @@ Set the entity match criteria.
 Create a new `MemberEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -220,39 +220,39 @@ $session = $client->Session();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abbreviation` | ``$STRING`` | No |  |
-| `end_date` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `start_date` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `abbreviation` | `string` | No |  |
+| `end_date` | `string` | No |  |
+| `id` | `int` | No |  |
+| `name` | `string` | No |  |
+| `start_date` | `string` | No |  |
+| `state` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Session()->list([]);
+$results = $client->Session()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -261,7 +261,7 @@ Set the entity match criteria.
 Create a new `SessionEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

@@ -221,19 +221,19 @@ class ParlamentOpenDataSDK:
 
 
     def Business(self, data=None) -> "BusinessEntity":
-        """Entity factory: client.Business().list({}) / client.Business().load({"id": ...})."""
+        """Entity factory: client.Business().list() / client.Business().load({"id": ...})."""
         from entity.business_entity import BusinessEntity
         return BusinessEntity(self, data)
 
 
     def Member(self, data=None) -> "MemberEntity":
-        """Entity factory: client.Member().list({}) / client.Member().load({"id": ...})."""
+        """Entity factory: client.Member().list() / client.Member().load({"id": ...})."""
         from entity.member_entity import MemberEntity
         return MemberEntity(self, data)
 
 
     def Session(self, data=None) -> "SessionEntity":
-        """Entity factory: client.Session().list({}) / client.Session().load({"id": ...})."""
+        """Entity factory: client.Session().list() / client.Session().load({"id": ...})."""
         from entity.session_entity import SessionEntity
         return SessionEntity(self, data)
 

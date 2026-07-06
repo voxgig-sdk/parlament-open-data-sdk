@@ -8,7 +8,7 @@ Complete API reference for the ParlamentOpenData Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'parlament-open-data_sdk'
+require_relative 'ParlamentOpenData_sdk'
 
 client = ParlamentOpenDataSDK.new(options)
 ```
@@ -101,23 +101,23 @@ business = client.Business
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | ``$STRING`` | No |  |
-| `council` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `submission_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `author` | `String` | No |  |
+| `council` | `String` | No |  |
+| `description` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `state` | `String` | No |  |
+| `submission_date` | `String` | No |  |
+| `title` | `String` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Business.list(nil)
+results = client.Business.list
 ```
 
 ### Common Methods
@@ -160,25 +160,25 @@ member = client.Member
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | ``$BOOLEAN`` | No |  |
-| `canton` | ``$STRING`` | No |  |
-| `council` | ``$STRING`` | No |  |
-| `entry_date` | ``$STRING`` | No |  |
-| `first_name` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_name` | ``$STRING`` | No |  |
-| `leaving_date` | ``$STRING`` | No |  |
-| `party` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `active` | `Boolean` | No |  |
+| `canton` | `String` | No |  |
+| `council` | `String` | No |  |
+| `entry_date` | `String` | No |  |
+| `first_name` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `last_name` | `String` | No |  |
+| `leaving_date` | `String` | No |  |
+| `party` | `String` | No |  |
+| `title` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Member.list(nil)
+results = client.Member.list
 ```
 
 ### Common Methods
@@ -221,22 +221,22 @@ session = client.Session
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abbreviation` | ``$STRING`` | No |  |
-| `end_date` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `start_date` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `abbreviation` | `String` | No |  |
+| `end_date` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `name` | `String` | No |  |
+| `start_date` | `String` | No |  |
+| `state` | `String` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Session.list(nil)
+results = client.Session.list
 ```
 
 ### Common Methods

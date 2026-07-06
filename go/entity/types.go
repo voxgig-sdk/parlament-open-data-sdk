@@ -20,8 +20,7 @@ type Business struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// BusinessListMatch mirrors the business fields as an all-optional match
-// filter (Go analog of Partial<Business>).
+// BusinessListMatch is the typed request payload for Business.ListTyped.
 type BusinessListMatch struct {
 	Author *string `json:"author,omitempty"`
 	Council *string `json:"council,omitempty"`
@@ -47,8 +46,7 @@ type Member struct {
 	Title *string `json:"title,omitempty"`
 }
 
-// MemberListMatch mirrors the member fields as an all-optional match
-// filter (Go analog of Partial<Member>).
+// MemberListMatch is the typed request payload for Member.ListTyped.
 type MemberListMatch struct {
 	Active *bool `json:"active,omitempty"`
 	Canton *string `json:"canton,omitempty"`
@@ -73,8 +71,7 @@ type Session struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// SessionListMatch mirrors the session fields as an all-optional match
-// filter (Go analog of Partial<Session>).
+// SessionListMatch is the typed request payload for Session.ListTyped.
 type SessionListMatch struct {
 	Abbreviation *string `json:"abbreviation,omitempty"`
 	EndDate *string `json:"end_date,omitempty"`
