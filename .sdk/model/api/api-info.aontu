@@ -20,10 +20,10 @@ main: {
           url: "https://ws-old.parlament.ch"
         }
       ]
+      summary: "Provides machine-readable data on parliamentary activities in Switzerland, including legislative sessions, council members, and parliamentary proceedings."
       termsOfService: "https://www.parlament.ch/de/%C3%BCber-das-parlament/fakten-und-zahlen/open-data-web-services"
       title: "Parlament Open Data"
       version: "1.0.0"
+      website: "https://www.parlament.ch/de/%C3%BCber-das-parlament/fakten-und-zahlen/open-data-web-services/code-livestream"
     }
   }
-}
-

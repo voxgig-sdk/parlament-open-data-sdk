@@ -99,6 +99,7 @@ same parameters as `Direct()`.
 
 ```go
 business := client.Business(nil)
+fmt.Println(business.GetName()) // "business"
 ```
 
 ### Fields
@@ -122,6 +123,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Business(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -152,6 +157,7 @@ Return the entity name.
 
 ```go
 member := client.Member(nil)
+fmt.Println(member.GetName()) // "member"
 ```
 
 ### Fields
@@ -177,6 +183,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Member(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -207,6 +217,7 @@ Return the entity name.
 
 ```go
 session := client.Session(nil)
+fmt.Println(session.GetName()) // "session"
 ```
 
 ### Fields
@@ -229,6 +240,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Session(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
