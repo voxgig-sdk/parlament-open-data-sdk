@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- ParlamentOpenData SDK exists test
 
 local sdk = require("parlament-open-data_sdk")
 
