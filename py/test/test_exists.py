@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# ParlamentOpenData SDK exists test
 
 import pytest
 from parlamentopendata_sdk import ParlamentOpenDataSDK

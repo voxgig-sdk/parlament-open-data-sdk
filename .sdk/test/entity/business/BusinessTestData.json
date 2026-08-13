@@ -7,7 +7,7 @@
         "description": "s52",
         "id": "BUSINESS00",
         "state": "s54",
-        "submission_date": "s55",
+        "submissionDate": "s55",
         "title": "s56",
         "type": "s57"
       },
@@ -17,7 +17,7 @@
         "description": "sa2",
         "id": "BUSINESS01",
         "state": "sa4",
-        "submission_date": "sa5",
+        "submissionDate": "sa5",
         "title": "sa6",
         "type": "sa7"
       },
@@ -27,7 +27,7 @@
         "description": "sf2",
         "id": "BUSINESS02",
         "state": "sf4",
-        "submission_date": "sf5",
+        "submissionDate": "sf5",
         "title": "sf6",
         "type": "sf7"
       }
@@ -40,7 +40,7 @@
         "council": "s141",
         "description": "s142",
         "state": "s144",
-        "submission_date": "s145",
+        "submissionDate": "s145",
         "title": "s146",
         "type": "s147"
       }

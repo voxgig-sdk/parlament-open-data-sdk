@@ -26,8 +26,8 @@ import {
 describe('BusinessEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when PARLAMENTOPENDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('PARLAMENTOPENDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when PARLAMENT_OPEN_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('PARLAMENT_OPEN_DATA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ParlamentOpenDataSDK.test()
@@ -63,7 +63,7 @@ describe('BusinessEntity', async () => {
     const business_ref01_ent = client.Business()
     const business_ref01_match: any = {}
 
-    const business_ref01_list = await business_ref01_ent.list(business_ref01_match)
+    const business_ref01_list = (await business_ref01_ent.list(business_ref01_match)).map((e: any) => e.data())
 
 
   })

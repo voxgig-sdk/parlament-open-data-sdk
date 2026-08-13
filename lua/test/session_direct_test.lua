@@ -61,11 +61,11 @@ function session_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["PARLAMENTOPENDATA_TEST_SESSION_ENTID"] = {},
-    ["PARLAMENTOPENDATA_TEST_LIVE"] = "FALSE",
+    ["PARLAMENT_OPEN_DATA_TEST_SESSION_ENTID"] = {},
+    ["PARLAMENT_OPEN_DATA_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["PARLAMENTOPENDATA_TEST_LIVE"] == "TRUE"
+  local live = env["PARLAMENT_OPEN_DATA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

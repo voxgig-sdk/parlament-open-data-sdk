@@ -68,12 +68,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-businesss, err := client.Business(nil).List(nil, nil)
+sessions, err := client.Session(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = businesss
+_ = sessions
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-business, err := client.Business(nil).List(
+session, err := client.Session(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(business) // the returned mock data
+fmt.Println(session) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -267,7 +267,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"description"` |  |
 | `"id"` |  |
 | `"state"` |  |
-| `"submission_date"` |  |
+| `"submissionDate"` |  |
 | `"title"` |  |
 | `"type"` |  |
 
@@ -282,11 +282,11 @@ API path: `/affairs`
 | `"active"` |  |
 | `"canton"` |  |
 | `"council"` |  |
-| `"entry_date"` |  |
-| `"first_name"` |  |
+| `"entryDate"` |  |
+| `"firstName"` |  |
 | `"id"` |  |
-| `"last_name"` |  |
-| `"leaving_date"` |  |
+| `"lastName"` |  |
+| `"leavingDate"` |  |
 | `"party"` |  |
 | `"title"` |  |
 
@@ -299,10 +299,10 @@ API path: `/councillors`
 | Field | Description |
 | --- | --- |
 | `"abbreviation"` |  |
-| `"end_date"` |  |
+| `"endDate"` |  |
 | `"id"` |  |
 | `"name"` |  |
-| `"start_date"` |  |
+| `"startDate"` |  |
 | `"state"` |  |
 | `"type"` |  |
 
@@ -334,7 +334,7 @@ Create an instance: `business := client.Business(nil)`
 | `description` | `string` |  |
 | `id` | `int` |  |
 | `state` | `string` |  |
-| `submission_date` | `string` |  |
+| `submissionDate` | `string` |  |
 | `title` | `string` |  |
 | `type` | `string` |  |
 
@@ -366,11 +366,11 @@ Create an instance: `member := client.Member(nil)`
 | `active` | `bool` |  |
 | `canton` | `string` |  |
 | `council` | `string` |  |
-| `entry_date` | `string` |  |
-| `first_name` | `string` |  |
+| `entryDate` | `string` |  |
+| `firstName` | `string` |  |
 | `id` | `int` |  |
-| `last_name` | `string` |  |
-| `leaving_date` | `string` |  |
+| `lastName` | `string` |  |
+| `leavingDate` | `string` |  |
 | `party` | `string` |  |
 | `title` | `string` |  |
 
@@ -400,10 +400,10 @@ Create an instance: `session := client.Session(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `abbreviation` | `string` |  |
-| `end_date` | `string` |  |
+| `endDate` | `string` |  |
 | `id` | `int` |  |
 | `name` | `string` |  |
-| `start_date` | `string` |  |
+| `startDate` | `string` |  |
 | `state` | `string` |  |
 | `type` | `string` |  |
 
@@ -491,11 +491,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-business := client.Business(nil)
-business.List(nil, nil)
+session := client.Session(nil)
+session.List(nil, nil)
 
-// business.Data() now returns the business data from the last list
-// business.Match() returns the last match criteria
+// session.Data() now returns the session data from the last list
+// session.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

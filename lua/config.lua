@@ -63,7 +63,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "submission_date",
+            ["name"] = "submissionDate",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 5,
@@ -137,6 +137,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/affairs",
                 ["parts"] = {
@@ -153,7 +154,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.affairs`",
                 },
                 ["index$"] = 0,
               },
@@ -190,14 +191,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "entry_date",
+            ["name"] = "entryDate",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 3,
           },
           {
             ["active"] = true,
-            ["name"] = "first_name",
+            ["name"] = "firstName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 4,
@@ -211,14 +212,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "last_name",
+            ["name"] = "lastName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 6,
           },
           {
             ["active"] = true,
-            ["name"] = "leaving_date",
+            ["name"] = "leavingDate",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 7,
@@ -284,6 +285,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/councillors",
                 ["parts"] = {
@@ -299,7 +301,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.councillors`",
                 },
                 ["index$"] = 0,
               },
@@ -322,7 +324,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "end_date",
+            ["name"] = "endDate",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
@@ -343,7 +345,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "start_date",
+            ["name"] = "startDate",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 4,
@@ -401,6 +403,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/sessions",
                 ["parts"] = {
@@ -415,7 +418,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.sessions`",
                 },
                 ["index$"] = 0,
               },

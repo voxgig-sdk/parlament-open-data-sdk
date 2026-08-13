@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from parlamentopendata_sdk.utility.voxgig_struct import voxgig_struct as vs
 from parlamentopendata_sdk import ParlamentOpenDataSDK
-from core import helpers
+from parlamentopendata_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _business_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "PARLAMENTOPENDATA_TEST_BUSINESS_ENTID": {},
-        "PARLAMENTOPENDATA_TEST_LIVE": "FALSE",
+        "PARLAMENT_OPEN_DATA_TEST_BUSINESS_ENTID": {},
+        "PARLAMENT_OPEN_DATA_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("PARLAMENTOPENDATA_TEST_LIVE") == "TRUE"
+    live = env.get("PARLAMENT_OPEN_DATA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

@@ -37,7 +37,7 @@ class BusinessEntity extends ParlamentOpenDataEntityBase<Business> {
 
 
 
-  async list(this: any, reqmatch?: BusinessListMatch, ctrl?: Control): Promise<Business[]> {
+  async list(this: any, reqmatch?: BusinessListMatch, ctrl?: Control): Promise<BusinessEntity[]> {
 
     const utility = this._utility
 

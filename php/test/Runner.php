@@ -43,8 +43,8 @@ class ParlamentOpenDataTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('PARLAMENTOPENDATA_TEST_LIVE');
-        $override = self::getenv('PARLAMENTOPENDATA_TEST_OVERRIDE');
+        $live = self::getenv('PARLAMENT_OPEN_DATA_TEST_LIVE');
+        $override = self::getenv('PARLAMENT_OPEN_DATA_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class ParlamentOpenDataTestRunner
             }
         }
 
-        $explain = self::getenv('PARLAMENTOPENDATA_TEST_EXPLAIN');
+        $explain = self::getenv('PARLAMENT_OPEN_DATA_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['PARLAMENTOPENDATA_TEST_EXPLAIN'] = $explain;
+            $m['PARLAMENT_OPEN_DATA_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

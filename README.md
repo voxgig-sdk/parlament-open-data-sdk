@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ParlamentOpenDataSDK.test()
-const businesss = await client.Business().list()
-// businesss is an array of bare Business records populated with mock data
-console.log(businesss)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ParlamentOpenDataSDK.test({
+  entity: {
+    session: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const sessions = await client.Session().list()
+// sessions is an array of Session entities, populated with mock data
+// — call sessions[0].data() for the record itself
+console.log(sessions)
 ```
 
 ### Python
 
 ```python
 client = ParlamentOpenDataSDK.test()
-businesss = client.Business().list()
-print(businesss)
+sessions = client.Session().list()
+print(sessions)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(businesss)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = ParlamentOpenDataSDK::test([
-    "entity" => ["business" => ["test01" => []]],
+    "entity" => ["session" => ["test01" => []]],
 ]);
-$businesss = $client->Business()->list();
+$sessions = $client->Session()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Business(nil).List(
+result, err := client.Session(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Business(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = ParlamentOpenDataSDK.test({
-  "entity" => { "business" => { "test01" => {} } },
+  "entity" => { "session" => { "test01" => {} } },
 })
-businesss = client.Business.list()
+sessions = client.Session.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Business():list()
+local results, err = client:Session():list()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data'
 
 const client = new ParlamentOpenDataSDK()
 
-// List all businesss (returns Business[])
+// List all businesss (returns BusinessEntity[] — .data() for the record)
 const businesss = await client.Business().list()
 for (const business of businesss) {
   console.log(business)
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.parlament.ch](https://www.parlament.ch)
 

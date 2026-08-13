@@ -26,8 +26,8 @@ import {
 describe('SessionEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when PARLAMENTOPENDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('PARLAMENTOPENDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when PARLAMENT_OPEN_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('PARLAMENT_OPEN_DATA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ParlamentOpenDataSDK.test()
@@ -63,7 +63,7 @@ describe('SessionEntity', async () => {
     const session_ref01_ent = client.Session()
     const session_ref01_match: any = {}
 
-    const session_ref01_list = await session_ref01_ent.list(session_ref01_match)
+    const session_ref01_list = (await session_ref01_ent.list(session_ref01_match)).map((e: any) => e.data())
 
 
   })

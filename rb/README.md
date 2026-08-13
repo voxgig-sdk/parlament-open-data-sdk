@@ -51,7 +51,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  businesss = client.Business.list()
+  sessions = client.Session.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -119,9 +119,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = ParlamentOpenDataSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-business = client.Business.list()
-puts business
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+session = client.Session.list()
+puts session
 ```
 
 ### Use a custom fetch function
@@ -243,7 +244,7 @@ returns a result `Hash` with these keys:
 | `description` |  |
 | `id` |  |
 | `state` |  |
-| `submission_date` |  |
+| `submissionDate` |  |
 | `title` |  |
 | `type` |  |
 
@@ -258,11 +259,11 @@ API path: `/affairs`
 | `active` |  |
 | `canton` |  |
 | `council` |  |
-| `entry_date` |  |
-| `first_name` |  |
+| `entryDate` |  |
+| `firstName` |  |
 | `id` |  |
-| `last_name` |  |
-| `leaving_date` |  |
+| `lastName` |  |
+| `leavingDate` |  |
 | `party` |  |
 | `title` |  |
 
@@ -275,10 +276,10 @@ API path: `/councillors`
 | Field | Description |
 | --- | --- |
 | `abbreviation` |  |
-| `end_date` |  |
+| `endDate` |  |
 | `id` |  |
 | `name` |  |
-| `start_date` |  |
+| `startDate` |  |
 | `state` |  |
 | `type` |  |
 
@@ -310,7 +311,7 @@ Create an instance: `business = client.Business`
 | `description` | `String` |  |
 | `id` | `Integer` |  |
 | `state` | `String` |  |
-| `submission_date` | `String` |  |
+| `submissionDate` | `String` |  |
 | `title` | `String` |  |
 | `type` | `String` |  |
 
@@ -339,11 +340,11 @@ Create an instance: `member = client.Member`
 | `active` | `Boolean` |  |
 | `canton` | `String` |  |
 | `council` | `String` |  |
-| `entry_date` | `String` |  |
-| `first_name` | `String` |  |
+| `entryDate` | `String` |  |
+| `firstName` | `String` |  |
 | `id` | `Integer` |  |
-| `last_name` | `String` |  |
-| `leaving_date` | `String` |  |
+| `lastName` | `String` |  |
+| `leavingDate` | `String` |  |
 | `party` | `String` |  |
 | `title` | `String` |  |
 
@@ -370,10 +371,10 @@ Create an instance: `session = client.Session`
 | Field | Type | Description |
 | --- | --- | --- |
 | `abbreviation` | `String` |  |
-| `end_date` | `String` |  |
+| `endDate` | `String` |  |
 | `id` | `Integer` |  |
 | `name` | `String` |  |
-| `start_date` | `String` |  |
+| `startDate` | `String` |  |
 | `state` | `String` |  |
 | `type` | `String` |  |
 
@@ -461,11 +462,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-business = client.Business
-business.list()
+session = client.Session
+session.list()
 
-# business.data_get now returns the business data from the last list
-# business.match_get returns the last match criteria
+# session.data_get now returns the session data from the last list
+# session.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

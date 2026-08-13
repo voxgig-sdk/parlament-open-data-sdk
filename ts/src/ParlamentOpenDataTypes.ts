@@ -11,7 +11,7 @@ export interface Business {
   description?: string
   id?: number
   state?: string
-  submission_date?: string
+  submissionDate?: string
   title?: string
   type?: string
 }
@@ -22,7 +22,7 @@ export interface BusinessListMatch {
   description?: string
   id?: number
   state?: string
-  submission_date?: string
+  submissionDate?: string
   title?: string
   type?: string
 }
@@ -31,11 +31,11 @@ export interface Member {
   active?: boolean
   canton?: string
   council?: string
-  entry_date?: string
-  first_name?: string
+  entryDate?: string
+  firstName?: string
   id?: number
-  last_name?: string
-  leaving_date?: string
+  lastName?: string
+  leavingDate?: string
   party?: string
   title?: string
 }
@@ -44,31 +44,31 @@ export interface MemberListMatch {
   active?: boolean
   canton?: string
   council?: string
-  entry_date?: string
-  first_name?: string
+  entryDate?: string
+  firstName?: string
   id?: number
-  last_name?: string
-  leaving_date?: string
+  lastName?: string
+  leavingDate?: string
   party?: string
   title?: string
 }
 
 export interface Session {
   abbreviation?: string
-  end_date?: string
+  endDate?: string
   id?: number
   name?: string
-  start_date?: string
+  startDate?: string
   state?: string
   type?: string
 }
 
 export interface SessionListMatch {
   abbreviation?: string
-  end_date?: string
+  endDate?: string
   id?: number
   name?: string
-  start_date?: string
+  startDate?: string
   state?: string
   type?: string
 }

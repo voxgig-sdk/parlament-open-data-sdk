@@ -111,7 +111,7 @@ fmt.Println(business.GetName()) // "business"
 | `description` | `string` | No |  |
 | `id` | `int` | No |  |
 | `state` | `string` | No |  |
-| `submission_date` | `string` | No |  |
+| `submissionDate` | `string` | No |  |
 | `title` | `string` | No |  |
 | `type` | `string` | No |  |
 
@@ -167,11 +167,11 @@ fmt.Println(member.GetName()) // "member"
 | `active` | `bool` | No |  |
 | `canton` | `string` | No |  |
 | `council` | `string` | No |  |
-| `entry_date` | `string` | No |  |
-| `first_name` | `string` | No |  |
+| `entryDate` | `string` | No |  |
+| `firstName` | `string` | No |  |
 | `id` | `int` | No |  |
-| `last_name` | `string` | No |  |
-| `leaving_date` | `string` | No |  |
+| `lastName` | `string` | No |  |
+| `leavingDate` | `string` | No |  |
 | `party` | `string` | No |  |
 | `title` | `string` | No |  |
 
@@ -225,10 +225,10 @@ fmt.Println(session.GetName()) // "session"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `abbreviation` | `string` | No |  |
-| `end_date` | `string` | No |  |
+| `endDate` | `string` | No |  |
 | `id` | `int` | No |  |
 | `name` | `string` | No |  |
-| `start_date` | `string` | No |  |
+| `startDate` | `string` | No |  |
 | `state` | `string` | No |  |
 | `type` | `string` | No |  |
 

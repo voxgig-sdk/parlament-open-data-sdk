@@ -57,8 +57,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    businesss = client.Business().list()
-    print(businesss)
+    sessions = client.Session().list()
+    print(sessions)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -124,9 +124,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ParlamentOpenDataSDK.test()
 
-# Entity ops return the bare record and raise on error.
-business = client.Business().list()
-# business contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+session = client.Session().list()
+# session contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -249,7 +250,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `description` |  |
 | `id` |  |
 | `state` |  |
-| `submission_date` |  |
+| `submissionDate` |  |
 | `title` |  |
 | `type` |  |
 
@@ -264,11 +265,11 @@ API path: `/affairs`
 | `active` |  |
 | `canton` |  |
 | `council` |  |
-| `entry_date` |  |
-| `first_name` |  |
+| `entryDate` |  |
+| `firstName` |  |
 | `id` |  |
-| `last_name` |  |
-| `leaving_date` |  |
+| `lastName` |  |
+| `leavingDate` |  |
 | `party` |  |
 | `title` |  |
 
@@ -281,10 +282,10 @@ API path: `/councillors`
 | Field | Description |
 | --- | --- |
 | `abbreviation` |  |
-| `end_date` |  |
+| `endDate` |  |
 | `id` |  |
 | `name` |  |
-| `start_date` |  |
+| `startDate` |  |
 | `state` |  |
 | `type` |  |
 
@@ -316,7 +317,7 @@ Create an instance: `business = client.Business()`
 | `description` | `str` |  |
 | `id` | `int` |  |
 | `state` | `str` |  |
-| `submission_date` | `str` |  |
+| `submissionDate` | `str` |  |
 | `title` | `str` |  |
 | `type` | `str` |  |
 
@@ -344,11 +345,11 @@ Create an instance: `member = client.Member()`
 | `active` | `bool` |  |
 | `canton` | `str` |  |
 | `council` | `str` |  |
-| `entry_date` | `str` |  |
-| `first_name` | `str` |  |
+| `entryDate` | `str` |  |
+| `firstName` | `str` |  |
 | `id` | `int` |  |
-| `last_name` | `str` |  |
-| `leaving_date` | `str` |  |
+| `lastName` | `str` |  |
+| `leavingDate` | `str` |  |
 | `party` | `str` |  |
 | `title` | `str` |  |
 
@@ -374,10 +375,10 @@ Create an instance: `session = client.Session()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `abbreviation` | `str` |  |
-| `end_date` | `str` |  |
+| `endDate` | `str` |  |
 | `id` | `int` |  |
 | `name` | `str` |  |
-| `start_date` | `str` |  |
+| `startDate` | `str` |  |
 | `state` | `str` |  |
 | `type` | `str` |  |
 
@@ -463,11 +464,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-business = client.Business()
-business.list()
+session = client.Session()
+session.list()
 
-# business.data_get() now returns the business data from the last list
-# business.match_get() returns the last match criteria
+# session.data_get() now returns the session data from the last list
+# session.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

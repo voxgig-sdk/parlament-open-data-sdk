@@ -25,7 +25,7 @@
 # @!attribute [rw] state
 #   @return [String, nil]
 #
-# @!attribute [rw] submission_date
+# @!attribute [rw] submissionDate
 #   @return [String, nil]
 #
 # @!attribute [rw] title
@@ -39,7 +39,7 @@ Business = Struct.new(
   :description,
   :id,
   :state,
-  :submission_date,
+  :submissionDate,
   :title,
   :type,
   keyword_init: true
@@ -62,7 +62,7 @@ Business = Struct.new(
 # @!attribute [rw] state
 #   @return [String, nil]
 #
-# @!attribute [rw] submission_date
+# @!attribute [rw] submissionDate
 #   @return [String, nil]
 #
 # @!attribute [rw] title
@@ -76,7 +76,7 @@ BusinessListMatch = Struct.new(
   :description,
   :id,
   :state,
-  :submission_date,
+  :submissionDate,
   :title,
   :type,
   keyword_init: true
@@ -93,19 +93,19 @@ BusinessListMatch = Struct.new(
 # @!attribute [rw] council
 #   @return [String, nil]
 #
-# @!attribute [rw] entry_date
+# @!attribute [rw] entryDate
 #   @return [String, nil]
 #
-# @!attribute [rw] first_name
+# @!attribute [rw] firstName
 #   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] last_name
+# @!attribute [rw] lastName
 #   @return [String, nil]
 #
-# @!attribute [rw] leaving_date
+# @!attribute [rw] leavingDate
 #   @return [String, nil]
 #
 # @!attribute [rw] party
@@ -117,11 +117,11 @@ Member = Struct.new(
   :active,
   :canton,
   :council,
-  :entry_date,
-  :first_name,
+  :entryDate,
+  :firstName,
   :id,
-  :last_name,
-  :leaving_date,
+  :lastName,
+  :leavingDate,
   :party,
   :title,
   keyword_init: true
@@ -138,19 +138,19 @@ Member = Struct.new(
 # @!attribute [rw] council
 #   @return [String, nil]
 #
-# @!attribute [rw] entry_date
+# @!attribute [rw] entryDate
 #   @return [String, nil]
 #
-# @!attribute [rw] first_name
+# @!attribute [rw] firstName
 #   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] last_name
+# @!attribute [rw] lastName
 #   @return [String, nil]
 #
-# @!attribute [rw] leaving_date
+# @!attribute [rw] leavingDate
 #   @return [String, nil]
 #
 # @!attribute [rw] party
@@ -162,11 +162,11 @@ MemberListMatch = Struct.new(
   :active,
   :canton,
   :council,
-  :entry_date,
-  :first_name,
+  :entryDate,
+  :firstName,
   :id,
-  :last_name,
-  :leaving_date,
+  :lastName,
+  :leavingDate,
   :party,
   :title,
   keyword_init: true
@@ -177,7 +177,7 @@ MemberListMatch = Struct.new(
 # @!attribute [rw] abbreviation
 #   @return [String, nil]
 #
-# @!attribute [rw] end_date
+# @!attribute [rw] endDate
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -186,7 +186,7 @@ MemberListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] start_date
+# @!attribute [rw] startDate
 #   @return [String, nil]
 #
 # @!attribute [rw] state
@@ -196,10 +196,10 @@ MemberListMatch = Struct.new(
 #   @return [String, nil]
 Session = Struct.new(
   :abbreviation,
-  :end_date,
+  :endDate,
   :id,
   :name,
-  :start_date,
+  :startDate,
   :state,
   :type,
   keyword_init: true
@@ -210,7 +210,7 @@ Session = Struct.new(
 # @!attribute [rw] abbreviation
 #   @return [String, nil]
 #
-# @!attribute [rw] end_date
+# @!attribute [rw] endDate
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -219,7 +219,7 @@ Session = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] start_date
+# @!attribute [rw] startDate
 #   @return [String, nil]
 #
 # @!attribute [rw] state
@@ -229,10 +229,10 @@ Session = Struct.new(
 #   @return [String, nil]
 SessionListMatch = Struct.new(
   :abbreviation,
-  :end_date,
+  :endDate,
   :id,
   :name,
-  :start_date,
+  :startDate,
   :state,
   :type,
   keyword_init: true

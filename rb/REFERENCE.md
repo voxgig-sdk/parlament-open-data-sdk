@@ -106,7 +106,7 @@ business = client.Business
 | `description` | `String` | No |  |
 | `id` | `Integer` | No |  |
 | `state` | `String` | No |  |
-| `submission_date` | `String` | No |  |
+| `submissionDate` | `String` | No |  |
 | `title` | `String` | No |  |
 | `type` | `String` | No |  |
 
@@ -163,11 +163,11 @@ member = client.Member
 | `active` | `Boolean` | No |  |
 | `canton` | `String` | No |  |
 | `council` | `String` | No |  |
-| `entry_date` | `String` | No |  |
-| `first_name` | `String` | No |  |
+| `entryDate` | `String` | No |  |
+| `firstName` | `String` | No |  |
 | `id` | `Integer` | No |  |
-| `last_name` | `String` | No |  |
-| `leaving_date` | `String` | No |  |
+| `lastName` | `String` | No |  |
+| `leavingDate` | `String` | No |  |
 | `party` | `String` | No |  |
 | `title` | `String` | No |  |
 
@@ -222,10 +222,10 @@ session = client.Session
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `abbreviation` | `String` | No |  |
-| `end_date` | `String` | No |  |
+| `endDate` | `String` | No |  |
 | `id` | `Integer` | No |  |
 | `name` | `String` | No |  |
-| `start_date` | `String` | No |  |
+| `startDate` | `String` | No |  |
 | `state` | `String` | No |  |
 | `type` | `String` | No |  |
 

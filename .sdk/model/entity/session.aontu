@@ -11,7 +11,7 @@ main: kit: entity: session: {
       type: "`$STRING`"
     }
     {
-      name: "end_date"
+      name: "endDate"
       req: false
       type: "`$STRING`"
     }
@@ -26,7 +26,7 @@ main: kit: entity: session: {
       type: "`$STRING`"
     }
     {
-      name: "start_date"
+      name: "startDate"
       req: false
       type: "`$STRING`"
     }
@@ -94,7 +94,7 @@ main: kit: entity: session: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.sessions`"
           }
         }
       ]

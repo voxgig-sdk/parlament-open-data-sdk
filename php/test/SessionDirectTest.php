@@ -66,11 +66,11 @@ function session_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "PARLAMENTOPENDATA_TEST_SESSION_ENTID" => [],
-        "PARLAMENTOPENDATA_TEST_LIVE" => "FALSE",
+        "PARLAMENT_OPEN_DATA_TEST_SESSION_ENTID" => [],
+        "PARLAMENT_OPEN_DATA_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["PARLAMENTOPENDATA_TEST_LIVE"] === "TRUE";
+    $live = $env["PARLAMENT_OPEN_DATA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

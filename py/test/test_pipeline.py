@@ -16,11 +16,11 @@
 import pytest
 
 from parlamentopendata_sdk import ParlamentOpenDataSDK
-from core.error import ParlamentOpenDataError
-from core.result import ParlamentOpenDataResult
-from core.response import ParlamentOpenDataResponse
-from core.spec import ParlamentOpenDataSpec
-from feature.base_feature import ParlamentOpenDataBaseFeature
+from parlamentopendata_sdk.core.error import ParlamentOpenDataError
+from parlamentopendata_sdk.core.result import ParlamentOpenDataResult
+from parlamentopendata_sdk.core.response import ParlamentOpenDataResponse
+from parlamentopendata_sdk.core.spec import ParlamentOpenDataSpec
+from parlamentopendata_sdk.feature.base_feature import ParlamentOpenDataBaseFeature
 
 
 def _client():

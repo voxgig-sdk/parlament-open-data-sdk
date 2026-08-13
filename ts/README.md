@@ -35,7 +35,9 @@ const client = new ParlamentOpenDataSDK()
 
 ### 2. List business records
 
-`list()` resolves to an array of Business objects — iterate it directly:
+`list()` resolves to an array of Business ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const businesss = await client.Business().list()
@@ -52,8 +54,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const businesss = await client.Business().list()
-  console.log(businesss)
+  const sessions = await client.Session().list()
+  console.log(sessions)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -119,9 +121,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ParlamentOpenDataSDK.test()
 
-const business = await client.Business().list()
-// business is a bare entity populated with mock response data
-console.log(business)
+const session = await client.Session().list()
+// session is the entity, populated with mock response data
+// — call session.data() for the record itself
+console.log(session)
 ```
 
 You can also use the instance method:
@@ -136,7 +139,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Business()
+const entity = client.Session()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -291,7 +294,7 @@ The `prepare()` method returns:
 | `description` |  |
 | `id` |  |
 | `state` |  |
-| `submission_date` |  |
+| `submissionDate` |  |
 | `title` |  |
 | `type` |  |
 
@@ -306,11 +309,11 @@ API path: `/affairs`
 | `active` |  |
 | `canton` |  |
 | `council` |  |
-| `entry_date` |  |
-| `first_name` |  |
+| `entryDate` |  |
+| `firstName` |  |
 | `id` |  |
-| `last_name` |  |
-| `leaving_date` |  |
+| `lastName` |  |
+| `leavingDate` |  |
 | `party` |  |
 | `title` |  |
 
@@ -323,10 +326,10 @@ API path: `/councillors`
 | Field | Description |
 | --- | --- |
 | `abbreviation` |  |
-| `end_date` |  |
+| `endDate` |  |
 | `id` |  |
 | `name` |  |
-| `start_date` |  |
+| `startDate` |  |
 | `state` |  |
 | `type` |  |
 
@@ -358,7 +361,7 @@ Create an instance: `const business = client.Business()`
 | `description` | `string` |  |
 | `id` | `number` |  |
 | `state` | `string` |  |
-| `submission_date` | `string` |  |
+| `submissionDate` | `string` |  |
 | `title` | `string` |  |
 | `type` | `string` |  |
 
@@ -386,11 +389,11 @@ Create an instance: `const member = client.Member()`
 | `active` | `boolean` |  |
 | `canton` | `string` |  |
 | `council` | `string` |  |
-| `entry_date` | `string` |  |
-| `first_name` | `string` |  |
+| `entryDate` | `string` |  |
+| `firstName` | `string` |  |
 | `id` | `number` |  |
-| `last_name` | `string` |  |
-| `leaving_date` | `string` |  |
+| `lastName` | `string` |  |
+| `leavingDate` | `string` |  |
 | `party` | `string` |  |
 | `title` | `string` |  |
 
@@ -416,10 +419,10 @@ Create an instance: `const session = client.Session()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `abbreviation` | `string` |  |
-| `end_date` | `string` |  |
+| `endDate` | `string` |  |
 | `id` | `number` |  |
 | `name` | `string` |  |
-| `start_date` | `string` |  |
+| `startDate` | `string` |  |
 | `state` | `string` |  |
 | `type` | `string` |  |
 
@@ -499,11 +502,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const business = client.Business()
-await business.list()
+const session = client.Session()
+await session.list()
 
-// business.data() now returns the business data from the last `list`
-// business.match() returns the last match criteria
+// session.data() now returns the session data from the last `list`
+// session.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

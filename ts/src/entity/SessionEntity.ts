@@ -37,7 +37,7 @@ class SessionEntity extends ParlamentOpenDataEntityBase<Session> {
 
 
 
-  async list(this: any, reqmatch?: SessionListMatch, ctrl?: Control): Promise<Session[]> {
+  async list(this: any, reqmatch?: SessionListMatch, ctrl?: Control): Promise<SessionEntity[]> {
 
     const utility = this._utility
 

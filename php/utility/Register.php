@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ ParlamentOpenDataUtility::setRegistrar(function (ParlamentOpenDataUtility $u): v
     $u->prepare_params = [ParlamentOpenDataPrepareParams::class, 'call'];
     $u->prepare_path = [ParlamentOpenDataPreparePath::class, 'call'];
     $u->prepare_query = [ParlamentOpenDataPrepareQuery::class, 'call'];
+    $u->graphql_body = [ParlamentOpenDataGraphql::class, 'body'];
+    $u->graphql_errors = [ParlamentOpenDataGraphql::class, 'errors'];
     $u->result_basic = [ParlamentOpenDataResultBasic::class, 'call'];
     $u->result_body = [ParlamentOpenDataResultBody::class, 'call'];
     $u->result_headers = [ParlamentOpenDataResultHeaders::class, 'call'];

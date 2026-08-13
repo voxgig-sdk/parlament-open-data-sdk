@@ -8,18 +8,21 @@ guide: {
   entity: business: {
     path: "/affairs": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.affairs`")|top
     }
   }
 
   entity: member: {
     path: "/councillors": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.councillors`")|top
     }
   }
 
   entity: session: {
     path: "/sessions": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.sessions`")|top
     }
   }
 

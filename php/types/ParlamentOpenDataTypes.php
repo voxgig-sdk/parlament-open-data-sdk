@@ -20,7 +20,7 @@ class Business
     public ?string $description = null;
     public ?int $id = null;
     public ?string $state = null;
-    public ?string $submission_date = null;
+    public ?string $submissionDate = null;
     public ?string $title = null;
     public ?string $type = null;
 }
@@ -33,7 +33,7 @@ class BusinessListMatch
     public ?string $description = null;
     public ?int $id = null;
     public ?string $state = null;
-    public ?string $submission_date = null;
+    public ?string $submissionDate = null;
     public ?string $title = null;
     public ?string $type = null;
 }
@@ -44,11 +44,11 @@ class Member
     public ?bool $active = null;
     public ?string $canton = null;
     public ?string $council = null;
-    public ?string $entry_date = null;
-    public ?string $first_name = null;
+    public ?string $entryDate = null;
+    public ?string $firstName = null;
     public ?int $id = null;
-    public ?string $last_name = null;
-    public ?string $leaving_date = null;
+    public ?string $lastName = null;
+    public ?string $leavingDate = null;
     public ?string $party = null;
     public ?string $title = null;
 }
@@ -59,11 +59,11 @@ class MemberListMatch
     public ?bool $active = null;
     public ?string $canton = null;
     public ?string $council = null;
-    public ?string $entry_date = null;
-    public ?string $first_name = null;
+    public ?string $entryDate = null;
+    public ?string $firstName = null;
     public ?int $id = null;
-    public ?string $last_name = null;
-    public ?string $leaving_date = null;
+    public ?string $lastName = null;
+    public ?string $leavingDate = null;
     public ?string $party = null;
     public ?string $title = null;
 }
@@ -72,10 +72,10 @@ class MemberListMatch
 class Session
 {
     public ?string $abbreviation = null;
-    public ?string $end_date = null;
+    public ?string $endDate = null;
     public ?int $id = null;
     public ?string $name = null;
-    public ?string $start_date = null;
+    public ?string $startDate = null;
     public ?string $state = null;
     public ?string $type = null;
 }
@@ -84,10 +84,10 @@ class Session
 class SessionListMatch
 {
     public ?string $abbreviation = null;
-    public ?string $end_date = null;
+    public ?string $endDate = null;
     public ?int $id = null;
     public ?string $name = null;
-    public ?string $start_date = null;
+    public ?string $startDate = null;
     public ?string $state = null;
     public ?string $type = null;
 }

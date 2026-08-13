@@ -145,7 +145,7 @@ const business = client.Business()
 | `description` | `string` | No |  |
 | `id` | `number` | No |  |
 | `state` | `string` | No |  |
-| `submission_date` | `string` | No |  |
+| `submissionDate` | `string` | No |  |
 | `title` | `string` | No |  |
 | `type` | `string` | No |  |
 
@@ -200,11 +200,11 @@ const member = client.Member()
 | `active` | `boolean` | No |  |
 | `canton` | `string` | No |  |
 | `council` | `string` | No |  |
-| `entry_date` | `string` | No |  |
-| `first_name` | `string` | No |  |
+| `entryDate` | `string` | No |  |
+| `firstName` | `string` | No |  |
 | `id` | `number` | No |  |
-| `last_name` | `string` | No |  |
-| `leaving_date` | `string` | No |  |
+| `lastName` | `string` | No |  |
+| `leavingDate` | `string` | No |  |
 | `party` | `string` | No |  |
 | `title` | `string` | No |  |
 
@@ -257,10 +257,10 @@ const session = client.Session()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `abbreviation` | `string` | No |  |
-| `end_date` | `string` | No |  |
+| `endDate` | `string` | No |  |
 | `id` | `number` | No |  |
 | `name` | `string` | No |  |
-| `start_date` | `string` | No |  |
+| `startDate` | `string` | No |  |
 | `state` | `string` | No |  |
 | `type` | `string` | No |  |
 

@@ -6,7 +6,11 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/voxgig-sdk/parlament-open-data-sdk/go/core"
+)
 
 // Business is the typed data model for the business entity.
 type Business struct {
@@ -15,7 +19,7 @@ type Business struct {
 	Description *string `json:"description,omitempty"`
 	Id *int `json:"id,omitempty"`
 	State *string `json:"state,omitempty"`
-	SubmissionDate *string `json:"submission_date,omitempty"`
+	SubmissionDate *string `json:"submissionDate,omitempty"`
 	Title *string `json:"title,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
@@ -27,7 +31,7 @@ type BusinessListMatch struct {
 	Description *string `json:"description,omitempty"`
 	Id *int `json:"id,omitempty"`
 	State *string `json:"state,omitempty"`
-	SubmissionDate *string `json:"submission_date,omitempty"`
+	SubmissionDate *string `json:"submissionDate,omitempty"`
 	Title *string `json:"title,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
@@ -37,11 +41,11 @@ type Member struct {
 	Active *bool `json:"active,omitempty"`
 	Canton *string `json:"canton,omitempty"`
 	Council *string `json:"council,omitempty"`
-	EntryDate *string `json:"entry_date,omitempty"`
-	FirstName *string `json:"first_name,omitempty"`
+	EntryDate *string `json:"entryDate,omitempty"`
+	FirstName *string `json:"firstName,omitempty"`
 	Id *int `json:"id,omitempty"`
-	LastName *string `json:"last_name,omitempty"`
-	LeavingDate *string `json:"leaving_date,omitempty"`
+	LastName *string `json:"lastName,omitempty"`
+	LeavingDate *string `json:"leavingDate,omitempty"`
 	Party *string `json:"party,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
@@ -51,11 +55,11 @@ type MemberListMatch struct {
 	Active *bool `json:"active,omitempty"`
 	Canton *string `json:"canton,omitempty"`
 	Council *string `json:"council,omitempty"`
-	EntryDate *string `json:"entry_date,omitempty"`
-	FirstName *string `json:"first_name,omitempty"`
+	EntryDate *string `json:"entryDate,omitempty"`
+	FirstName *string `json:"firstName,omitempty"`
 	Id *int `json:"id,omitempty"`
-	LastName *string `json:"last_name,omitempty"`
-	LeavingDate *string `json:"leaving_date,omitempty"`
+	LastName *string `json:"lastName,omitempty"`
+	LeavingDate *string `json:"leavingDate,omitempty"`
 	Party *string `json:"party,omitempty"`
 	Title *string `json:"title,omitempty"`
 }
@@ -63,10 +67,10 @@ type MemberListMatch struct {
 // Session is the typed data model for the session entity.
 type Session struct {
 	Abbreviation *string `json:"abbreviation,omitempty"`
-	EndDate *string `json:"end_date,omitempty"`
+	EndDate *string `json:"endDate,omitempty"`
 	Id *int `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
-	StartDate *string `json:"start_date,omitempty"`
+	StartDate *string `json:"startDate,omitempty"`
 	State *string `json:"state,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
@@ -74,10 +78,10 @@ type Session struct {
 // SessionListMatch is the typed request payload for Session.ListTyped.
 type SessionListMatch struct {
 	Abbreviation *string `json:"abbreviation,omitempty"`
-	EndDate *string `json:"end_date,omitempty"`
+	EndDate *string `json:"endDate,omitempty"`
 	Id *int `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
-	StartDate *string `json:"start_date,omitempty"`
+	StartDate *string `json:"startDate,omitempty"`
 	State *string `json:"state,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
@@ -94,12 +98,26 @@ func asMap(v any) map[string]any {
 	return out
 }
 
-// typedFrom decodes a runtime value (a map[string]any produced by the op
-// pipeline) into a typed model T via a JSON round-trip. On any error it
-// returns the zero value of T; the op's own (value, error) tuple carries the
-// real error.
+// entityData unwraps an entity to its data map.
+//
+// Operations resolve to the ENTITY, not the raw data (see AGENTS.md), and an
+// entity's fields are UNEXPORTED — marshalling one directly yields `{}`, so
+// every typed accessor would silently hand back a zero-valued struct. The
+// typed boundary therefore takes the data hop first.
+func entityData(v any) any {
+	if ent, ok := v.(core.Entity); ok {
+		return ent.Data()
+	}
+	return v
+}
+
+// typedFrom decodes a runtime value (an entity, or the map[string]any the op
+// pipeline produced) into a typed model T via a JSON round-trip. On any error
+// it returns the zero value of T; the op's own (value, error) tuple carries
+// the real error.
 func typedFrom[T any](v any) T {
 	var out T
+	v = entityData(v)
 	if v == nil {
 		return out
 	}
@@ -111,12 +129,20 @@ func typedFrom[T any](v any) T {
 	return out
 }
 
-// typedSliceFrom decodes a runtime list value ([]any of maps) into a typed
-// slice []T via a JSON round-trip, for list ops.
+// typedSliceFrom decodes a runtime list value into a typed slice []T via a
+// JSON round-trip, for list ops. `list` resolves to a slice of ENTITY
+// instances, so each element takes the data hop.
 func typedSliceFrom[T any](v any) []T {
 	var out []T
 	if v == nil {
 		return out
+	}
+	if list, ok := v.([]any); ok {
+		unwrapped := make([]any, 0, len(list))
+		for _, item := range list {
+			unwrapped = append(unwrapped, entityData(item))
+		}
+		v = unwrapped
 	}
 	b, err := json.Marshal(v)
 	if err != nil {

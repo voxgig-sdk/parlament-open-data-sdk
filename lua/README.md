@@ -54,7 +54,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local businesss, err = client:Business():list()
+local sessions, err = client:Session():list()
 if err then error(err) end
 ```
 
@@ -112,7 +112,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Business():list()
+local result, err = client:Session():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -220,9 +220,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local business, err = client:Business():load()
+    local business, err = client:Business():list()
     if err then error(err) end
-    -- business is the loaded record
+    -- business is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -238,7 +238,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `description` |  |
 | `id` |  |
 | `state` |  |
-| `submission_date` |  |
+| `submissionDate` |  |
 | `title` |  |
 | `type` |  |
 
@@ -253,11 +253,11 @@ API path: `/affairs`
 | `active` |  |
 | `canton` |  |
 | `council` |  |
-| `entry_date` |  |
-| `first_name` |  |
+| `entryDate` |  |
+| `firstName` |  |
 | `id` |  |
-| `last_name` |  |
-| `leaving_date` |  |
+| `lastName` |  |
+| `leavingDate` |  |
 | `party` |  |
 | `title` |  |
 
@@ -270,10 +270,10 @@ API path: `/councillors`
 | Field | Description |
 | --- | --- |
 | `abbreviation` |  |
-| `end_date` |  |
+| `endDate` |  |
 | `id` |  |
 | `name` |  |
-| `start_date` |  |
+| `startDate` |  |
 | `state` |  |
 | `type` |  |
 
@@ -305,7 +305,7 @@ Create an instance: `local business = client:Business(nil)`
 | `description` | `string` |  |
 | `id` | `number` |  |
 | `state` | `string` |  |
-| `submission_date` | `string` |  |
+| `submissionDate` | `string` |  |
 | `title` | `string` |  |
 | `type` | `string` |  |
 
@@ -333,11 +333,11 @@ Create an instance: `local member = client:Member(nil)`
 | `active` | `boolean` |  |
 | `canton` | `string` |  |
 | `council` | `string` |  |
-| `entry_date` | `string` |  |
-| `first_name` | `string` |  |
+| `entryDate` | `string` |  |
+| `firstName` | `string` |  |
 | `id` | `number` |  |
-| `last_name` | `string` |  |
-| `leaving_date` | `string` |  |
+| `lastName` | `string` |  |
+| `leavingDate` | `string` |  |
 | `party` | `string` |  |
 | `title` | `string` |  |
 
@@ -363,10 +363,10 @@ Create an instance: `local session = client:Session(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `abbreviation` | `string` |  |
-| `end_date` | `string` |  |
+| `endDate` | `string` |  |
 | `id` | `number` |  |
 | `name` | `string` |  |
-| `start_date` | `string` |  |
+| `startDate` | `string` |  |
 | `state` | `string` |  |
 | `type` | `string` |  |
 
@@ -453,11 +453,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local business = client:Business()
-business:list()
+local session = client:Session()
+session:list()
 
--- business:data_get() now returns the business data from the last list
--- business:match_get() returns the last match criteria
+-- session:data_get() now returns the session data from the last list
+-- session:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

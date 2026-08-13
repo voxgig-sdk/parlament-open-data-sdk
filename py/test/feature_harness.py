@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import ParlamentOpenDataControl
-from core.error import ParlamentOpenDataError
-from core.result import ParlamentOpenDataResult
-from core.spec import ParlamentOpenDataSpec
+from parlamentopendata_sdk.config import make_config
+from parlamentopendata_sdk.features import _make_feature
+from parlamentopendata_sdk.core.control import ParlamentOpenDataControl
+from parlamentopendata_sdk.core.error import ParlamentOpenDataError
+from parlamentopendata_sdk.core.result import ParlamentOpenDataResult
+from parlamentopendata_sdk.core.spec import ParlamentOpenDataSpec
 
 
 # True when this SDK was generated with the named feature.

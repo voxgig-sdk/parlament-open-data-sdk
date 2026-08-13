@@ -37,7 +37,7 @@ class MemberEntity extends ParlamentOpenDataEntityBase<Member> {
 
 
 
-  async list(this: any, reqmatch?: MemberListMatch, ctrl?: Control): Promise<Member[]> {
+  async list(this: any, reqmatch?: MemberListMatch, ctrl?: Control): Promise<MemberEntity[]> {
 
     const utility = this._utility
 

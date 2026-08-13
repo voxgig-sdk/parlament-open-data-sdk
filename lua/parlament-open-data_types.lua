@@ -12,7 +12,7 @@
 ---@field description? string
 ---@field id? number
 ---@field state? string
----@field submission_date? string
+---@field submissionDate? string
 ---@field title? string
 ---@field type? string
 
@@ -22,7 +22,7 @@
 ---@field description? string
 ---@field id? number
 ---@field state? string
----@field submission_date? string
+---@field submissionDate? string
 ---@field title? string
 ---@field type? string
 
@@ -30,11 +30,11 @@
 ---@field active? boolean
 ---@field canton? string
 ---@field council? string
----@field entry_date? string
----@field first_name? string
+---@field entryDate? string
+---@field firstName? string
 ---@field id? number
----@field last_name? string
----@field leaving_date? string
+---@field lastName? string
+---@field leavingDate? string
 ---@field party? string
 ---@field title? string
 
@@ -42,29 +42,29 @@
 ---@field active? boolean
 ---@field canton? string
 ---@field council? string
----@field entry_date? string
----@field first_name? string
+---@field entryDate? string
+---@field firstName? string
 ---@field id? number
----@field last_name? string
----@field leaving_date? string
+---@field lastName? string
+---@field leavingDate? string
 ---@field party? string
 ---@field title? string
 
 ---@class Session
 ---@field abbreviation? string
----@field end_date? string
+---@field endDate? string
 ---@field id? number
 ---@field name? string
----@field start_date? string
+---@field startDate? string
 ---@field state? string
 ---@field type? string
 
 ---@class SessionListMatch
 ---@field abbreviation? string
----@field end_date? string
+---@field endDate? string
 ---@field id? number
 ---@field name? string
----@field start_date? string
+---@field startDate? string
 ---@field state? string
 ---@field type? string
 

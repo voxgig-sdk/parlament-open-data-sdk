@@ -64,7 +64,7 @@ module ParlamentOpenDataConfig
             },
             {
               "active" => true,
-              "name" => "submission_date",
+              "name" => "submissionDate",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 5,
@@ -138,6 +138,7 @@ module ParlamentOpenDataConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/affairs",
                   "parts" => [
@@ -154,7 +155,7 @@ module ParlamentOpenDataConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.affairs`",
                   },
                   "index$" => 0,
                 },
@@ -191,14 +192,14 @@ module ParlamentOpenDataConfig
             },
             {
               "active" => true,
-              "name" => "entry_date",
+              "name" => "entryDate",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 3,
             },
             {
               "active" => true,
-              "name" => "first_name",
+              "name" => "firstName",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 4,
@@ -212,14 +213,14 @@ module ParlamentOpenDataConfig
             },
             {
               "active" => true,
-              "name" => "last_name",
+              "name" => "lastName",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 6,
             },
             {
               "active" => true,
-              "name" => "leaving_date",
+              "name" => "leavingDate",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 7,
@@ -285,6 +286,7 @@ module ParlamentOpenDataConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/councillors",
                   "parts" => [
@@ -300,7 +302,7 @@ module ParlamentOpenDataConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.councillors`",
                   },
                   "index$" => 0,
                 },
@@ -323,7 +325,7 @@ module ParlamentOpenDataConfig
             },
             {
               "active" => true,
-              "name" => "end_date",
+              "name" => "endDate",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 1,
@@ -344,7 +346,7 @@ module ParlamentOpenDataConfig
             },
             {
               "active" => true,
-              "name" => "start_date",
+              "name" => "startDate",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 4,
@@ -402,6 +404,7 @@ module ParlamentOpenDataConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/sessions",
                   "parts" => [
@@ -416,7 +419,7 @@ module ParlamentOpenDataConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.sessions`",
                   },
                   "index$" => 0,
                 },

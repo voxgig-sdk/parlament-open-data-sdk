@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $businesss = $client->Business()->list();
+    $sessions = $client->Session()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,9 +125,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = ParlamentOpenDataSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$business = $client->Business()->list();
-print_r($business);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$session = $client->Session()->list();
+print_r($session);
 ```
 
 ### Use a custom fetch function
@@ -226,7 +227,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -253,7 +254,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `description` |  |
 | `id` |  |
 | `state` |  |
-| `submission_date` |  |
+| `submissionDate` |  |
 | `title` |  |
 | `type` |  |
 
@@ -268,11 +269,11 @@ API path: `/affairs`
 | `active` |  |
 | `canton` |  |
 | `council` |  |
-| `entry_date` |  |
-| `first_name` |  |
+| `entryDate` |  |
+| `firstName` |  |
 | `id` |  |
-| `last_name` |  |
-| `leaving_date` |  |
+| `lastName` |  |
+| `leavingDate` |  |
 | `party` |  |
 | `title` |  |
 
@@ -285,10 +286,10 @@ API path: `/councillors`
 | Field | Description |
 | --- | --- |
 | `abbreviation` |  |
-| `end_date` |  |
+| `endDate` |  |
 | `id` |  |
 | `name` |  |
-| `start_date` |  |
+| `startDate` |  |
 | `state` |  |
 | `type` |  |
 
@@ -320,7 +321,7 @@ Create an instance: `$business = $client->Business();`
 | `description` | `string` |  |
 | `id` | `int` |  |
 | `state` | `string` |  |
-| `submission_date` | `string` |  |
+| `submissionDate` | `string` |  |
 | `title` | `string` |  |
 | `type` | `string` |  |
 
@@ -349,11 +350,11 @@ Create an instance: `$member = $client->Member();`
 | `active` | `bool` |  |
 | `canton` | `string` |  |
 | `council` | `string` |  |
-| `entry_date` | `string` |  |
-| `first_name` | `string` |  |
+| `entryDate` | `string` |  |
+| `firstName` | `string` |  |
 | `id` | `int` |  |
-| `last_name` | `string` |  |
-| `leaving_date` | `string` |  |
+| `lastName` | `string` |  |
+| `leavingDate` | `string` |  |
 | `party` | `string` |  |
 | `title` | `string` |  |
 
@@ -380,10 +381,10 @@ Create an instance: `$session = $client->Session();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `abbreviation` | `string` |  |
-| `end_date` | `string` |  |
+| `endDate` | `string` |  |
 | `id` | `int` |  |
 | `name` | `string` |  |
-| `start_date` | `string` |  |
+| `startDate` | `string` |  |
 | `state` | `string` |  |
 | `type` | `string` |  |
 
@@ -471,11 +472,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$business = $client->Business();
-$business->list();
+$session = $client->Session();
+$session->list();
 
-// $business->data_get() now returns the business data from the last list
-// $business->match_get() returns the last match criteria
+// $session->data_get() now returns the session data from the last list
+// $session->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

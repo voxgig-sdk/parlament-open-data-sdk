@@ -100,7 +100,7 @@ business = client.Business()
 | `description` | `str` | No |  |
 | `id` | `int` | No |  |
 | `state` | `str` | No |  |
-| `submission_date` | `str` | No |  |
+| `submissionDate` | `str` | No |  |
 | `title` | `str` | No |  |
 | `type` | `str` | No |  |
 
@@ -158,11 +158,11 @@ member = client.Member()
 | `active` | `bool` | No |  |
 | `canton` | `str` | No |  |
 | `council` | `str` | No |  |
-| `entry_date` | `str` | No |  |
-| `first_name` | `str` | No |  |
+| `entryDate` | `str` | No |  |
+| `firstName` | `str` | No |  |
 | `id` | `int` | No |  |
-| `last_name` | `str` | No |  |
-| `leaving_date` | `str` | No |  |
+| `lastName` | `str` | No |  |
+| `leavingDate` | `str` | No |  |
 | `party` | `str` | No |  |
 | `title` | `str` | No |  |
 
@@ -218,10 +218,10 @@ session = client.Session()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `abbreviation` | `str` | No |  |
-| `end_date` | `str` | No |  |
+| `endDate` | `str` | No |  |
 | `id` | `int` | No |  |
 | `name` | `str` | No |  |
-| `start_date` | `str` | No |  |
+| `startDate` | `str` | No |  |
 | `state` | `str` | No |  |
 | `type` | `str` | No |  |
 

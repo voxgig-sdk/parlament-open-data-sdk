@@ -60,11 +60,11 @@ def business_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "PARLAMENTOPENDATA_TEST_BUSINESS_ENTID" => {},
-    "PARLAMENTOPENDATA_TEST_LIVE" => "FALSE",
+    "PARLAMENT_OPEN_DATA_TEST_BUSINESS_ENTID" => {},
+    "PARLAMENT_OPEN_DATA_TEST_LIVE" => "FALSE",
   })
 
-  live = env["PARLAMENTOPENDATA_TEST_LIVE"] == "TRUE"
+  live = env["PARLAMENT_OPEN_DATA_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
