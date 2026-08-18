@@ -1,4 +1,4 @@
--- ProjectName SDK test feature
+-- ParlamentOpenData SDK test feature
 
 local vs = require("utility.struct.struct")
 local BaseFeature = require("feature.base_feature")

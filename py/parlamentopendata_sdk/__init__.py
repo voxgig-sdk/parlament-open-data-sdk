@@ -23,8 +23,8 @@ class ParlamentOpenDataSDK:
         utility = ParlamentOpenDataUtility()
         self._utility = utility
 
-        from parlamentopendata_sdk.config import make_config
-        config = make_config()
+        from parlamentopendata_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

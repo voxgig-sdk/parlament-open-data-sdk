@@ -15,7 +15,7 @@ require_relative "../ParlamentOpenData_sdk"
 module ParlamentOpenDataFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = ParlamentOpenDataConfig.make_config["feature"]
+    f = ParlamentOpenDataConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

@@ -28,7 +28,7 @@ class ParlamentOpenDataSDK
     utility = ParlamentOpenDataUtility.new
     @_utility = utility
 
-    config = ParlamentOpenDataConfig.make_config
+    config = ParlamentOpenDataConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -40,7 +40,7 @@ class ParlamentOpenDataSDK
         $utility = new ParlamentOpenDataUtility();
         $this->_utility = $utility;
 
-        $config = ParlamentOpenDataConfig::make_config();
+        $config = ParlamentOpenDataConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
