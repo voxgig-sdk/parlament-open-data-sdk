@@ -36,48 +36,56 @@
               "active": true,
               "name": "author",
               "req": false,
+              "short": "Author of the affair",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "council",
               "req": false,
+              "short": "Council handling the affair",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the affair",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique affair identifier",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "state",
               "req": false,
+              "short": "Current state/status of the affair",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "submissionDate",
               "req": false,
+              "short": "Date of submission",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Affair title",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Type of parliamentary affair",
               "type": "`$STRING`"
             }
           ],
@@ -176,60 +184,70 @@
               "active": true,
               "name": "active",
               "req": false,
+              "short": "Whether the councillor is currently active",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "canton",
               "req": false,
+              "short": "Canton abbreviation",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "council",
               "req": false,
+              "short": "Council membership (National Council or Council of States)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "entryDate",
               "req": false,
+              "short": "Date of entry into parliament",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "firstName",
               "req": false,
+              "short": "First name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique councillor identifier",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "lastName",
               "req": false,
+              "short": "Last name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "leavingDate",
               "req": false,
+              "short": "Date of leaving parliament (if applicable)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "party",
               "req": false,
+              "short": "Political party abbreviation",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Academic or professional title",
               "type": "`$STRING`"
             }
           ],
@@ -319,42 +337,49 @@
               "active": true,
               "name": "abbreviation",
               "req": false,
+              "short": "Session abbreviation",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "endDate",
               "req": false,
+              "short": "Session end date",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique session identifier",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Session name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "startDate",
               "req": false,
+              "short": "Session start date",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "state",
               "req": false,
+              "short": "Current state of the session",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Type of session (e.g., ordinary, extraordinary)",
               "type": "`$STRING`"
             }
           ],

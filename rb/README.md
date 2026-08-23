@@ -239,14 +239,14 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `council` |  |
-| `description` |  |
-| `id` |  |
-| `state` |  |
-| `submissionDate` |  |
-| `title` |  |
-| `type` |  |
+| `author` | Author of the affair |
+| `council` | Council handling the affair |
+| `description` | Detailed description of the affair |
+| `id` | Unique affair identifier |
+| `state` | Current state/status of the affair |
+| `submissionDate` | Date of submission |
+| `title` | Affair title |
+| `type` | Type of parliamentary affair |
 
 Operations: List.
 
@@ -256,16 +256,16 @@ API path: `/affairs`
 
 | Field | Description |
 | --- | --- |
-| `active` |  |
-| `canton` |  |
-| `council` |  |
-| `entryDate` |  |
-| `firstName` |  |
-| `id` |  |
-| `lastName` |  |
-| `leavingDate` |  |
-| `party` |  |
-| `title` |  |
+| `active` | Whether the councillor is currently active |
+| `canton` | Canton abbreviation |
+| `council` | Council membership (National Council or Council of States) |
+| `entryDate` | Date of entry into parliament |
+| `firstName` | First name |
+| `id` | Unique councillor identifier |
+| `lastName` | Last name |
+| `leavingDate` | Date of leaving parliament (if applicable) |
+| `party` | Political party abbreviation |
+| `title` | Academic or professional title |
 
 Operations: List.
 
@@ -275,13 +275,13 @@ API path: `/councillors`
 
 | Field | Description |
 | --- | --- |
-| `abbreviation` |  |
-| `endDate` |  |
-| `id` |  |
-| `name` |  |
-| `startDate` |  |
-| `state` |  |
-| `type` |  |
+| `abbreviation` | Session abbreviation |
+| `endDate` | Session end date |
+| `id` | Unique session identifier |
+| `name` | Session name |
+| `startDate` | Session start date |
+| `state` | Current state of the session |
+| `type` | Type of session (e.g., ordinary, extraordinary) |
 
 Operations: List.
 
@@ -306,14 +306,14 @@ Create an instance: `business = client.Business`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `String` |  |
-| `council` | `String` |  |
-| `description` | `String` |  |
-| `id` | `Integer` |  |
-| `state` | `String` |  |
-| `submissionDate` | `String` |  |
-| `title` | `String` |  |
-| `type` | `String` |  |
+| `author` | `String` | Author of the affair |
+| `council` | `String` | Council handling the affair |
+| `description` | `String` | Detailed description of the affair |
+| `id` | `Integer` | Unique affair identifier |
+| `state` | `String` | Current state/status of the affair |
+| `submissionDate` | `String` | Date of submission |
+| `title` | `String` | Affair title |
+| `type` | `String` | Type of parliamentary affair |
 
 #### Example: List
 
@@ -337,16 +337,16 @@ Create an instance: `member = client.Member`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active` | `Boolean` |  |
-| `canton` | `String` |  |
-| `council` | `String` |  |
-| `entryDate` | `String` |  |
-| `firstName` | `String` |  |
-| `id` | `Integer` |  |
-| `lastName` | `String` |  |
-| `leavingDate` | `String` |  |
-| `party` | `String` |  |
-| `title` | `String` |  |
+| `active` | `Boolean` | Whether the councillor is currently active |
+| `canton` | `String` | Canton abbreviation |
+| `council` | `String` | Council membership (National Council or Council of States) |
+| `entryDate` | `String` | Date of entry into parliament |
+| `firstName` | `String` | First name |
+| `id` | `Integer` | Unique councillor identifier |
+| `lastName` | `String` | Last name |
+| `leavingDate` | `String` | Date of leaving parliament (if applicable) |
+| `party` | `String` | Political party abbreviation |
+| `title` | `String` | Academic or professional title |
 
 #### Example: List
 
@@ -370,13 +370,13 @@ Create an instance: `session = client.Session`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abbreviation` | `String` |  |
-| `endDate` | `String` |  |
-| `id` | `Integer` |  |
-| `name` | `String` |  |
-| `startDate` | `String` |  |
-| `state` | `String` |  |
-| `type` | `String` |  |
+| `abbreviation` | `String` | Session abbreviation |
+| `endDate` | `String` | Session end date |
+| `id` | `Integer` | Unique session identifier |
+| `name` | `String` | Session name |
+| `startDate` | `String` | Session start date |
+| `state` | `String` | Current state of the session |
+| `type` | `String` | Type of session (e.g., ordinary, extraordinary) |
 
 #### Example: List
 

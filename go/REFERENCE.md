@@ -106,14 +106,14 @@ fmt.Println(business.GetName()) // "business"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `string` | No |  |
-| `council` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `int` | No |  |
-| `state` | `string` | No |  |
-| `submissionDate` | `string` | No |  |
-| `title` | `string` | No |  |
-| `type` | `string` | No |  |
+| `author` | `string` | No | Author of the affair |
+| `council` | `string` | No | Council handling the affair |
+| `description` | `string` | No | Detailed description of the affair |
+| `id` | `int` | No | Unique affair identifier |
+| `state` | `string` | No | Current state/status of the affair |
+| `submissionDate` | `string` | No | Date of submission |
+| `title` | `string` | No | Affair title |
+| `type` | `string` | No | Type of parliamentary affair |
 
 ### Operations
 
@@ -164,16 +164,16 @@ fmt.Println(member.GetName()) // "member"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `bool` | No |  |
-| `canton` | `string` | No |  |
-| `council` | `string` | No |  |
-| `entryDate` | `string` | No |  |
-| `firstName` | `string` | No |  |
-| `id` | `int` | No |  |
-| `lastName` | `string` | No |  |
-| `leavingDate` | `string` | No |  |
-| `party` | `string` | No |  |
-| `title` | `string` | No |  |
+| `active` | `bool` | No | Whether the councillor is currently active |
+| `canton` | `string` | No | Canton abbreviation |
+| `council` | `string` | No | Council membership (National Council or Council of States) |
+| `entryDate` | `string` | No | Date of entry into parliament |
+| `firstName` | `string` | No | First name |
+| `id` | `int` | No | Unique councillor identifier |
+| `lastName` | `string` | No | Last name |
+| `leavingDate` | `string` | No | Date of leaving parliament (if applicable) |
+| `party` | `string` | No | Political party abbreviation |
+| `title` | `string` | No | Academic or professional title |
 
 ### Operations
 
@@ -224,13 +224,13 @@ fmt.Println(session.GetName()) // "session"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abbreviation` | `string` | No |  |
-| `endDate` | `string` | No |  |
-| `id` | `int` | No |  |
-| `name` | `string` | No |  |
-| `startDate` | `string` | No |  |
-| `state` | `string` | No |  |
-| `type` | `string` | No |  |
+| `abbreviation` | `string` | No | Session abbreviation |
+| `endDate` | `string` | No | Session end date |
+| `id` | `int` | No | Unique session identifier |
+| `name` | `string` | No | Session name |
+| `startDate` | `string` | No | Session start date |
+| `state` | `string` | No | Current state of the session |
+| `type` | `string` | No | Type of session (e.g., ordinary, extraordinary) |
 
 ### Operations
 

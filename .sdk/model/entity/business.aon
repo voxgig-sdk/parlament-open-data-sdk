@@ -1,58 +1,56 @@
-# Entity: member
+# Entity: business
 
-main: kit: entity: member: {
+main: kit: entity: business: {
 
   alias: field: {}
 
   fields: [
     {
-      name: "active"
+      name: "author"
       req: false
-      type: "`$BOOLEAN`"
-    }
-    {
-      name: "canton"
-      req: false
+      short: "Author of the affair"
       type: "`$STRING`"
     }
     {
       name: "council"
       req: false
+      short: "Council handling the affair"
       type: "`$STRING`"
     }
     {
-      name: "entryDate"
+      name: "description"
       req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "firstName"
-      req: false
+      short: "Detailed description of the affair"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique affair identifier"
       type: "`$INTEGER`"
     }
     {
-      name: "lastName"
+      name: "state"
       req: false
+      short: "Current state/status of the affair"
       type: "`$STRING`"
     }
     {
-      name: "leavingDate"
+      name: "submissionDate"
       req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "party"
-      req: false
+      short: "Date of submission"
       type: "`$STRING`"
     }
     {
       name: "title"
       req: false
+      short: "Affair title"
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      short: "Type of parliamentary affair"
       type: "`$STRING`"
     }
   ]
@@ -62,7 +60,7 @@ main: kit: entity: member: {
     name: "id"
   }
 
-  name: "member"
+  name: "business"
   op: {
     list: {
       name: "list"
@@ -70,13 +68,6 @@ main: kit: entity: member: {
         {
           args: {
             query: [
-              {
-                kind: "query"
-                name: "active"
-                orig: "active"
-                reqd: false
-                type: "`$BOOLEAN`"
-              }
               {
                 example: "json"
                 kind: "query"
@@ -100,24 +91,39 @@ main: kit: entity: member: {
                 reqd: false
                 type: "`$STRING`"
               }
+              {
+                kind: "query"
+                name: "state"
+                orig: "state"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
             ]
           }
           method: "GET"
-          orig: "/councillors"
+          orig: "/affairs"
           parts: [
-            "councillors"
+            "affairs"
           ]
           select: {
             exist: [
-              "active"
               "format"
               "id"
               "language"
+              "state"
+              "type"
             ]
           }
           transform: {
             req: "`reqdata`"
-            res: "`body.councillors`"
+            res: "`body.affairs`"
           }
         }
       ]

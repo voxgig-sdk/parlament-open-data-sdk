@@ -8,36 +8,43 @@ main: kit: entity: session: {
     {
       name: "abbreviation"
       req: false
+      short: "Session abbreviation"
       type: "`$STRING`"
     }
     {
       name: "endDate"
       req: false
+      short: "Session end date"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique session identifier"
       type: "`$INTEGER`"
     }
     {
       name: "name"
       req: false
+      short: "Session name"
       type: "`$STRING`"
     }
     {
       name: "startDate"
       req: false
+      short: "Session start date"
       type: "`$STRING`"
     }
     {
       name: "state"
       req: false
+      short: "Current state of the session"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "Type of session (e.g., ordinary, extraordinary)"
       type: "`$STRING`"
     }
   ]

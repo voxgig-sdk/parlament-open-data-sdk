@@ -19,6 +19,9 @@ module ParlamentOpenDataConfig
     {
       "main" => {
         "name" => "ParlamentOpenData",
+        "slug" => "parlament-open-data",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -43,34 +46,42 @@ module ParlamentOpenDataConfig
           "fields" => [
             {
               "name" => "author",
+              "short" => "Author of the affair",
               "type" => "`$STRING`",
             },
             {
               "name" => "council",
+              "short" => "Council handling the affair",
               "type" => "`$STRING`",
             },
             {
               "name" => "description",
+              "short" => "Detailed description of the affair",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "short" => "Unique affair identifier",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "state",
+              "short" => "Current state/status of the affair",
               "type" => "`$STRING`",
             },
             {
               "name" => "submissionDate",
+              "short" => "Date of submission",
               "type" => "`$STRING`",
             },
             {
               "name" => "title",
+              "short" => "Affair title",
               "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "short" => "Type of parliamentary affair",
               "type" => "`$STRING`",
             },
           ],
@@ -148,42 +159,52 @@ module ParlamentOpenDataConfig
           "fields" => [
             {
               "name" => "active",
+              "short" => "Whether the councillor is currently active",
               "type" => "`$BOOLEAN`",
             },
             {
               "name" => "canton",
+              "short" => "Canton abbreviation",
               "type" => "`$STRING`",
             },
             {
               "name" => "council",
+              "short" => "Council membership (National Council or Council of States)",
               "type" => "`$STRING`",
             },
             {
               "name" => "entryDate",
+              "short" => "Date of entry into parliament",
               "type" => "`$STRING`",
             },
             {
               "name" => "firstName",
+              "short" => "First name",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "short" => "Unique councillor identifier",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "lastName",
+              "short" => "Last name",
               "type" => "`$STRING`",
             },
             {
               "name" => "leavingDate",
+              "short" => "Date of leaving parliament (if applicable)",
               "type" => "`$STRING`",
             },
             {
               "name" => "party",
+              "short" => "Political party abbreviation",
               "type" => "`$STRING`",
             },
             {
               "name" => "title",
+              "short" => "Academic or professional title",
               "type" => "`$STRING`",
             },
           ],
@@ -254,30 +275,37 @@ module ParlamentOpenDataConfig
           "fields" => [
             {
               "name" => "abbreviation",
+              "short" => "Session abbreviation",
               "type" => "`$STRING`",
             },
             {
               "name" => "endDate",
+              "short" => "Session end date",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "short" => "Unique session identifier",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "name",
+              "short" => "Session name",
               "type" => "`$STRING`",
             },
             {
               "name" => "startDate",
+              "short" => "Session start date",
               "type" => "`$STRING`",
             },
             {
               "name" => "state",
+              "short" => "Current state of the session",
               "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "short" => "Type of session (e.g., ordinary, extraordinary)",
               "type" => "`$STRING`",
             },
           ],

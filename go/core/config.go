@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "ParlamentOpenData",
+			"slug": "parlament-open-data",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,34 +38,42 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "author",
+						"short": "Author of the affair",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "council",
+						"short": "Council handling the affair",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the affair",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique affair identifier",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "state",
+						"short": "Current state/status of the affair",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "submissionDate",
+						"short": "Date of submission",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Affair title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of parliamentary affair",
 						"type": "`$STRING`",
 					},
 				},
@@ -140,42 +151,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "active",
+						"short": "Whether the councillor is currently active",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "canton",
+						"short": "Canton abbreviation",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "council",
+						"short": "Council membership (National Council or Council of States)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "entryDate",
+						"short": "Date of entry into parliament",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "firstName",
+						"short": "First name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique councillor identifier",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "lastName",
+						"short": "Last name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "leavingDate",
+						"short": "Date of leaving parliament (if applicable)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "party",
+						"short": "Political party abbreviation",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Academic or professional title",
 						"type": "`$STRING`",
 					},
 				},
@@ -246,30 +267,37 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "abbreviation",
+						"short": "Session abbreviation",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "endDate",
+						"short": "Session end date",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique session identifier",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Session name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "startDate",
+						"short": "Session start date",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "state",
+						"short": "Current state of the session",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of session (e.g., ordinary, extraordinary)",
 						"type": "`$STRING`",
 					},
 				},

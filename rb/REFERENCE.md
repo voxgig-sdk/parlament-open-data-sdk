@@ -101,14 +101,14 @@ business = client.Business
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `String` | No |  |
-| `council` | `String` | No |  |
-| `description` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `state` | `String` | No |  |
-| `submissionDate` | `String` | No |  |
-| `title` | `String` | No |  |
-| `type` | `String` | No |  |
+| `author` | `String` | No | Author of the affair |
+| `council` | `String` | No | Council handling the affair |
+| `description` | `String` | No | Detailed description of the affair |
+| `id` | `Integer` | No | Unique affair identifier |
+| `state` | `String` | No | Current state/status of the affair |
+| `submissionDate` | `String` | No | Date of submission |
+| `title` | `String` | No | Affair title |
+| `type` | `String` | No | Type of parliamentary affair |
 
 ### Operations
 
@@ -160,16 +160,16 @@ member = client.Member
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `Boolean` | No |  |
-| `canton` | `String` | No |  |
-| `council` | `String` | No |  |
-| `entryDate` | `String` | No |  |
-| `firstName` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `lastName` | `String` | No |  |
-| `leavingDate` | `String` | No |  |
-| `party` | `String` | No |  |
-| `title` | `String` | No |  |
+| `active` | `Boolean` | No | Whether the councillor is currently active |
+| `canton` | `String` | No | Canton abbreviation |
+| `council` | `String` | No | Council membership (National Council or Council of States) |
+| `entryDate` | `String` | No | Date of entry into parliament |
+| `firstName` | `String` | No | First name |
+| `id` | `Integer` | No | Unique councillor identifier |
+| `lastName` | `String` | No | Last name |
+| `leavingDate` | `String` | No | Date of leaving parliament (if applicable) |
+| `party` | `String` | No | Political party abbreviation |
+| `title` | `String` | No | Academic or professional title |
 
 ### Operations
 
@@ -221,13 +221,13 @@ session = client.Session
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abbreviation` | `String` | No |  |
-| `endDate` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `name` | `String` | No |  |
-| `startDate` | `String` | No |  |
-| `state` | `String` | No |  |
-| `type` | `String` | No |  |
+| `abbreviation` | `String` | No | Session abbreviation |
+| `endDate` | `String` | No | Session end date |
+| `id` | `Integer` | No | Unique session identifier |
+| `name` | `String` | No | Session name |
+| `startDate` | `String` | No | Session start date |
+| `state` | `String` | No | Current state of the session |
+| `type` | `String` | No | Type of session (e.g., ordinary, extraordinary) |
 
 ### Operations
 

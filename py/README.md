@@ -245,14 +245,14 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `council` |  |
-| `description` |  |
-| `id` |  |
-| `state` |  |
-| `submissionDate` |  |
-| `title` |  |
-| `type` |  |
+| `author` | Author of the affair |
+| `council` | Council handling the affair |
+| `description` | Detailed description of the affair |
+| `id` | Unique affair identifier |
+| `state` | Current state/status of the affair |
+| `submissionDate` | Date of submission |
+| `title` | Affair title |
+| `type` | Type of parliamentary affair |
 
 Operations: List.
 
@@ -262,16 +262,16 @@ API path: `/affairs`
 
 | Field | Description |
 | --- | --- |
-| `active` |  |
-| `canton` |  |
-| `council` |  |
-| `entryDate` |  |
-| `firstName` |  |
-| `id` |  |
-| `lastName` |  |
-| `leavingDate` |  |
-| `party` |  |
-| `title` |  |
+| `active` | Whether the councillor is currently active |
+| `canton` | Canton abbreviation |
+| `council` | Council membership (National Council or Council of States) |
+| `entryDate` | Date of entry into parliament |
+| `firstName` | First name |
+| `id` | Unique councillor identifier |
+| `lastName` | Last name |
+| `leavingDate` | Date of leaving parliament (if applicable) |
+| `party` | Political party abbreviation |
+| `title` | Academic or professional title |
 
 Operations: List.
 
@@ -281,13 +281,13 @@ API path: `/councillors`
 
 | Field | Description |
 | --- | --- |
-| `abbreviation` |  |
-| `endDate` |  |
-| `id` |  |
-| `name` |  |
-| `startDate` |  |
-| `state` |  |
-| `type` |  |
+| `abbreviation` | Session abbreviation |
+| `endDate` | Session end date |
+| `id` | Unique session identifier |
+| `name` | Session name |
+| `startDate` | Session start date |
+| `state` | Current state of the session |
+| `type` | Type of session (e.g., ordinary, extraordinary) |
 
 Operations: List.
 
@@ -312,14 +312,14 @@ Create an instance: `business = client.Business()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `str` |  |
-| `council` | `str` |  |
-| `description` | `str` |  |
-| `id` | `int` |  |
-| `state` | `str` |  |
-| `submissionDate` | `str` |  |
-| `title` | `str` |  |
-| `type` | `str` |  |
+| `author` | `str` | Author of the affair |
+| `council` | `str` | Council handling the affair |
+| `description` | `str` | Detailed description of the affair |
+| `id` | `int` | Unique affair identifier |
+| `state` | `str` | Current state/status of the affair |
+| `submissionDate` | `str` | Date of submission |
+| `title` | `str` | Affair title |
+| `type` | `str` | Type of parliamentary affair |
 
 #### Example: List
 
@@ -342,16 +342,16 @@ Create an instance: `member = client.Member()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active` | `bool` |  |
-| `canton` | `str` |  |
-| `council` | `str` |  |
-| `entryDate` | `str` |  |
-| `firstName` | `str` |  |
-| `id` | `int` |  |
-| `lastName` | `str` |  |
-| `leavingDate` | `str` |  |
-| `party` | `str` |  |
-| `title` | `str` |  |
+| `active` | `bool` | Whether the councillor is currently active |
+| `canton` | `str` | Canton abbreviation |
+| `council` | `str` | Council membership (National Council or Council of States) |
+| `entryDate` | `str` | Date of entry into parliament |
+| `firstName` | `str` | First name |
+| `id` | `int` | Unique councillor identifier |
+| `lastName` | `str` | Last name |
+| `leavingDate` | `str` | Date of leaving parliament (if applicable) |
+| `party` | `str` | Political party abbreviation |
+| `title` | `str` | Academic or professional title |
 
 #### Example: List
 
@@ -374,13 +374,13 @@ Create an instance: `session = client.Session()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abbreviation` | `str` |  |
-| `endDate` | `str` |  |
-| `id` | `int` |  |
-| `name` | `str` |  |
-| `startDate` | `str` |  |
-| `state` | `str` |  |
-| `type` | `str` |  |
+| `abbreviation` | `str` | Session abbreviation |
+| `endDate` | `str` | Session end date |
+| `id` | `int` | Unique session identifier |
+| `name` | `str` | Session name |
+| `startDate` | `str` | Session start date |
+| `state` | `str` | Current state of the session |
+| `type` | `str` | Type of session (e.g., ordinary, extraordinary) |
 
 #### Example: List
 

@@ -95,14 +95,14 @@ business = client.Business()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `str` | No |  |
-| `council` | `str` | No |  |
-| `description` | `str` | No |  |
-| `id` | `int` | No |  |
-| `state` | `str` | No |  |
-| `submissionDate` | `str` | No |  |
-| `title` | `str` | No |  |
-| `type` | `str` | No |  |
+| `author` | `str` | No | Author of the affair |
+| `council` | `str` | No | Council handling the affair |
+| `description` | `str` | No | Detailed description of the affair |
+| `id` | `int` | No | Unique affair identifier |
+| `state` | `str` | No | Current state/status of the affair |
+| `submissionDate` | `str` | No | Date of submission |
+| `title` | `str` | No | Affair title |
+| `type` | `str` | No | Type of parliamentary affair |
 
 ### Operations
 
@@ -155,16 +155,16 @@ member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `bool` | No |  |
-| `canton` | `str` | No |  |
-| `council` | `str` | No |  |
-| `entryDate` | `str` | No |  |
-| `firstName` | `str` | No |  |
-| `id` | `int` | No |  |
-| `lastName` | `str` | No |  |
-| `leavingDate` | `str` | No |  |
-| `party` | `str` | No |  |
-| `title` | `str` | No |  |
+| `active` | `bool` | No | Whether the councillor is currently active |
+| `canton` | `str` | No | Canton abbreviation |
+| `council` | `str` | No | Council membership (National Council or Council of States) |
+| `entryDate` | `str` | No | Date of entry into parliament |
+| `firstName` | `str` | No | First name |
+| `id` | `int` | No | Unique councillor identifier |
+| `lastName` | `str` | No | Last name |
+| `leavingDate` | `str` | No | Date of leaving parliament (if applicable) |
+| `party` | `str` | No | Political party abbreviation |
+| `title` | `str` | No | Academic or professional title |
 
 ### Operations
 
@@ -217,13 +217,13 @@ session = client.Session()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abbreviation` | `str` | No |  |
-| `endDate` | `str` | No |  |
-| `id` | `int` | No |  |
-| `name` | `str` | No |  |
-| `startDate` | `str` | No |  |
-| `state` | `str` | No |  |
-| `type` | `str` | No |  |
+| `abbreviation` | `str` | No | Session abbreviation |
+| `endDate` | `str` | No | Session end date |
+| `id` | `int` | No | Unique session identifier |
+| `name` | `str` | No | Session name |
+| `startDate` | `str` | No | Session start date |
+| `state` | `str` | No | Current state of the session |
+| `type` | `str` | No | Type of session (e.g., ordinary, extraordinary) |
 
 ### Operations
 

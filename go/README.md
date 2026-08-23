@@ -6,7 +6,7 @@ The Golang SDK for the ParlamentOpenData API — an entity-oriented client using
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Business(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -262,14 +262,14 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"author"` |  |
-| `"council"` |  |
-| `"description"` |  |
-| `"id"` |  |
-| `"state"` |  |
-| `"submissionDate"` |  |
-| `"title"` |  |
-| `"type"` |  |
+| `"author"` | Author of the affair |
+| `"council"` | Council handling the affair |
+| `"description"` | Detailed description of the affair |
+| `"id"` | Unique affair identifier |
+| `"state"` | Current state/status of the affair |
+| `"submissionDate"` | Date of submission |
+| `"title"` | Affair title |
+| `"type"` | Type of parliamentary affair |
 
 Operations: List.
 
@@ -279,16 +279,16 @@ API path: `/affairs`
 
 | Field | Description |
 | --- | --- |
-| `"active"` |  |
-| `"canton"` |  |
-| `"council"` |  |
-| `"entryDate"` |  |
-| `"firstName"` |  |
-| `"id"` |  |
-| `"lastName"` |  |
-| `"leavingDate"` |  |
-| `"party"` |  |
-| `"title"` |  |
+| `"active"` | Whether the councillor is currently active |
+| `"canton"` | Canton abbreviation |
+| `"council"` | Council membership (National Council or Council of States) |
+| `"entryDate"` | Date of entry into parliament |
+| `"firstName"` | First name |
+| `"id"` | Unique councillor identifier |
+| `"lastName"` | Last name |
+| `"leavingDate"` | Date of leaving parliament (if applicable) |
+| `"party"` | Political party abbreviation |
+| `"title"` | Academic or professional title |
 
 Operations: List.
 
@@ -298,13 +298,13 @@ API path: `/councillors`
 
 | Field | Description |
 | --- | --- |
-| `"abbreviation"` |  |
-| `"endDate"` |  |
-| `"id"` |  |
-| `"name"` |  |
-| `"startDate"` |  |
-| `"state"` |  |
-| `"type"` |  |
+| `"abbreviation"` | Session abbreviation |
+| `"endDate"` | Session end date |
+| `"id"` | Unique session identifier |
+| `"name"` | Session name |
+| `"startDate"` | Session start date |
+| `"state"` | Current state of the session |
+| `"type"` | Type of session (e.g., ordinary, extraordinary) |
 
 Operations: List.
 
@@ -329,14 +329,14 @@ Create an instance: `business := client.Business(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
-| `council` | `string` |  |
-| `description` | `string` |  |
-| `id` | `int` |  |
-| `state` | `string` |  |
-| `submissionDate` | `string` |  |
-| `title` | `string` |  |
-| `type` | `string` |  |
+| `author` | `string` | Author of the affair |
+| `council` | `string` | Council handling the affair |
+| `description` | `string` | Detailed description of the affair |
+| `id` | `int` | Unique affair identifier |
+| `state` | `string` | Current state/status of the affair |
+| `submissionDate` | `string` | Date of submission |
+| `title` | `string` | Affair title |
+| `type` | `string` | Type of parliamentary affair |
 
 #### Example: List
 
@@ -363,16 +363,16 @@ Create an instance: `member := client.Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active` | `bool` |  |
-| `canton` | `string` |  |
-| `council` | `string` |  |
-| `entryDate` | `string` |  |
-| `firstName` | `string` |  |
-| `id` | `int` |  |
-| `lastName` | `string` |  |
-| `leavingDate` | `string` |  |
-| `party` | `string` |  |
-| `title` | `string` |  |
+| `active` | `bool` | Whether the councillor is currently active |
+| `canton` | `string` | Canton abbreviation |
+| `council` | `string` | Council membership (National Council or Council of States) |
+| `entryDate` | `string` | Date of entry into parliament |
+| `firstName` | `string` | First name |
+| `id` | `int` | Unique councillor identifier |
+| `lastName` | `string` | Last name |
+| `leavingDate` | `string` | Date of leaving parliament (if applicable) |
+| `party` | `string` | Political party abbreviation |
+| `title` | `string` | Academic or professional title |
 
 #### Example: List
 
@@ -399,13 +399,13 @@ Create an instance: `session := client.Session(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abbreviation` | `string` |  |
-| `endDate` | `string` |  |
-| `id` | `int` |  |
-| `name` | `string` |  |
-| `startDate` | `string` |  |
-| `state` | `string` |  |
-| `type` | `string` |  |
+| `abbreviation` | `string` | Session abbreviation |
+| `endDate` | `string` | Session end date |
+| `id` | `int` | Unique session identifier |
+| `name` | `string` | Session name |
+| `startDate` | `string` | Session start date |
+| `state` | `string` | Current state of the session |
+| `type` | `string` | Type of session (e.g., ordinary, extraordinary) |
 
 #### Example: List
 

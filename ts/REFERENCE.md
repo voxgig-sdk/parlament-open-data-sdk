@@ -140,14 +140,14 @@ const business = client.Business()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `string` | No |  |
-| `council` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `number` | No |  |
-| `state` | `string` | No |  |
-| `submissionDate` | `string` | No |  |
-| `title` | `string` | No |  |
-| `type` | `string` | No |  |
+| `author` | `string` | No | Author of the affair |
+| `council` | `string` | No | Council handling the affair |
+| `description` | `string` | No | Detailed description of the affair |
+| `id` | `number` | No | Unique affair identifier |
+| `state` | `string` | No | Current state/status of the affair |
+| `submissionDate` | `string` | No | Date of submission |
+| `title` | `string` | No | Affair title |
+| `type` | `string` | No | Type of parliamentary affair |
 
 ### Operations
 
@@ -197,16 +197,16 @@ const member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active` | `boolean` | No |  |
-| `canton` | `string` | No |  |
-| `council` | `string` | No |  |
-| `entryDate` | `string` | No |  |
-| `firstName` | `string` | No |  |
-| `id` | `number` | No |  |
-| `lastName` | `string` | No |  |
-| `leavingDate` | `string` | No |  |
-| `party` | `string` | No |  |
-| `title` | `string` | No |  |
+| `active` | `boolean` | No | Whether the councillor is currently active |
+| `canton` | `string` | No | Canton abbreviation |
+| `council` | `string` | No | Council membership (National Council or Council of States) |
+| `entryDate` | `string` | No | Date of entry into parliament |
+| `firstName` | `string` | No | First name |
+| `id` | `number` | No | Unique councillor identifier |
+| `lastName` | `string` | No | Last name |
+| `leavingDate` | `string` | No | Date of leaving parliament (if applicable) |
+| `party` | `string` | No | Political party abbreviation |
+| `title` | `string` | No | Academic or professional title |
 
 ### Operations
 
@@ -256,13 +256,13 @@ const session = client.Session()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abbreviation` | `string` | No |  |
-| `endDate` | `string` | No |  |
-| `id` | `number` | No |  |
-| `name` | `string` | No |  |
-| `startDate` | `string` | No |  |
-| `state` | `string` | No |  |
-| `type` | `string` | No |  |
+| `abbreviation` | `string` | No | Session abbreviation |
+| `endDate` | `string` | No | Session end date |
+| `id` | `number` | No | Unique session identifier |
+| `name` | `string` | No | Session name |
+| `startDate` | `string` | No | Session start date |
+| `state` | `string` | No | Current state of the session |
+| `type` | `string` | No | Type of session (e.g., ordinary, extraordinary) |
 
 ### Operations
 

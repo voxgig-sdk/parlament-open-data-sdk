@@ -1,48 +1,68 @@
-# Entity: business
+# Entity: member
 
-main: kit: entity: business: {
+main: kit: entity: member: {
 
   alias: field: {}
 
   fields: [
     {
-      name: "author"
+      name: "active"
       req: false
+      short: "Whether the councillor is currently active"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "canton"
+      req: false
+      short: "Canton abbreviation"
       type: "`$STRING`"
     }
     {
       name: "council"
       req: false
+      short: "Council membership (National Council or Council of States)"
       type: "`$STRING`"
     }
     {
-      name: "description"
+      name: "entryDate"
       req: false
+      short: "Date of entry into parliament"
+      type: "`$STRING`"
+    }
+    {
+      name: "firstName"
+      req: false
+      short: "First name"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique councillor identifier"
       type: "`$INTEGER`"
     }
     {
-      name: "state"
+      name: "lastName"
       req: false
+      short: "Last name"
       type: "`$STRING`"
     }
     {
-      name: "submissionDate"
+      name: "leavingDate"
       req: false
+      short: "Date of leaving parliament (if applicable)"
+      type: "`$STRING`"
+    }
+    {
+      name: "party"
+      req: false
+      short: "Political party abbreviation"
       type: "`$STRING`"
     }
     {
       name: "title"
       req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "type"
-      req: false
+      short: "Academic or professional title"
       type: "`$STRING`"
     }
   ]
@@ -52,7 +72,7 @@ main: kit: entity: business: {
     name: "id"
   }
 
-  name: "business"
+  name: "member"
   op: {
     list: {
       name: "list"
@@ -60,6 +80,13 @@ main: kit: entity: business: {
         {
           args: {
             query: [
+              {
+                kind: "query"
+                name: "active"
+                orig: "active"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
               {
                 example: "json"
                 kind: "query"
@@ -83,39 +110,24 @@ main: kit: entity: business: {
                 reqd: false
                 type: "`$STRING`"
               }
-              {
-                kind: "query"
-                name: "state"
-                orig: "state"
-                reqd: false
-                type: "`$STRING`"
-              }
-              {
-                kind: "query"
-                name: "type"
-                orig: "type"
-                reqd: false
-                type: "`$STRING`"
-              }
             ]
           }
           method: "GET"
-          orig: "/affairs"
+          orig: "/councillors"
           parts: [
-            "affairs"
+            "councillors"
           ]
           select: {
             exist: [
+              "active"
               "format"
               "id"
               "language"
-              "state"
-              "type"
             ]
           }
           transform: {
             req: "`reqdata`"
-            res: "`body.affairs`"
+            res: "`body.councillors`"
           }
         }
       ]
