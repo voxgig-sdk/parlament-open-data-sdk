@@ -28,13 +28,10 @@ class Business
 /** Request payload for Business#list. */
 class BusinessListMatch
 {
-    public ?string $author = null;
-    public ?string $council = null;
-    public ?string $description = null;
+    public ?string $format = null;
     public ?int $id = null;
+    public ?string $language = null;
     public ?string $state = null;
-    public ?string $submissionDate = null;
-    public ?string $title = null;
     public ?string $type = null;
 }
 
@@ -57,15 +54,9 @@ class Member
 class MemberListMatch
 {
     public ?bool $active = null;
-    public ?string $canton = null;
-    public ?string $council = null;
-    public ?string $entryDate = null;
-    public ?string $firstName = null;
+    public ?string $format = null;
     public ?int $id = null;
-    public ?string $lastName = null;
-    public ?string $leavingDate = null;
-    public ?string $party = null;
-    public ?string $title = null;
+    public ?string $language = null;
 }
 
 /** Session entity data model. */
@@ -83,12 +74,8 @@ class Session
 /** Request payload for Session#list. */
 class SessionListMatch
 {
-    public ?string $abbreviation = null;
-    public ?string $endDate = null;
-    public ?int $id = null;
-    public ?string $name = null;
-    public ?string $startDate = null;
-    public ?string $state = null;
-    public ?string $type = null;
+    public ?string $format = null;
+    public ?string $language = null;
+    public ?int $session_id = null;
 }
 

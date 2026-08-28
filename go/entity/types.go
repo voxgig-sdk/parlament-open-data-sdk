@@ -26,13 +26,10 @@ type Business struct {
 
 // BusinessListMatch is the typed request payload for Business.ListTyped.
 type BusinessListMatch struct {
-	Author *string `json:"author,omitempty"`
-	Council *string `json:"council,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Format *string `json:"format,omitempty"`
 	Id *int `json:"id,omitempty"`
+	Language *string `json:"language,omitempty"`
 	State *string `json:"state,omitempty"`
-	SubmissionDate *string `json:"submissionDate,omitempty"`
-	Title *string `json:"title,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 
@@ -53,15 +50,9 @@ type Member struct {
 // MemberListMatch is the typed request payload for Member.ListTyped.
 type MemberListMatch struct {
 	Active *bool `json:"active,omitempty"`
-	Canton *string `json:"canton,omitempty"`
-	Council *string `json:"council,omitempty"`
-	EntryDate *string `json:"entryDate,omitempty"`
-	FirstName *string `json:"firstName,omitempty"`
+	Format *string `json:"format,omitempty"`
 	Id *int `json:"id,omitempty"`
-	LastName *string `json:"lastName,omitempty"`
-	LeavingDate *string `json:"leavingDate,omitempty"`
-	Party *string `json:"party,omitempty"`
-	Title *string `json:"title,omitempty"`
+	Language *string `json:"language,omitempty"`
 }
 
 // Session is the typed data model for the session entity.
@@ -77,13 +68,9 @@ type Session struct {
 
 // SessionListMatch is the typed request payload for Session.ListTyped.
 type SessionListMatch struct {
-	Abbreviation *string `json:"abbreviation,omitempty"`
-	EndDate *string `json:"endDate,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	StartDate *string `json:"startDate,omitempty"`
-	State *string `json:"state,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Format *string `json:"format,omitempty"`
+	Language *string `json:"language,omitempty"`
+	SessionId *int `json:"session_id,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

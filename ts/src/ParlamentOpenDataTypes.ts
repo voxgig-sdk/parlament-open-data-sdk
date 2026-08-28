@@ -17,13 +17,10 @@ export interface Business {
 }
 
 export interface BusinessListMatch {
-  author?: string
-  council?: string
-  description?: string
+  format?: string
   id?: number
+  language?: string
   state?: string
-  submissionDate?: string
-  title?: string
   type?: string
 }
 
@@ -42,15 +39,9 @@ export interface Member {
 
 export interface MemberListMatch {
   active?: boolean
-  canton?: string
-  council?: string
-  entryDate?: string
-  firstName?: string
+  format?: string
   id?: number
-  lastName?: string
-  leavingDate?: string
-  party?: string
-  title?: string
+  language?: string
 }
 
 export interface Session {
@@ -64,12 +55,8 @@ export interface Session {
 }
 
 export interface SessionListMatch {
-  abbreviation?: string
-  endDate?: string
-  id?: number
-  name?: string
-  startDate?: string
-  state?: string
-  type?: string
+  format?: string
+  language?: string
+  session_id?: number
 }
 

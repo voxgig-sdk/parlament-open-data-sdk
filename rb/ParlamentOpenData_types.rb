@@ -47,37 +47,25 @@ Business = Struct.new(
 
 # Request payload for Business#list.
 #
-# @!attribute [rw] author
-#   @return [String, nil]
-#
-# @!attribute [rw] council
-#   @return [String, nil]
-#
-# @!attribute [rw] description
+# @!attribute [rw] format
 #   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
+# @!attribute [rw] language
+#   @return [String, nil]
+#
 # @!attribute [rw] state
-#   @return [String, nil]
-#
-# @!attribute [rw] submissionDate
-#   @return [String, nil]
-#
-# @!attribute [rw] title
 #   @return [String, nil]
 #
 # @!attribute [rw] type
 #   @return [String, nil]
 BusinessListMatch = Struct.new(
-  :author,
-  :council,
-  :description,
+  :format,
   :id,
+  :language,
   :state,
-  :submissionDate,
-  :title,
   :type,
   keyword_init: true
 )
@@ -132,43 +120,19 @@ Member = Struct.new(
 # @!attribute [rw] active
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] canton
-#   @return [String, nil]
-#
-# @!attribute [rw] council
-#   @return [String, nil]
-#
-# @!attribute [rw] entryDate
-#   @return [String, nil]
-#
-# @!attribute [rw] firstName
+# @!attribute [rw] format
 #   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] lastName
-#   @return [String, nil]
-#
-# @!attribute [rw] leavingDate
-#   @return [String, nil]
-#
-# @!attribute [rw] party
-#   @return [String, nil]
-#
-# @!attribute [rw] title
+# @!attribute [rw] language
 #   @return [String, nil]
 MemberListMatch = Struct.new(
   :active,
-  :canton,
-  :council,
-  :entryDate,
-  :firstName,
+  :format,
   :id,
-  :lastName,
-  :leavingDate,
-  :party,
-  :title,
+  :language,
   keyword_init: true
 )
 
@@ -207,34 +171,18 @@ Session = Struct.new(
 
 # Request payload for Session#list.
 #
-# @!attribute [rw] abbreviation
+# @!attribute [rw] format
 #   @return [String, nil]
 #
-# @!attribute [rw] endDate
+# @!attribute [rw] language
 #   @return [String, nil]
 #
-# @!attribute [rw] id
+# @!attribute [rw] session_id
 #   @return [Integer, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] startDate
-#   @return [String, nil]
-#
-# @!attribute [rw] state
-#   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 SessionListMatch = Struct.new(
-  :abbreviation,
-  :endDate,
-  :id,
-  :name,
-  :startDate,
-  :state,
-  :type,
+  :format,
+  :language,
+  :session_id,
   keyword_init: true
 )
 

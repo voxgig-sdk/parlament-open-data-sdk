@@ -28,13 +28,10 @@ class Business(TypedDict, total=False):
 
 
 class BusinessListMatch(TypedDict, total=False):
-    author: str
-    council: str
-    description: str
+    format: str
     id: int
+    language: str
     state: str
-    submissionDate: str
-    title: str
     type: str
 
 
@@ -53,15 +50,9 @@ class Member(TypedDict, total=False):
 
 class MemberListMatch(TypedDict, total=False):
     active: bool
-    canton: str
-    council: str
-    entryDate: str
-    firstName: str
+    format: str
     id: int
-    lastName: str
-    leavingDate: str
-    party: str
-    title: str
+    language: str
 
 
 class Session(TypedDict, total=False):
@@ -75,10 +66,6 @@ class Session(TypedDict, total=False):
 
 
 class SessionListMatch(TypedDict, total=False):
-    abbreviation: str
-    endDate: str
-    id: int
-    name: str
-    startDate: str
-    state: str
-    type: str
+    format: str
+    language: str
+    session_id: int
