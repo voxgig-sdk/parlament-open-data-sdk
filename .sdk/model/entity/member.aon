@@ -24,6 +24,7 @@ main: kit: entity: member: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "entryDate"
       req: false
       short: "Date of entry into parliament"
@@ -48,6 +49,7 @@ main: kit: entity: member: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "leavingDate"
       req: false
       short: "Date of leaving parliament (if applicable)"
@@ -114,8 +116,10 @@ main: kit: entity: member: {
           }
           method: "GET"
           orig: "/councillors"
-          parts: [
-            "councillors"
+          segments: [
+            {
+              lit: "councillors"
+            }
           ]
           select: {
             exist: [

@@ -1,6 +1,14 @@
 # ParlamentOpenData SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -80,6 +88,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "submissionDate",
             "short": "Date of submission",
             "type": "`$STRING`",
@@ -95,6 +104,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "business",
         "op": {
           "list": {
@@ -141,8 +154,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/affairs",
-                "parts": [
-                  "affairs",
+                "segments": [
+                  {
+                    "lit": "affairs",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -157,6 +172,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.affairs`",
                 },
+                "parts": [
+                  "affairs",
+                ],
               },
             ],
           },
@@ -183,6 +201,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "entryDate",
             "short": "Date of entry into parliament",
             "type": "`$STRING`",
@@ -203,6 +222,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "leavingDate",
             "short": "Date of leaving parliament (if applicable)",
             "type": "`$STRING`",
@@ -218,6 +238,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "member",
         "op": {
           "list": {
@@ -258,8 +282,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/councillors",
-                "parts": [
-                  "councillors",
+                "segments": [
+                  {
+                    "lit": "councillors",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -273,6 +299,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.councillors`",
                 },
+                "parts": [
+                  "councillors",
+                ],
               },
             ],
           },
@@ -289,6 +318,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "endDate",
             "short": "Session end date",
             "type": "`$STRING`",
@@ -304,6 +334,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "startDate",
             "short": "Session start date",
             "type": "`$STRING`",
@@ -319,6 +350,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "session",
         "op": {
           "list": {
@@ -353,8 +388,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sessions",
-                "parts": [
-                  "sessions",
+                "segments": [
+                  {
+                    "lit": "sessions",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -367,6 +404,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.sessions`",
                 },
+                "parts": [
+                  "sessions",
+                ],
               },
             ],
           },

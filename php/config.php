@@ -85,6 +85,7 @@ class ParlamentOpenDataConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'submissionDate',
               'short' => 'Date of submission',
               'type' => '`$STRING`',
@@ -99,6 +100,10 @@ class ParlamentOpenDataConfig
               'short' => 'Type of parliamentary affair',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'business',
           'op' => [
@@ -146,8 +151,10 @@ class ParlamentOpenDataConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/affairs',
-                  'parts' => [
-                    'affairs',
+                  'segments' => [
+                    [
+                      'lit' => 'affairs',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -161,6 +168,9 @@ class ParlamentOpenDataConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.affairs`',
+                  ],
+                  'parts' => [
+                    'affairs',
                   ],
                 ],
               ],
@@ -188,6 +198,7 @@ class ParlamentOpenDataConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'entryDate',
               'short' => 'Date of entry into parliament',
               'type' => '`$STRING`',
@@ -208,6 +219,7 @@ class ParlamentOpenDataConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'leavingDate',
               'short' => 'Date of leaving parliament (if applicable)',
               'type' => '`$STRING`',
@@ -222,6 +234,10 @@ class ParlamentOpenDataConfig
               'short' => 'Academic or professional title',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'member',
           'op' => [
@@ -263,8 +279,10 @@ class ParlamentOpenDataConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/councillors',
-                  'parts' => [
-                    'councillors',
+                  'segments' => [
+                    [
+                      'lit' => 'councillors',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -277,6 +295,9 @@ class ParlamentOpenDataConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.councillors`',
+                  ],
+                  'parts' => [
+                    'councillors',
                   ],
                 ],
               ],
@@ -294,6 +315,7 @@ class ParlamentOpenDataConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'endDate',
               'short' => 'Session end date',
               'type' => '`$STRING`',
@@ -309,6 +331,7 @@ class ParlamentOpenDataConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'startDate',
               'short' => 'Session start date',
               'type' => '`$STRING`',
@@ -323,6 +346,10 @@ class ParlamentOpenDataConfig
               'short' => 'Type of session (e.g., ordinary, extraordinary)',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'session',
           'op' => [
@@ -358,8 +385,10 @@ class ParlamentOpenDataConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/sessions',
-                  'parts' => [
-                    'sessions',
+                  'segments' => [
+                    [
+                      'lit' => 'sessions',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -371,6 +400,9 @@ class ParlamentOpenDataConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.sessions`',
+                  ],
+                  'parts' => [
+                    'sessions',
                   ],
                 ],
               ],

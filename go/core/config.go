@@ -63,6 +63,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "submissionDate",
 						"short": "Date of submission",
 						"type": "`$STRING`",
@@ -77,6 +78,10 @@ func MakeConfig() map[string]any {
 						"short": "Type of parliamentary affair",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "business",
 				"op": map[string]any{
@@ -124,8 +129,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/affairs",
-								"parts": []any{
-									"affairs",
+								"segments": []any{
+									map[string]any{
+										"lit": "affairs",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -139,6 +146,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.affairs`",
+								},
+								"parts": []any{
+									"affairs",
 								},
 							},
 						},
@@ -166,6 +176,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "entryDate",
 						"short": "Date of entry into parliament",
 						"type": "`$STRING`",
@@ -186,6 +197,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "leavingDate",
 						"short": "Date of leaving parliament (if applicable)",
 						"type": "`$STRING`",
@@ -200,6 +212,10 @@ func MakeConfig() map[string]any {
 						"short": "Academic or professional title",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "member",
 				"op": map[string]any{
@@ -241,8 +257,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/councillors",
-								"parts": []any{
-									"councillors",
+								"segments": []any{
+									map[string]any{
+										"lit": "councillors",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -255,6 +273,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.councillors`",
+								},
+								"parts": []any{
+									"councillors",
 								},
 							},
 						},
@@ -272,6 +293,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "endDate",
 						"short": "Session end date",
 						"type": "`$STRING`",
@@ -287,6 +309,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "startDate",
 						"short": "Session start date",
 						"type": "`$STRING`",
@@ -301,6 +324,10 @@ func MakeConfig() map[string]any {
 						"short": "Type of session (e.g., ordinary, extraordinary)",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "session",
 				"op": map[string]any{
@@ -336,8 +363,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/sessions",
-								"parts": []any{
-									"sessions",
+								"segments": []any{
+									map[string]any{
+										"lit": "sessions",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -350,6 +379,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.sessions`",
 								},
+								"parts": []any{
+									"sessions",
+								},
 							},
 						},
 					},
@@ -360,6 +392,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

@@ -36,6 +36,7 @@ main: kit: entity: business: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "submissionDate"
       req: false
       short: "Date of submission"
@@ -109,8 +110,10 @@ main: kit: entity: business: {
           }
           method: "GET"
           orig: "/affairs"
-          parts: [
-            "affairs"
+          segments: [
+            {
+              lit: "affairs"
+            }
           ]
           select: {
             exist: [

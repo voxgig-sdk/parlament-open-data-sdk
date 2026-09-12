@@ -12,6 +12,7 @@ main: kit: entity: session: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "endDate"
       req: false
       short: "Session end date"
@@ -30,6 +31,7 @@ main: kit: entity: session: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "startDate"
       req: false
       short: "Session start date"
@@ -89,8 +91,10 @@ main: kit: entity: session: {
           }
           method: "GET"
           orig: "/sessions"
-          parts: [
-            "sessions"
+          segments: [
+            {
+              lit: "sessions"
+            }
           ]
           select: {
             exist: [
