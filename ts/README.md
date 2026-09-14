@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data'
+import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data-sdk'
 
 const client = new ParlamentOpenDataSDK()
 ```
@@ -515,7 +515,7 @@ parlament-open-data/
 Import the SDK from the package root:
 
 ```ts
-import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data'
+import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data-sdk'
 ```
 
 ### Entity state

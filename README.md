@@ -105,7 +105,7 @@ local results, err = client:Session():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/parlament-open-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/parlament-open-data-sdk/releases) |
+| TypeScript | `@voxgig-sdk/parlament-open-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/parlament-open-data-sdk/releases) |
 | Python | `voxgig-sdk-parlament-open-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/parlament-open-data-sdk/releases) |
 | PHP | `voxgig-sdk/parlament-open-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/parlament-open-data-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/parlament-open-data-sdk/go` | `go get github.com/voxgig-sdk/parlament-open-data-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Session():list()
 ### TypeScript
 
 ```ts
-import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data'
+import { ParlamentOpenDataSDK } from '@voxgig-sdk/parlament-open-data-sdk'
 
 const client = new ParlamentOpenDataSDK()
 
