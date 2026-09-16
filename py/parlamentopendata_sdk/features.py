@@ -1,12 +1,18 @@
 # ParlamentOpenData SDK feature factory
 
 from parlamentopendata_sdk.feature.base_feature import ParlamentOpenDataBaseFeature
+from parlamentopendata_sdk.feature.ratelimit_feature import ParlamentOpenDataRatelimitFeature
+from parlamentopendata_sdk.feature.retry_feature import ParlamentOpenDataRetryFeature
 from parlamentopendata_sdk.feature.test_feature import ParlamentOpenDataTestFeature
+from parlamentopendata_sdk.feature.timeout_feature import ParlamentOpenDataTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ParlamentOpenDataBaseFeature(),
+    "ratelimit": lambda: ParlamentOpenDataRatelimitFeature(),
+    "retry": lambda: ParlamentOpenDataRetryFeature(),
     "test": lambda: ParlamentOpenDataTestFeature(),
+    "timeout": lambda: ParlamentOpenDataTimeoutFeature(),
 }
 
 

@@ -41,5 +41,159 @@
         "type": "s11e"
       }
     }
+  },
+  "requests": {
+    "GET /sessions": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getSessions",
+        "parameters": [
+          {
+            "description": "Language code for response (de=German, fr=French, it=Italian, en=English)",
+            "in": "query",
+            "name": "language",
+            "required": false,
+            "schema": {
+              "default": "de",
+              "enum": [
+                "de",
+                "fr",
+                "it",
+                "en"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response format",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "default": "json",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by specific session ID",
+            "in": "query",
+            "name": "sessionId",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "sessions": {
+                      "items": {
+                        "properties": {
+                          "abbreviation": {
+                            "description": "Session abbreviation",
+                            "type": "string"
+                          },
+                          "endDate": {
+                            "description": "Session end date",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique session identifier",
+                            "type": "integer"
+                          },
+                          "name": {
+                            "description": "Session name",
+                            "type": "string"
+                          },
+                          "startDate": {
+                            "description": "Session start date",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "state": {
+                            "description": "Current state of the session",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Type of session (e.g., ordinary, extraordinary)",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "properties": {
+                    "sessions": {
+                      "items": {
+                        "properties": {
+                          "abbreviation": {
+                            "description": "Session abbreviation",
+                            "type": "string"
+                          },
+                          "endDate": {
+                            "description": "Session end date",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique session identifier",
+                            "type": "integer"
+                          },
+                          "name": {
+                            "description": "Session name",
+                            "type": "string"
+                          },
+                          "startDate": {
+                            "description": "Session start date",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "state": {
+                            "description": "Current state of the session",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Type of session (e.g., ordinary, extraordinary)",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with session data"
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

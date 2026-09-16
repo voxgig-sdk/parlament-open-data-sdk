@@ -4,7 +4,10 @@ declare(strict_types=1);
 // ParlamentOpenData SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class ParlamentOpenDataFeatures
@@ -14,8 +17,14 @@ class ParlamentOpenDataFeatures
         switch ($name) {
             case "base":
                 return new ParlamentOpenDataBaseFeature();
+            case "ratelimit":
+                return new ParlamentOpenDataRatelimitFeature();
+            case "retry":
+                return new ParlamentOpenDataRetryFeature();
             case "test":
                 return new ParlamentOpenDataTestFeature();
+            case "timeout":
+                return new ParlamentOpenDataTimeoutFeature();
             default:
                 return new ParlamentOpenDataBaseFeature();
         }
@@ -31,7 +40,10 @@ class ParlamentOpenDataFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
