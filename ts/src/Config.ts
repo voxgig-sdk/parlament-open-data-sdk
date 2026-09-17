@@ -127,15 +127,15 @@ class Config {
 
     entity: {
       
-      business: {
-      },
-
-      member: {
-      },
-
-      session: {
-      },
-
+        business: {
+        },
+  
+        member: {
+        },
+  
+        session: {
+        },
+  
     }
   }
 

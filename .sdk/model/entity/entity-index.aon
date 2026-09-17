@@ -1,5 +1,5 @@
 # Entity Models
 
-@"business.aon"
-@"member.aon"
-@"session.aon"
+@"./business.aon"
+@"./member.aon"
+@"./session.aon"

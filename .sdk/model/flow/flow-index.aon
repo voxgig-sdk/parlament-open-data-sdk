@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicBusinessFlow.aon"
-@"BasicMemberFlow.aon"
-@"BasicSessionFlow.aon"
+@"./BasicBusinessFlow.aon"
+@"./BasicMemberFlow.aon"
+@"./BasicSessionFlow.aon"
