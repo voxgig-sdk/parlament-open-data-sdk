@@ -1,0 +1,151 @@
+# Entity: business
+
+main: kit: entity: business: {
+
+  alias: field: {}
+
+  fields: {
+    author: {
+      h: "Author"
+      n: "author"
+      r: false
+      sh: "Author of the affair"
+      t: "`$STRING`"
+    }
+    council: {
+      h: "Council"
+      n: "council"
+      r: false
+      sh: "Council handling the affair"
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Detailed description of the affair"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique affair identifier"
+      t: "`$INTEGER`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      sh: "Current state/status of the affair"
+      t: "`$STRING`"
+    }
+    submissionDate: {
+      fo: "date"
+      h: "Submission Date"
+      n: "submissionDate"
+      r: false
+      sh: "Date of submission"
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Affair title"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Type of parliamentary affair"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "business"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /affairs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "json"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "de"
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "state"
+                or: "state"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/affairs"
+          q: {
+            exist: [
+              "format"
+              "id"
+              "language"
+              "state"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "affairs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.affairs`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

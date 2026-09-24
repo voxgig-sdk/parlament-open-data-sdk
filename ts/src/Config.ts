@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -145,44 +138,52 @@ class Config {
       "fields": [
         {
           "name": "author",
-          "short": "Author of the affair",
-          "type": "`$STRING`"
+          "title": "Author",
+          "type": "`$STRING`",
+          "short": "Author of the affair"
         },
         {
           "name": "council",
-          "short": "Council handling the affair",
-          "type": "`$STRING`"
+          "title": "Council",
+          "type": "`$STRING`",
+          "short": "Council handling the affair"
         },
         {
           "name": "description",
-          "short": "Detailed description of the affair",
-          "type": "`$STRING`"
+          "title": "Description",
+          "type": "`$STRING`",
+          "short": "Detailed description of the affair"
         },
         {
           "name": "id",
-          "short": "Unique affair identifier",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Unique affair identifier"
         },
         {
           "name": "state",
-          "short": "Current state/status of the affair",
-          "type": "`$STRING`"
+          "title": "State",
+          "type": "`$STRING`",
+          "short": "Current state/status of the affair"
         },
         {
-          "format": "date",
           "name": "submissionDate",
+          "title": "Submission Date",
+          "type": "`$STRING`",
           "short": "Date of submission",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "title",
-          "short": "Affair title",
-          "type": "`$STRING`"
+          "title": "Title",
+          "type": "`$STRING`",
+          "short": "Affair title"
         },
         {
           "name": "type",
-          "short": "Type of parliamentary affair",
-          "type": "`$STRING`"
+          "title": "Type",
+          "type": "`$STRING`",
+          "short": "Type of parliamentary affair"
         }
       ],
       "id": {
@@ -196,42 +197,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "json",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "id",
-                    "orig": "id",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "de",
-                    "kind": "query",
-                    "name": "language",
-                    "orig": "language",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "state",
-                    "orig": "state",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "type",
-                    "orig": "type",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/affairs",
@@ -240,6 +205,50 @@ class Config {
                   "lit": "affairs"
                 }
               ],
+              "parts": [
+                "affairs"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.affairs`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "json"
+                  },
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "language",
+                    "orig": "language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "de"
+                  },
+                  {
+                    "name": "state",
+                    "orig": "state",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "type",
+                    "orig": "type",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "format",
@@ -248,14 +257,7 @@ class Config {
                   "state",
                   "type"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.affairs`"
-              },
-              "parts": [
-                "affairs"
-              ]
+              }
             }
           ]
         }
@@ -268,55 +270,65 @@ class Config {
       "fields": [
         {
           "name": "active",
-          "short": "Whether the councillor is currently active",
-          "type": "`$BOOLEAN`"
+          "title": "Active",
+          "type": "`$BOOLEAN`",
+          "short": "Whether the councillor is currently active"
         },
         {
           "name": "canton",
-          "short": "Canton abbreviation",
-          "type": "`$STRING`"
+          "title": "Canton",
+          "type": "`$STRING`",
+          "short": "Canton abbreviation"
         },
         {
           "name": "council",
-          "short": "Council membership (National Council or Council of States)",
-          "type": "`$STRING`"
+          "title": "Council",
+          "type": "`$STRING`",
+          "short": "Council membership (National Council or Council of States)"
         },
         {
-          "format": "date",
           "name": "entryDate",
+          "title": "Entry Date",
+          "type": "`$STRING`",
           "short": "Date of entry into parliament",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "firstName",
-          "short": "First name",
-          "type": "`$STRING`"
+          "title": "First Name",
+          "type": "`$STRING`",
+          "short": "First name"
         },
         {
           "name": "id",
-          "short": "Unique councillor identifier",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Unique councillor identifier"
         },
         {
           "name": "lastName",
-          "short": "Last name",
-          "type": "`$STRING`"
+          "title": "Last Name",
+          "type": "`$STRING`",
+          "short": "Last name"
         },
         {
-          "format": "date",
           "name": "leavingDate",
+          "title": "Leaving Date",
+          "type": "`$STRING`",
           "short": "Date of leaving parliament (if applicable)",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "party",
-          "short": "Political party abbreviation",
-          "type": "`$STRING`"
+          "title": "Party",
+          "type": "`$STRING`",
+          "short": "Political party abbreviation"
         },
         {
           "name": "title",
-          "short": "Academic or professional title",
-          "type": "`$STRING`"
+          "title": "Title",
+          "type": "`$STRING`",
+          "short": "Academic or professional title"
         }
       ],
       "id": {
@@ -330,36 +342,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "active",
-                    "orig": "active",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "example": "json",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "id",
-                    "orig": "id",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "de",
-                    "kind": "query",
-                    "name": "language",
-                    "orig": "language",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/councillors",
@@ -368,6 +350,44 @@ class Config {
                   "lit": "councillors"
                 }
               ],
+              "parts": [
+                "councillors"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.councillors`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "active",
+                    "orig": "active",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "json"
+                  },
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "language",
+                    "orig": "language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "de"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "active",
@@ -375,14 +395,7 @@ class Config {
                   "id",
                   "language"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.councillors`"
-              },
-              "parts": [
-                "councillors"
-              ]
+              }
             }
           ]
         }
@@ -395,40 +408,47 @@ class Config {
       "fields": [
         {
           "name": "abbreviation",
-          "short": "Session abbreviation",
-          "type": "`$STRING`"
+          "title": "Abbreviation",
+          "type": "`$STRING`",
+          "short": "Session abbreviation"
         },
         {
-          "format": "date",
           "name": "endDate",
+          "title": "End Date",
+          "type": "`$STRING`",
           "short": "Session end date",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "id",
-          "short": "Unique session identifier",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Unique session identifier"
         },
         {
           "name": "name",
-          "short": "Session name",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Session name"
         },
         {
-          "format": "date",
           "name": "startDate",
+          "title": "Start Date",
+          "type": "`$STRING`",
           "short": "Session start date",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "state",
-          "short": "Current state of the session",
-          "type": "`$STRING`"
+          "title": "State",
+          "type": "`$STRING`",
+          "short": "Current state of the session"
         },
         {
           "name": "type",
-          "short": "Type of session (e.g., ordinary, extraordinary)",
-          "type": "`$STRING`"
+          "title": "Type",
+          "type": "`$STRING`",
+          "short": "Type of session (e.g., ordinary, extraordinary)"
         }
       ],
       "id": {
@@ -442,30 +462,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "json",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "de",
-                    "kind": "query",
-                    "name": "language",
-                    "orig": "language",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "session_id",
-                    "orig": "session_id",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/sessions",
@@ -474,20 +470,45 @@ class Config {
                   "lit": "sessions"
                 }
               ],
+              "parts": [
+                "sessions"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.sessions`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "json"
+                  },
+                  {
+                    "name": "language",
+                    "orig": "language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "de"
+                  },
+                  {
+                    "name": "session_id",
+                    "orig": "session_id",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "format",
                   "language",
                   "session_id"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.sessions`"
-              },
-              "parts": [
-                "sessions"
-              ]
+              }
             }
           ]
         }

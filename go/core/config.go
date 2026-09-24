@@ -93,44 +93,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "author",
-						"short": "Author of the affair",
+						"title": "Author",
 						"type": "`$STRING`",
+						"short": "Author of the affair",
 					},
 					map[string]any{
 						"name": "council",
-						"short": "Council handling the affair",
+						"title": "Council",
 						"type": "`$STRING`",
+						"short": "Council handling the affair",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the affair",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the affair",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique affair identifier",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique affair identifier",
 					},
 					map[string]any{
 						"name": "state",
-						"short": "Current state/status of the affair",
+						"title": "State",
 						"type": "`$STRING`",
+						"short": "Current state/status of the affair",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "submissionDate",
-						"short": "Date of submission",
+						"title": "Submission Date",
 						"type": "`$STRING`",
+						"short": "Date of submission",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Affair title",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Affair title",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Type of parliamentary affair",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "Type of parliamentary affair",
 					},
 				},
 				"id": map[string]any{
@@ -144,48 +152,56 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "id",
-											"orig": "id",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "de",
-											"kind": "query",
-											"name": "language",
-											"orig": "language",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "state",
-											"orig": "state",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "type",
-											"orig": "type",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/affairs",
 								"segments": []any{
 									map[string]any{
 										"lit": "affairs",
+									},
+								},
+								"parts": []any{
+									"affairs",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.affairs`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "language",
+											"orig": "language",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "de",
+										},
+										map[string]any{
+											"name": "state",
+											"orig": "state",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "type",
+											"orig": "type",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -196,13 +212,6 @@ func MakeConfig() map[string]any {
 										"state",
 										"type",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.affairs`",
-								},
-								"parts": []any{
-									"affairs",
 								},
 							},
 						},
@@ -216,55 +225,65 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "active",
-						"short": "Whether the councillor is currently active",
+						"title": "Active",
 						"type": "`$BOOLEAN`",
+						"short": "Whether the councillor is currently active",
 					},
 					map[string]any{
 						"name": "canton",
-						"short": "Canton abbreviation",
+						"title": "Canton",
 						"type": "`$STRING`",
+						"short": "Canton abbreviation",
 					},
 					map[string]any{
 						"name": "council",
-						"short": "Council membership (National Council or Council of States)",
+						"title": "Council",
 						"type": "`$STRING`",
+						"short": "Council membership (National Council or Council of States)",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "entryDate",
-						"short": "Date of entry into parliament",
+						"title": "Entry Date",
 						"type": "`$STRING`",
+						"short": "Date of entry into parliament",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "firstName",
-						"short": "First name",
+						"title": "First Name",
 						"type": "`$STRING`",
+						"short": "First name",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique councillor identifier",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique councillor identifier",
 					},
 					map[string]any{
 						"name": "lastName",
-						"short": "Last name",
+						"title": "Last Name",
 						"type": "`$STRING`",
+						"short": "Last name",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "leavingDate",
-						"short": "Date of leaving parliament (if applicable)",
+						"title": "Leaving Date",
 						"type": "`$STRING`",
+						"short": "Date of leaving parliament (if applicable)",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "party",
-						"short": "Political party abbreviation",
+						"title": "Party",
 						"type": "`$STRING`",
+						"short": "Political party abbreviation",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Academic or professional title",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Academic or professional title",
 					},
 				},
 				"id": map[string]any{
@@ -278,42 +297,50 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "active",
-											"orig": "active",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "id",
-											"orig": "id",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "de",
-											"kind": "query",
-											"name": "language",
-											"orig": "language",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/councillors",
 								"segments": []any{
 									map[string]any{
 										"lit": "councillors",
+									},
+								},
+								"parts": []any{
+									"councillors",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.councillors`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "active",
+											"orig": "active",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "language",
+											"orig": "language",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "de",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -323,13 +350,6 @@ func MakeConfig() map[string]any {
 										"id",
 										"language",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.councillors`",
-								},
-								"parts": []any{
-									"councillors",
 								},
 							},
 						},
@@ -343,40 +363,47 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "abbreviation",
-						"short": "Session abbreviation",
+						"title": "Abbreviation",
 						"type": "`$STRING`",
+						"short": "Session abbreviation",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "endDate",
-						"short": "Session end date",
+						"title": "End Date",
 						"type": "`$STRING`",
+						"short": "Session end date",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique session identifier",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique session identifier",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Session name",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Session name",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "startDate",
-						"short": "Session start date",
+						"title": "Start Date",
 						"type": "`$STRING`",
+						"short": "Session start date",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "state",
-						"short": "Current state of the session",
+						"title": "State",
 						"type": "`$STRING`",
+						"short": "Current state of the session",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Type of session (e.g., ordinary, extraordinary)",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "Type of session (e.g., ordinary, extraordinary)",
 					},
 				},
 				"id": map[string]any{
@@ -390,30 +417,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "de",
-											"kind": "query",
-											"name": "language",
-											"orig": "language",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "session_id",
-											"orig": "session_id",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/sessions",
@@ -422,19 +425,44 @@ func MakeConfig() map[string]any {
 										"lit": "sessions",
 									},
 								},
+								"parts": []any{
+									"sessions",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.sessions`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+										map[string]any{
+											"name": "language",
+											"orig": "language",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "de",
+										},
+										map[string]any{
+											"name": "session_id",
+											"orig": "session_id",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"format",
 										"language",
 										"session_id",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.sessions`",
-								},
-								"parts": []any{
-									"sessions",
 								},
 							},
 						},

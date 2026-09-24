@@ -1,7 +1,7 @@
 // Typed models for the ParlamentOpenData SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,14 +14,6 @@ import (
 
 // Business is the typed data model for the business entity.
 type Business struct {
-	Author *string `json:"author,omitempty"`
-	Council *string `json:"council,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *int `json:"id,omitempty"`
-	State *string `json:"state,omitempty"`
-	SubmissionDate *string `json:"submissionDate,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // BusinessListMatch is the typed request payload for Business.ListTyped.
@@ -35,16 +27,6 @@ type BusinessListMatch struct {
 
 // Member is the typed data model for the member entity.
 type Member struct {
-	Active *bool `json:"active,omitempty"`
-	Canton *string `json:"canton,omitempty"`
-	Council *string `json:"council,omitempty"`
-	EntryDate *string `json:"entryDate,omitempty"`
-	FirstName *string `json:"firstName,omitempty"`
-	Id *int `json:"id,omitempty"`
-	LastName *string `json:"lastName,omitempty"`
-	LeavingDate *string `json:"leavingDate,omitempty"`
-	Party *string `json:"party,omitempty"`
-	Title *string `json:"title,omitempty"`
 }
 
 // MemberListMatch is the typed request payload for Member.ListTyped.
@@ -57,13 +39,6 @@ type MemberListMatch struct {
 
 // Session is the typed data model for the session entity.
 type Session struct {
-	Abbreviation *string `json:"abbreviation,omitempty"`
-	EndDate *string `json:"endDate,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	StartDate *string `json:"startDate,omitempty"`
-	State *string `json:"state,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // SessionListMatch is the typed request payload for Session.ListTyped.

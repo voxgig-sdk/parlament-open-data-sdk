@@ -19,7 +19,6 @@ import type {
   BusinessListMatch,
 } from '../ParlamentOpenDataTypes'
 
-// TODO: needs Entity superclass
 class BusinessEntity extends ParlamentOpenDataEntityBase<Business> {
 
   constructor(client: ParlamentOpenDataSDK, entopts: any) {

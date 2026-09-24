@@ -19,7 +19,6 @@ import type {
   SessionListMatch,
 } from '../ParlamentOpenDataTypes'
 
-// TODO: needs Entity superclass
 class SessionEntity extends ParlamentOpenDataEntityBase<Session> {
 
   constructor(client: ParlamentOpenDataSDK, entopts: any) {

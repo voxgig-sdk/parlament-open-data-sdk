@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemberEntity = void 0;
 const ParlamentOpenDataEntityBase_1 = require("../ParlamentOpenDataEntityBase");
-// TODO: needs Entity superclass
 class MemberEntity extends ParlamentOpenDataEntityBase_1.ParlamentOpenDataEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

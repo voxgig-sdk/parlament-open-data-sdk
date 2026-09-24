@@ -101,44 +101,52 @@ module ParlamentOpenDataConfig
           "fields" => [
             {
               "name" => "author",
-              "short" => "Author of the affair",
+              "title" => "Author",
               "type" => "`$STRING`",
+              "short" => "Author of the affair",
             },
             {
               "name" => "council",
-              "short" => "Council handling the affair",
+              "title" => "Council",
               "type" => "`$STRING`",
+              "short" => "Council handling the affair",
             },
             {
               "name" => "description",
-              "short" => "Detailed description of the affair",
+              "title" => "Description",
               "type" => "`$STRING`",
+              "short" => "Detailed description of the affair",
             },
             {
               "name" => "id",
-              "short" => "Unique affair identifier",
+              "title" => "Id",
               "type" => "`$INTEGER`",
+              "short" => "Unique affair identifier",
             },
             {
               "name" => "state",
-              "short" => "Current state/status of the affair",
+              "title" => "State",
               "type" => "`$STRING`",
+              "short" => "Current state/status of the affair",
             },
             {
-              "format" => "date",
               "name" => "submissionDate",
-              "short" => "Date of submission",
+              "title" => "Submission Date",
               "type" => "`$STRING`",
+              "short" => "Date of submission",
+              "format" => "date",
             },
             {
               "name" => "title",
-              "short" => "Affair title",
+              "title" => "Title",
               "type" => "`$STRING`",
+              "short" => "Affair title",
             },
             {
               "name" => "type",
-              "short" => "Type of parliamentary affair",
+              "title" => "Type",
               "type" => "`$STRING`",
+              "short" => "Type of parliamentary affair",
             },
           ],
           "id" => {
@@ -152,42 +160,6 @@ module ParlamentOpenDataConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "example" => "json",
-                        "kind" => "query",
-                        "name" => "format",
-                        "orig" => "format",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "id",
-                        "orig" => "id",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => "de",
-                        "kind" => "query",
-                        "name" => "language",
-                        "orig" => "language",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "state",
-                        "orig" => "state",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "type",
-                        "orig" => "type",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/affairs",
@@ -196,6 +168,50 @@ module ParlamentOpenDataConfig
                       "lit" => "affairs",
                     },
                   ],
+                  "parts" => [
+                    "affairs",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.affairs`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "format",
+                        "orig" => "format",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "json",
+                      },
+                      {
+                        "name" => "id",
+                        "orig" => "id",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "language",
+                        "orig" => "language",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "de",
+                      },
+                      {
+                        "name" => "state",
+                        "orig" => "state",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "type",
+                        "orig" => "type",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "format",
@@ -205,13 +221,6 @@ module ParlamentOpenDataConfig
                       "type",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.affairs`",
-                  },
-                  "parts" => [
-                    "affairs",
-                  ],
                 },
               ],
             },
@@ -224,55 +233,65 @@ module ParlamentOpenDataConfig
           "fields" => [
             {
               "name" => "active",
-              "short" => "Whether the councillor is currently active",
+              "title" => "Active",
               "type" => "`$BOOLEAN`",
+              "short" => "Whether the councillor is currently active",
             },
             {
               "name" => "canton",
-              "short" => "Canton abbreviation",
+              "title" => "Canton",
               "type" => "`$STRING`",
+              "short" => "Canton abbreviation",
             },
             {
               "name" => "council",
-              "short" => "Council membership (National Council or Council of States)",
+              "title" => "Council",
               "type" => "`$STRING`",
+              "short" => "Council membership (National Council or Council of States)",
             },
             {
-              "format" => "date",
               "name" => "entryDate",
-              "short" => "Date of entry into parliament",
+              "title" => "Entry Date",
               "type" => "`$STRING`",
+              "short" => "Date of entry into parliament",
+              "format" => "date",
             },
             {
               "name" => "firstName",
-              "short" => "First name",
+              "title" => "First Name",
               "type" => "`$STRING`",
+              "short" => "First name",
             },
             {
               "name" => "id",
-              "short" => "Unique councillor identifier",
+              "title" => "Id",
               "type" => "`$INTEGER`",
+              "short" => "Unique councillor identifier",
             },
             {
               "name" => "lastName",
-              "short" => "Last name",
+              "title" => "Last Name",
               "type" => "`$STRING`",
+              "short" => "Last name",
             },
             {
-              "format" => "date",
               "name" => "leavingDate",
-              "short" => "Date of leaving parliament (if applicable)",
+              "title" => "Leaving Date",
               "type" => "`$STRING`",
+              "short" => "Date of leaving parliament (if applicable)",
+              "format" => "date",
             },
             {
               "name" => "party",
-              "short" => "Political party abbreviation",
+              "title" => "Party",
               "type" => "`$STRING`",
+              "short" => "Political party abbreviation",
             },
             {
               "name" => "title",
-              "short" => "Academic or professional title",
+              "title" => "Title",
               "type" => "`$STRING`",
+              "short" => "Academic or professional title",
             },
           ],
           "id" => {
@@ -286,36 +305,6 @@ module ParlamentOpenDataConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "active",
-                        "orig" => "active",
-                        "type" => "`$BOOLEAN`",
-                      },
-                      {
-                        "example" => "json",
-                        "kind" => "query",
-                        "name" => "format",
-                        "orig" => "format",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "id",
-                        "orig" => "id",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => "de",
-                        "kind" => "query",
-                        "name" => "language",
-                        "orig" => "language",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/councillors",
@@ -324,6 +313,44 @@ module ParlamentOpenDataConfig
                       "lit" => "councillors",
                     },
                   ],
+                  "parts" => [
+                    "councillors",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.councillors`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "active",
+                        "orig" => "active",
+                        "type" => "`$BOOLEAN`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "format",
+                        "orig" => "format",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "json",
+                      },
+                      {
+                        "name" => "id",
+                        "orig" => "id",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "language",
+                        "orig" => "language",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "de",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "active",
@@ -332,13 +359,6 @@ module ParlamentOpenDataConfig
                       "language",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.councillors`",
-                  },
-                  "parts" => [
-                    "councillors",
-                  ],
                 },
               ],
             },
@@ -351,40 +371,47 @@ module ParlamentOpenDataConfig
           "fields" => [
             {
               "name" => "abbreviation",
-              "short" => "Session abbreviation",
+              "title" => "Abbreviation",
               "type" => "`$STRING`",
+              "short" => "Session abbreviation",
             },
             {
-              "format" => "date",
               "name" => "endDate",
-              "short" => "Session end date",
+              "title" => "End Date",
               "type" => "`$STRING`",
+              "short" => "Session end date",
+              "format" => "date",
             },
             {
               "name" => "id",
-              "short" => "Unique session identifier",
+              "title" => "Id",
               "type" => "`$INTEGER`",
+              "short" => "Unique session identifier",
             },
             {
               "name" => "name",
-              "short" => "Session name",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Session name",
             },
             {
-              "format" => "date",
               "name" => "startDate",
-              "short" => "Session start date",
+              "title" => "Start Date",
               "type" => "`$STRING`",
+              "short" => "Session start date",
+              "format" => "date",
             },
             {
               "name" => "state",
-              "short" => "Current state of the session",
+              "title" => "State",
               "type" => "`$STRING`",
+              "short" => "Current state of the session",
             },
             {
               "name" => "type",
-              "short" => "Type of session (e.g., ordinary, extraordinary)",
+              "title" => "Type",
               "type" => "`$STRING`",
+              "short" => "Type of session (e.g., ordinary, extraordinary)",
             },
           ],
           "id" => {
@@ -398,30 +425,6 @@ module ParlamentOpenDataConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "example" => "json",
-                        "kind" => "query",
-                        "name" => "format",
-                        "orig" => "format",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => "de",
-                        "kind" => "query",
-                        "name" => "language",
-                        "orig" => "language",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "session_id",
-                        "orig" => "session_id",
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/sessions",
@@ -430,6 +433,38 @@ module ParlamentOpenDataConfig
                       "lit" => "sessions",
                     },
                   ],
+                  "parts" => [
+                    "sessions",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.sessions`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "format",
+                        "orig" => "format",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "json",
+                      },
+                      {
+                        "name" => "language",
+                        "orig" => "language",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "de",
+                      },
+                      {
+                        "name" => "session_id",
+                        "orig" => "session_id",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "format",
@@ -437,13 +472,6 @@ module ParlamentOpenDataConfig
                       "session_id",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.sessions`",
-                  },
-                  "parts" => [
-                    "sessions",
-                  ],
                 },
               ],
             },

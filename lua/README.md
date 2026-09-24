@@ -43,7 +43,7 @@ local businesss, err = client:Business():list()
 if err then error(err) end
 
 for _, item in ipairs(businesss) do
-  print(item["id"], item["author"])
+  print(item["id"])
 end
 ```
 

@@ -19,7 +19,6 @@ import type {
   MemberListMatch,
 } from '../ParlamentOpenDataTypes'
 
-// TODO: needs Entity superclass
 class MemberEntity extends ParlamentOpenDataEntityBase<Member> {
 
   constructor(client: ParlamentOpenDataSDK, entopts: any) {

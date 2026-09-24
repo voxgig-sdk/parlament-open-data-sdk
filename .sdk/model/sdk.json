@@ -24,71 +24,145 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "business": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "author",
-              "req": false,
-              "short": "Author of the affair",
-              "type": "`$STRING`"
+          "fields": {
+            "author": {
+              "a": true,
+              "h": "Author",
+              "n": "author",
+              "r": false,
+              "sh": "Author of the affair",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "council",
-              "req": false,
-              "short": "Council handling the affair",
-              "type": "`$STRING`"
+            "council": {
+              "a": true,
+              "h": "Council",
+              "n": "council",
+              "r": false,
+              "sh": "Council handling the affair",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "description",
-              "req": false,
-              "short": "Detailed description of the affair",
-              "type": "`$STRING`"
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "Detailed description of the affair",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique affair identifier",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique affair identifier",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "state",
-              "req": false,
-              "short": "Current state/status of the affair",
-              "type": "`$STRING`"
+            "state": {
+              "a": true,
+              "h": "State",
+              "n": "state",
+              "r": false,
+              "sh": "Current state/status of the affair",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "submissionDate",
-              "req": false,
-              "short": "Date of submission",
-              "type": "`$STRING`"
+            "submissionDate": {
+              "a": true,
+              "fo": "date",
+              "h": "Submission Date",
+              "n": "submissionDate",
+              "r": false,
+              "sh": "Date of submission",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Affair title",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Affair title",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "short": "Type of parliamentary affair",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "Type of parliamentary affair",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -100,68 +174,62 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /affairs",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "json",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "json",
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "id",
+                        "or": "id",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "de",
-                        "kind": "query",
-                        "name": "language",
-                        "orig": "language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "de",
+                        "k": "query",
+                        "n": "language",
+                        "or": "language",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "state",
-                        "orig": "state",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "state",
+                        "or": "state",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /affairs",
-                    "json": "{\"operationId\":\"getAffairs\",\"parameters\":[{\"description\":\"Language code for response (de=German, fr=French, it=Italian, en=English)\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"de\",\"enum\":[\"de\",\"fr\",\"it\",\"en\"],\"type\":\"string\"}},{\"description\":\"Response format\",\"in\":\"query\",\"name\":\"format\",\"required\":false,\"schema\":{\"default\":\"json\",\"enum\":[\"json\",\"xml\"],\"type\":\"string\"}},{\"description\":\"Filter by specific affair ID\",\"in\":\"query\",\"name\":\"id\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Filter by affair state/status\",\"in\":\"query\",\"name\":\"state\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by affair type\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"affairs\":{\"items\":{\"properties\":{\"author\":{\"description\":\"Author of the affair\",\"type\":\"string\"},\"council\":{\"description\":\"Council handling the affair\",\"type\":\"string\"},\"description\":{\"description\":\"Detailed description of the affair\",\"type\":\"string\"},\"id\":{\"description\":\"Unique affair identifier\",\"type\":\"integer\"},\"state\":{\"description\":\"Current state/status of the affair\",\"type\":\"string\"},\"submissionDate\":{\"description\":\"Date of submission\",\"format\":\"date\",\"type\":\"string\"},\"title\":{\"description\":\"Affair title\",\"type\":\"string\"},\"type\":{\"description\":\"Type of parliamentary affair\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}},\"application/xml\":{\"schema\":{\"properties\":{\"affairs\":{\"items\":{\"properties\":{\"author\":{\"description\":\"Author of the affair\",\"type\":\"string\"},\"council\":{\"description\":\"Council handling the affair\",\"type\":\"string\"},\"description\":{\"description\":\"Detailed description of the affair\",\"type\":\"string\"},\"id\":{\"description\":\"Unique affair identifier\",\"type\":\"integer\"},\"state\":{\"description\":\"Current state/status of the affair\",\"type\":\"string\"},\"submissionDate\":{\"description\":\"Date of submission\",\"format\":\"date\",\"type\":\"string\"},\"title\":{\"description\":\"Affair title\",\"type\":\"string\"},\"type\":{\"description\":\"Type of parliamentary affair\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with affairs data\"},\"400\":{\"description\":\"Bad request - Invalid parameters\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/affairs",
-                  "segments": [
-                    {
-                      "lit": "affairs"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/affairs",
+                  "q": {
                     "exist": [
                       "format",
                       "id",
@@ -170,7 +238,13 @@
                       "type"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "affairs"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.affairs`"
                   }
@@ -187,80 +261,90 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "active",
-              "req": false,
-              "short": "Whether the councillor is currently active",
-              "type": "`$BOOLEAN`"
+          "fields": {
+            "active": {
+              "a": true,
+              "h": "Active",
+              "n": "active",
+              "r": false,
+              "sh": "Whether the councillor is currently active",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "canton",
-              "req": false,
-              "short": "Canton abbreviation",
-              "type": "`$STRING`"
+            "canton": {
+              "a": true,
+              "h": "Canton",
+              "n": "canton",
+              "r": false,
+              "sh": "Canton abbreviation",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "council",
-              "req": false,
-              "short": "Council membership (National Council or Council of States)",
-              "type": "`$STRING`"
+            "council": {
+              "a": true,
+              "h": "Council",
+              "n": "council",
+              "r": false,
+              "sh": "Council membership (National Council or Council of States)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "entryDate",
-              "req": false,
-              "short": "Date of entry into parliament",
-              "type": "`$STRING`"
+            "entryDate": {
+              "a": true,
+              "fo": "date",
+              "h": "Entry Date",
+              "n": "entryDate",
+              "r": false,
+              "sh": "Date of entry into parliament",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "firstName",
-              "req": false,
-              "short": "First name",
-              "type": "`$STRING`"
+            "firstName": {
+              "a": true,
+              "h": "First Name",
+              "n": "firstName",
+              "r": false,
+              "sh": "First name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique councillor identifier",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique councillor identifier",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "lastName",
-              "req": false,
-              "short": "Last name",
-              "type": "`$STRING`"
+            "lastName": {
+              "a": true,
+              "h": "Last Name",
+              "n": "lastName",
+              "r": false,
+              "sh": "Last name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "leavingDate",
-              "req": false,
-              "short": "Date of leaving parliament (if applicable)",
-              "type": "`$STRING`"
+            "leavingDate": {
+              "a": true,
+              "fo": "date",
+              "h": "Leaving Date",
+              "n": "leavingDate",
+              "r": false,
+              "sh": "Date of leaving parliament (if applicable)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "party",
-              "req": false,
-              "short": "Political party abbreviation",
-              "type": "`$STRING`"
+            "party": {
+              "a": true,
+              "h": "Party",
+              "n": "party",
+              "r": false,
+              "sh": "Political party abbreviation",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Academic or professional title",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Academic or professional title",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -272,60 +356,54 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /councillors",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "active",
-                        "orig": "active",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "active",
+                        "or": "active",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": "json",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "json",
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "id",
+                        "or": "id",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "de",
-                        "kind": "query",
-                        "name": "language",
-                        "orig": "language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "de",
+                        "k": "query",
+                        "n": "language",
+                        "or": "language",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /councillors",
-                    "json": "{\"operationId\":\"getCouncillors\",\"parameters\":[{\"description\":\"Language code for response (de=German, fr=French, it=Italian, en=English)\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"de\",\"enum\":[\"de\",\"fr\",\"it\",\"en\"],\"type\":\"string\"}},{\"description\":\"Response format\",\"in\":\"query\",\"name\":\"format\",\"required\":false,\"schema\":{\"default\":\"json\",\"enum\":[\"json\",\"xml\"],\"type\":\"string\"}},{\"description\":\"Filter by specific councillor ID\",\"in\":\"query\",\"name\":\"id\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Filter by active status\",\"in\":\"query\",\"name\":\"active\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"councillors\":{\"items\":{\"properties\":{\"active\":{\"description\":\"Whether the councillor is currently active\",\"type\":\"boolean\"},\"canton\":{\"description\":\"Canton abbreviation\",\"type\":\"string\"},\"council\":{\"description\":\"Council membership (National Council or Council of States)\",\"enum\":[\"Nationalrat\",\"Ständerat\"],\"type\":\"string\"},\"entryDate\":{\"description\":\"Date of entry into parliament\",\"format\":\"date\",\"type\":\"string\"},\"firstName\":{\"description\":\"First name\",\"type\":\"string\"},\"id\":{\"description\":\"Unique councillor identifier\",\"type\":\"integer\"},\"lastName\":{\"description\":\"Last name\",\"type\":\"string\"},\"leavingDate\":{\"description\":\"Date of leaving parliament (if applicable)\",\"format\":\"date\",\"type\":\"string\"},\"party\":{\"description\":\"Political party abbreviation\",\"type\":\"string\"},\"title\":{\"description\":\"Academic or professional title\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}},\"application/xml\":{\"schema\":{\"properties\":{\"councillors\":{\"items\":{\"properties\":{\"active\":{\"description\":\"Whether the councillor is currently active\",\"type\":\"boolean\"},\"canton\":{\"description\":\"Canton abbreviation\",\"type\":\"string\"},\"council\":{\"description\":\"Council membership (National Council or Council of States)\",\"enum\":[\"Nationalrat\",\"Ständerat\"],\"type\":\"string\"},\"entryDate\":{\"description\":\"Date of entry into parliament\",\"format\":\"date\",\"type\":\"string\"},\"firstName\":{\"description\":\"First name\",\"type\":\"string\"},\"id\":{\"description\":\"Unique councillor identifier\",\"type\":\"integer\"},\"lastName\":{\"description\":\"Last name\",\"type\":\"string\"},\"leavingDate\":{\"description\":\"Date of leaving parliament (if applicable)\",\"format\":\"date\",\"type\":\"string\"},\"party\":{\"description\":\"Political party abbreviation\",\"type\":\"string\"},\"title\":{\"description\":\"Academic or professional title\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with councillor data\"},\"400\":{\"description\":\"Bad request - Invalid parameters\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/councillors",
-                  "segments": [
-                    {
-                      "lit": "councillors"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/councillors",
+                  "q": {
                     "exist": [
                       "active",
                       "format",
@@ -333,7 +411,13 @@
                       "language"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "councillors"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.councillors`"
                   }
@@ -350,59 +434,66 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "abbreviation",
-              "req": false,
-              "short": "Session abbreviation",
-              "type": "`$STRING`"
+          "fields": {
+            "abbreviation": {
+              "a": true,
+              "h": "Abbreviation",
+              "n": "abbreviation",
+              "r": false,
+              "sh": "Session abbreviation",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "endDate",
-              "req": false,
-              "short": "Session end date",
-              "type": "`$STRING`"
+            "endDate": {
+              "a": true,
+              "fo": "date",
+              "h": "End Date",
+              "n": "endDate",
+              "r": false,
+              "sh": "Session end date",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique session identifier",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique session identifier",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Session name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Session name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "startDate",
-              "req": false,
-              "short": "Session start date",
-              "type": "`$STRING`"
+            "startDate": {
+              "a": true,
+              "fo": "date",
+              "h": "Start Date",
+              "n": "startDate",
+              "r": false,
+              "sh": "Session start date",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "state",
-              "req": false,
-              "short": "Current state of the session",
-              "type": "`$STRING`"
+            "state": {
+              "a": true,
+              "h": "State",
+              "n": "state",
+              "r": false,
+              "sh": "Current state of the session",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "short": "Type of session (e.g., ordinary, extraordinary)",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "Type of session (e.g., ordinary, extraordinary)",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -414,59 +505,59 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /sessions",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "json",
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "json",
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "de",
-                        "kind": "query",
-                        "name": "language",
-                        "orig": "language",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "de",
+                        "k": "query",
+                        "n": "language",
+                        "or": "language",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "session_id",
-                        "orig": "session_id",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "session_id",
+                        "or": "session_id",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /sessions",
-                    "json": "{\"operationId\":\"getSessions\",\"parameters\":[{\"description\":\"Language code for response (de=German, fr=French, it=Italian, en=English)\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"default\":\"de\",\"enum\":[\"de\",\"fr\",\"it\",\"en\"],\"type\":\"string\"}},{\"description\":\"Response format\",\"in\":\"query\",\"name\":\"format\",\"required\":false,\"schema\":{\"default\":\"json\",\"enum\":[\"json\",\"xml\"],\"type\":\"string\"}},{\"description\":\"Filter by specific session ID\",\"in\":\"query\",\"name\":\"sessionId\",\"required\":false,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"sessions\":{\"items\":{\"properties\":{\"abbreviation\":{\"description\":\"Session abbreviation\",\"type\":\"string\"},\"endDate\":{\"description\":\"Session end date\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique session identifier\",\"type\":\"integer\"},\"name\":{\"description\":\"Session name\",\"type\":\"string\"},\"startDate\":{\"description\":\"Session start date\",\"format\":\"date\",\"type\":\"string\"},\"state\":{\"description\":\"Current state of the session\",\"type\":\"string\"},\"type\":{\"description\":\"Type of session (e.g., ordinary, extraordinary)\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}},\"application/xml\":{\"schema\":{\"properties\":{\"sessions\":{\"items\":{\"properties\":{\"abbreviation\":{\"description\":\"Session abbreviation\",\"type\":\"string\"},\"endDate\":{\"description\":\"Session end date\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique session identifier\",\"type\":\"integer\"},\"name\":{\"description\":\"Session name\",\"type\":\"string\"},\"startDate\":{\"description\":\"Session start date\",\"format\":\"date\",\"type\":\"string\"},\"state\":{\"description\":\"Current state of the session\",\"type\":\"string\"},\"type\":{\"description\":\"Type of session (e.g., ordinary, extraordinary)\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with session data\"},\"400\":{\"description\":\"Bad request - Invalid parameters\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/sessions",
-                  "segments": [
-                    {
-                      "lit": "sessions"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/sessions",
+                  "q": {
                     "exist": [
                       "format",
                       "language",
                       "session_id"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "sessions"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.sessions`"
                   }
@@ -895,13 +986,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -921,13 +1012,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -947,13 +1038,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

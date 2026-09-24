@@ -1,0 +1,158 @@
+# Entity: member
+
+main: kit: entity: member: {
+
+  alias: field: {}
+
+  fields: {
+    active: {
+      h: "Active"
+      n: "active"
+      r: false
+      sh: "Whether the councillor is currently active"
+      t: "`$BOOLEAN`"
+    }
+    canton: {
+      h: "Canton"
+      n: "canton"
+      r: false
+      sh: "Canton abbreviation"
+      t: "`$STRING`"
+    }
+    council: {
+      h: "Council"
+      n: "council"
+      r: false
+      sh: "Council membership (National Council or Council of States)"
+      t: "`$STRING`"
+    }
+    entryDate: {
+      fo: "date"
+      h: "Entry Date"
+      n: "entryDate"
+      r: false
+      sh: "Date of entry into parliament"
+      t: "`$STRING`"
+    }
+    firstName: {
+      h: "First Name"
+      n: "firstName"
+      r: false
+      sh: "First name"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique councillor identifier"
+      t: "`$INTEGER`"
+    }
+    lastName: {
+      h: "Last Name"
+      n: "lastName"
+      r: false
+      sh: "Last name"
+      t: "`$STRING`"
+    }
+    leavingDate: {
+      fo: "date"
+      h: "Leaving Date"
+      n: "leavingDate"
+      r: false
+      sh: "Date of leaving parliament (if applicable)"
+      t: "`$STRING`"
+    }
+    party: {
+      h: "Party"
+      n: "party"
+      r: false
+      sh: "Political party abbreviation"
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Academic or professional title"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "member"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /councillors"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "active"
+                or: "active"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "json"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "id"
+                or: "id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "de"
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/councillors"
+          q: {
+            exist: [
+              "active"
+              "format"
+              "id"
+              "language"
+            ]
+          }
+          s: [
+            {
+              lit: "councillors"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.councillors`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

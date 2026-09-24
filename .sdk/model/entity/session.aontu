@@ -1,0 +1,129 @@
+# Entity: session
+
+main: kit: entity: session: {
+
+  alias: field: {}
+
+  fields: {
+    abbreviation: {
+      h: "Abbreviation"
+      n: "abbreviation"
+      r: false
+      sh: "Session abbreviation"
+      t: "`$STRING`"
+    }
+    endDate: {
+      fo: "date"
+      h: "End Date"
+      n: "endDate"
+      r: false
+      sh: "Session end date"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique session identifier"
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Session name"
+      t: "`$STRING`"
+    }
+    startDate: {
+      fo: "date"
+      h: "Start Date"
+      n: "startDate"
+      r: false
+      sh: "Session start date"
+      t: "`$STRING`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: false
+      sh: "Current state of the session"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Type of session (e.g., ordinary, extraordinary)"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "session"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /sessions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "json"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "de"
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "session_id"
+                or: "session_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/sessions"
+          q: {
+            exist: [
+              "format"
+              "language"
+              "session_id"
+            ]
+          }
+          s: [
+            {
+              lit: "sessions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.sessions`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
